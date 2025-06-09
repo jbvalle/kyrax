@@ -1,47 +1,61 @@
-# ========================
-# REAL-LIFE CHARACTER SHEET
-# ========================
 character:
-  name: "Kyrax"  # Or your avatar's fantasy name
-  class: "Embedded Artificer / Spiritual Warrior"  # Customize!
+  name: Kyrax
+  class: Embedded Artificer / Spiritual Warrior
   level: 0
-  current_xp: 0
-  xp_to_next_level: 1000  # Adjust based on your calibration
-  background: "A seeker of knowledge and strength, bridging the realms of technology and spirit."
-
-# ========================
-# CORE STATS (Map to real-life traits)
-# ========================
+  current_xp: 402
+  xp_to_next_level: 1000
+  background: A seeker of knowledge and strength, bridging the realms of technology
+    and spirit.
 stats:
-  strength: 
-    value: 0  # Start modestly (scale 1-20 or 1-100)
-    real_world_meaning: "Physical power, discipline, lifting PRs"
+  strength:
+    value: 0
+    real_world_meaning: Physical power, discipline, lifting PRs
   dexterity:
     value: 0
-    real_world_meaning: "Hands-on skill (soldering/coding), adaptability"
+    real_world_meaning: Hands-on skill (soldering/coding), adaptability
   constitution:
     value: 0
-    real_world_meaning: "Resilience (workouts, stress management)"
+    real_world_meaning: Resilience (workouts, stress management)
   intelligence:
-    value: 0 
-    real_world_meaning: "Problem-solving (embedded projects, learning)"
+    value: 0
+    real_world_meaning: Problem-solving (embedded projects, learning)
   wisdom:
-    value: 0 
-    real_world_meaning: "Spiritual depth (prayer, reflection, judgment)"
+    value: 0
+    real_world_meaning: Spiritual depth (prayer, reflection, judgment)
   charisma:
     value: 0
-    real_world_meaning: "Social confidence, communication"
-
-# ========================
-# HABIT DATA
-# ========================
-habits:
-  - id: 1
-    name: "Habit1"
-    value: 100
-  - id: 2
-    name: "Habit2"
-    value: 200
-  - id: 3
-    name: "Habit3"
-    value: 300
+    real_world_meaning: Social confidence, communication
+habit_data:
+- id: 0
+  name: Test
+  value: 50
+- id: 1
+  name: Morning Adhkaar
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 2
+  name: Evening Adhkaar
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 3
+  name: Ishraq
+  value: 75
+  compounded_value: 75
+  last_executed: '2025-06-09'
+- id: 4
+  name: Drink Creatine
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 5
+  name: Drink Anti Histamine, VitC & VitD
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 6
+  name: Workout
+  value: 120
+  compounded_value: 120
+  last_executed: '2025-06-09'
