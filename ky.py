@@ -94,11 +94,10 @@ def track_habit():
 
 def close_issue(issue_number):
     try:
+        # --- existing GH issue close & stat‑parsing logic ---
         view_result = subprocess.run(
             ["gh", "issue", "view", issue_number, "--json", "title"],
-            capture_output=True,
-            text=True,
-            check=True
+            capture_output=True, text=True, check=True
         )
         import json
         issue_data = json.loads(view_result.stdout)
@@ -106,42 +105,75 @@ def close_issue(issue_number):
         if not title:
             print("Error: Could not retrieve issue title")
             return
-        close_result = subprocess.run(
+
+        subprocess.run(
             ["gh", "issue", "close", issue_number],
-            capture_output=True,
-            text=True,
-            check=True
+            capture_output=True, text=True, check=True
         )
         print(f"✓ Closed issue #{issue_number} ({title})")
+
+        # parse non‑XP stat bonuses
         patterns = {
-            'exp': re.IGNORECASE, 'str': re.IGNORECASE, 'dex': re.IGNORECASE,
-            'const': re.IGNORECASE, 'int': re.IGNORECASE, 'wis': re.IGNORECASE,
-            'char': re.IGNORECASE
+            'str': re.IGNORECASE, 'dex': re.IGNORECASE, 'const': re.IGNORECASE,
+            'int': re.IGNORECASE, 'wis': re.IGNORECASE, 'char': re.IGNORECASE
         }
-        matches = {key: re.search(fr"{key}\s+(\d+)", title, flags)
-                   for key, flags in patterns.items()}
-        if any(matches.values()):
-            data = load_yaml_data()
-            updated = False
-            for stat, match in matches.items():
-                if match:
-                    val = int(match.group(1))
-                    if stat == 'exp':
-                        data['character']['current_xp'] += val
-                        print(f"  + Added {val} XP")
-                    else:
-                        data['stats'][stat]['value'] += val
-                        print(f"  + Added {val} {stat.upper()}")
-                    updated = True
-            if updated:
-                save_yaml_data(data)
-                print("\nCharacter stats updated!")
-                print(f"Current XP: {data['character']['current_xp']}")
-                print("Updated stats:")
-                for stat, info in data['stats'].items():
-                    print(f"  - {stat.upper()}: {info['value']}")
-        else:
-            print("No stat keywords found in title")
+        matches = {
+            key: re.search(fr"{key}\s+(\d+)", title, flags)
+            for key, flags in patterns.items()
+        }
+
+        data = load_yaml_data()
+        updated = False
+        for stat, match in matches.items():
+            if match:
+                val = int(match.group(1))
+                data['stats'][stat]['value'] += val
+                print(f"  + Added {val} {stat.upper()}")
+                updated = True
+
+        if updated:
+            save_yaml_data(data)
+            print("\nCharacter stats updated!")
+            for stat, info in data['stats'].items():
+                print(f"  - {stat.upper()}: {info['value']}")
+
+        # --- NEW: difficulty prompt for XP award ---
+        # Ask user for difficulty
+        questions = [
+            inquirer.List(
+                'difficulty',
+                message="? What difficulty would you like to choose?",
+                choices=[
+                    ('Easy.   K = 10', 'easy'),
+                    ('Medium. K = 5',  'medium'),
+                    ('Hard.   K = 3',  'hard'),
+                ]
+            )
+        ]
+        ans = inquirer.prompt(questions)
+        if not ans or 'difficulty' not in ans:
+            print("No difficulty selected, skipping XP award.")
+            return
+
+        # Map choice to K
+        K_map = {'easy': 10, 'medium': 5, 'hard': 3}
+        K = K_map[ans['difficulty']]
+
+        # Compute current level from YAML (default to 1)
+        cur_lvl = data['character'].get('level', 1)
+        # f(x) = 110 * x^2
+        next_xp_threshold = 110 * (cur_lvl + 1) ** 2
+        cur_xp_threshold  = 110 * (cur_lvl) ** 2
+        xp_gain = (next_xp_threshold - cur_xp_threshold) / K
+        # Round or floor as you prefer; here we round to int
+        xp_gain = int(round(xp_gain))
+
+        # Apply the XP gain
+        data['character']['current_xp'] += xp_gain
+        save_yaml_data(data)
+        print(f"\n  + Added {xp_gain} XP for {ans['difficulty'].capitalize()} difficulty (K={K})")
+        print(f"Current XP: {data['character']['current_xp']}")
+        
     except subprocess.CalledProcessError as e:
         print(f"Error closing issue: {e.stderr}")
     except Exception as e:
