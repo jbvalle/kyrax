@@ -2,6 +2,8 @@
 import inquirer
 import yaml
 import sys
+import subprocess
+import re
 from datetime import datetime, timedelta  # Add this at the top of your imports
 
 
@@ -105,6 +107,112 @@ def track_habit():
         if data['character']['current_xp'] >= data['character']['xp_to_next_level']:
             print("\nLEVEL UP AVAILABLE!")
 
+def close_issue(issue_number):
+    try:
+        # First get the issue title using JSON output
+        view_result = subprocess.run(
+            ["gh", "issue", "view", issue_number, "--json", "title"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        
+        # Parse JSON output to get title
+        try:
+            import json
+            issue_data = json.loads(view_result.stdout)
+            title = issue_data.get('title', '')
+            if not title:
+                print("Error: Could not retrieve issue title")
+                return
+        except Exception as e:
+            print(f"Error parsing issue data: {str(e)}")
+            return
+        
+        # Now close the issue
+        close_result = subprocess.run(
+            ["gh", "issue", "close", issue_number],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        
+        # Print success message
+        print(f"✓ Closed issue #{issue_number} ({title})")
+        
+        # Parse stats from title
+        exp_match = re.search(r'exp\s+(\d+)', title, re.IGNORECASE)
+        str_match = re.search(r'str\s+(\d+)', title, re.IGNORECASE)
+        dex_match = re.search(r'dex\s+(\d+)', title, re.IGNORECASE)
+        const_match = re.search(r'const\s+(\d+)', title, re.IGNORECASE)
+        int_match = re.search(r'int\s+(\d+)', title, re.IGNORECASE)
+        wis_match = re.search(r'wis\s+(\d+)', title, re.IGNORECASE)
+        char_match = re.search(r'char\s+(\d+)', title, re.IGNORECASE)
+        
+        # Update character stats if any found
+        if any([exp_match, str_match, dex_match, const_match, int_match, wis_match, char_match]):
+            data = load_yaml_data()
+            updated = False
+            
+            if exp_match:
+                exp_value = int(exp_match.group(1))
+                data['character']['current_xp'] += exp_value
+                print(f"  + Added {exp_value} XP")
+                updated = True
+                
+            if str_match:
+                str_value = int(str_match.group(1))
+                data['stats']['str']['value'] += str_value
+                print(f"  + Added {str_value} STR")
+                updated = True
+                
+            if dex_match:
+                dex_value = int(dex_match.group(1))
+                data['stats']['dex']['value'] += dex_value
+                print(f"  + Added {dex_value} DEX")
+                updated = True
+                
+            if const_match:
+                const_value = int(const_match.group(1))
+                data['stats']['const']['value'] += const_value
+                print(f"  + Added {const_value} CONST")
+                updated = True
+                
+            if int_match:
+                int_value = int(int_match.group(1))
+                data['stats']['int']['value'] += int_value
+                print(f"  + Added {int_value} INT")
+                updated = True
+                
+            if wis_match:
+                wis_value = int(wis_match.group(1))
+                data['stats']['wis']['value'] += wis_value
+                print(f"  + Added {wis_value} WIS")
+                updated = True
+                
+            if char_match:
+                char_value = int(char_match.group(1))
+                data['stats']['char']['value'] += char_value
+                print(f"  + Added {char_value} CHAR")
+                updated = True
+                
+            if updated:
+                save_yaml_data(data)
+                print("\nCharacter stats updated!")
+                print(f"Current XP: {data['character']['current_xp']}")
+                print("Updated stats:")
+                for stat, info in data['stats'].items():
+                    print(f"  - {stat.upper()}: {info['value']}")
+            else:
+                print("No stat updates found in title")
+        else:
+            print("No stat keywords found in title")
+        
+    except subprocess.CalledProcessError as e:
+        print(f"Error closing issue: {e.stderr}")
+    except Exception as e:
+        print(f"Error: {str(e)}")
+
 
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "create":
@@ -113,10 +221,14 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == "habit":
         track_habit()
         return
+    if len(sys.argv) > 2 and sys.argv[1] == "close":
+        close_issue(sys.argv[2])
+        return
     if len(sys.argv) > 1 and sys.argv[1] == "help":
-        print("\nky create #Create new Habits")
-        print("\nky habit  #Track habits for today")
-        return   
+        print("\nky create   # Create new Habits")
+        print("ky habit    # Track habits for today")
+        print("ky close <issue-number>  # Close GitHub issue and claim rewards")
+        return
 
 if __name__ == "__main__":
     main()

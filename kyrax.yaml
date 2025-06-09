@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 0
-  current_xp: 0
+  current_xp: 0 
   xp_to_next_level: 1000
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -26,9 +26,6 @@ stats:
     value: 0
     real_world_meaning: Social confidence, communication
 habit_data:
-- id: 0
-  name: Test
-  value: 50
 - id: 1
   name: Morning Adhkaar
   value: 50
