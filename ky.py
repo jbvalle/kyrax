@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-#test
-
 import inquirer
 import yaml
 import sys
