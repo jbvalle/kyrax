@@ -7,22 +7,22 @@ character:
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
-  strength:
+  str:
     value: 0
     real_world_meaning: Physical power, discipline, lifting PRs
-  dexterity:
+  dex:
     value: 0
     real_world_meaning: Hands-on skill (soldering/coding), adaptability
-  constitution:
+  const:
     value: 0
     real_world_meaning: Resilience (workouts, stress management)
-  intelligence:
+  int:
     value: 0
     real_world_meaning: Problem-solving (embedded projects, learning)
-  wisdom:
+  wis:
     value: 0
     real_world_meaning: Spiritual depth (prayer, reflection, judgment)
-  charisma:
+  char:
     value: 0
     real_world_meaning: Social confidence, communication
 habit_data:
