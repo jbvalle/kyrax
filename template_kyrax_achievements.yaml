@@ -1,0 +1,65 @@
+# ========================
+# SKILLS / FEATS (Tied to real actions)
+# ========================
+skills:
+  - name: "Circuit Whisperer"
+    level: 1
+    xp_earned: 0
+    real_world_trigger: "Complete an embedded systems project phase"
+    effect: "+2 to INT checks for hardware debugging"
+  
+  - name: "Iron Resolve"
+    level: 1
+    xp_earned: 0
+    real_world_trigger: "Hit a new lifting PR"
+    effect: "+1 STR, resistance to fatigue"
+
+  - name: "Dawn Prayer Adept"
+    level: 1
+    xp_earned: 0
+    real_world_trigger: "Complete all 5 daily prayers for 7 days straight"
+    effect: "+1 WIS, advantage on stress saves"
+
+# ========================
+# INVENTORY (Real-life tools/achievements)
+# ========================
+inventory:
+  - name: "Soldering Iron"
+    type: "Tool"
+    bonus: "+1 to Dexterity for electronics tasks"
+  
+  - name: "Gym Membership"
+    type: "Gear"
+    bonus: "Unlocks STR/CON progression"
+
+  - name: "Quran / Spiritual Text"
+    type: "Artifact"
+    bonus: "+1 WIS daily if used for reflection"
+
+# ========================
+# QUESTS (Current real-life goals)
+# ========================
+quests:
+  - name: "Master the STM32 Microcontroller"
+    xp_reward: 500
+    completion_condition: "Build a working sensor network"
+    status: "In Progress"
+  
+  - name: "300lb Deadlift"
+    xp_reward: 300
+    completion_condition: "Lift 300lbs x 1 rep"
+    status: "Not Started"
+
+# ========================
+# XP LOG (Track your progress)
+# ========================
+xp_log:
+  - date: "2023-11-20"
+    action: "Completed Fajr prayer"
+    xp_earned: 30
+    stat_affected: "WIS"
+  
+  - date: "2023-11-20"
+    action: "Deadlift PR: 225lbs"
+    xp_earned: 120
+    stat_affected: "STR"
