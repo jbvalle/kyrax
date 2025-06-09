@@ -4,7 +4,7 @@
 character:
   name: "Kyrax"  # Or your avatar's fantasy name
   class: "Embedded Artificer / Spiritual Warrior"  # Customize!
-  level: 1
+  level: 0
   current_xp: 0
   xp_to_next_level: 1000  # Adjust based on your calibration
   background: "A seeker of knowledge and strength, bridging the realms of technology and spirit."
@@ -32,3 +32,16 @@ stats:
     value: 0
     real_world_meaning: "Social confidence, communication"
 
+# ========================
+# HABIT DATA
+# ========================
+habits:
+  - id: 1
+    name: "Habit1"
+    value: 100
+  - id: 2
+    name: "Habit2"
+    value: 200
+  - id: 3
+    name: "Habit3"
+    value: 300
