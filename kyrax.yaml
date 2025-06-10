@@ -14,7 +14,7 @@ stats:
     value: 0
     real_world_meaning: Hands-on skill (soldering/coding), adaptability
   const:
-    value: 0
+    value: 1
     real_world_meaning: Resilience (workouts, stress management)
   int:
     value: 0
