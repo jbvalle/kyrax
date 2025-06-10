@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 0
-  current_xp: 37
-  xp_to_next_level: 110
+  level: 1
+  current_xp: 267
+  xp_to_next_level: 440
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -29,8 +29,8 @@ habit_data:
 - id: 1
   name: Morning Adhkaar
   value: 50
-  compounded_value: 50
-  last_executed: '2025-06-09'
+  compounded_value: 51
+  last_executed: '2025-06-10'
 - id: 2
   name: Evening Adhkaar
   value: 50
@@ -39,20 +39,25 @@ habit_data:
 - id: 3
   name: Ishraq
   value: 75
-  compounded_value: 75
-  last_executed: '2025-06-09'
+  compounded_value: 77
+  last_executed: '2025-06-10'
 - id: 4
   name: Drink Creatine
   value: 50
-  compounded_value: 50
-  last_executed: '2025-06-09'
+  compounded_value: 51
+  last_executed: '2025-06-10'
 - id: 5
   name: Drink Anti Histamine, VitC & VitD
   value: 50
-  compounded_value: 50
-  last_executed: '2025-06-09'
+  compounded_value: 51
+  last_executed: '2025-06-10'
 - id: 6
   name: Workout
   value: 120
   compounded_value: 120
   last_executed: '2025-06-09'
+- id: 7
+  name: (Evening Routine) Read Al-Mulk before sleeping
+  value: 75
+  compounded_value: 75
+  last_executed: '2025-06-10'
