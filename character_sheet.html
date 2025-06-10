@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrax - RPG Character Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --bg-card-hover: #2a2a2a;
+            --primary: #7e57c2;
+            --primary-light: #9c7de8;
+            --secondary: #29b6f6;
+            --text: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent: #ff7043;
+            --success: #66bb6a;
+            --warning: #ffca28;
+            --danger: #ef5350;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(46, 16, 101, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(126, 87, 194, 0.4);
+            border: 3px solid transparent;
+            background: 
+                linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .logo-icon:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            background: linear-gradient(to right, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .logo-text p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .xp-bar {
+            margin-top: 20px;
+        }
+
+        .xp-progress {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .xp-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(126, 87, 194, 0.5);
+        }
+
+        .xp-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-light);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .card-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(126, 87, 194, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-light);
+            text-shadow: 0 0 10px rgba(126, 87, 194, 0.4);
+        }
+
+        .stat-name {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .stat-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        .habits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .habit-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .habit-item:hover {
+            background: rgba(41, 182, 246, 0.1);
+            border-color: rgba(41, 182, 246, 0.2);
+        }
+
+        .habit-info {
+            flex: 1;
+        }
+
+        .habit-name {
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .habit-date {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .habit-value {
+            background: rgba(66, 187, 106, 0.15);
+            color: var(--success);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .level-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(126, 87, 194, 0.3);
+        }
+
+        .background-card {
+            grid-column: 1 / -1;
+        }
+
+        .background-text {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            font-size: 16px;
+            position: relative;
+        }
+
+        .background-text::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 60px;
+            color: rgba(126, 87, 194, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .logo {
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-icon {
+                margin-bottom: 10px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .xp-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .xp-label span:first-child {
+            color: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <!-- Replace 'character.jpg' with your actual image file -->
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" alt="Kyrax Character">
+                </div>
+                <div class="logo-text">
+                    <h1>Kyrax</h1>
+                    <p>Embedded Artificer / Spiritual Warrior</p>
+                </div>
+            </div>
+            <div class="level-badge">LEVEL 0</div>
+        </header>
+
+        <div class="xp-bar">
+            <div class="xp-label">
+                <span>Character Progression</span>
+                <span>Level 0 → 1</span>
+            </div>
+            <div class="xp-progress">
+                <div class="xp-progress-fill" id="xpFill"></div>
+            </div>
+            <div class="xp-text">
+                <span id="currentXP">0 XP</span>
+                <span id="nextLevelXP">1000 XP to next level</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Attributes</h2>
+                </div>
+                <div class="stats-grid" id="statsContainer">
+                    <!-- Stats will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Daily Habits</h2>
+                </div>
+                <div class="habits-list" id="habitsContainer">
+                    <!-- Habits will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="card background-card">
+                <div class="card-header">
+                    <h2 class="card-title">Background</h2>
+                </div>
+                <p class="background-text" id="backgroundText">
+                    <!-- Background text will be populated by JS -->
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            RPG Character Dashboard • Last updated: 2025-06-10
+        </div>
+    </div>
+
+    <script>
+        // Mock YAML data (in a real implementation, this would be fetched from a file)
+        const yamlData = `
+character:
+  name: Kyrax
+  class: Embedded Artificer / Spiritual Warrior
+  level: 0
+  current_xp: 0
+  xp_to_next_level: 1000
+  background: A seeker of knowledge and strength, bridging the realms of technology and spirit. Kyrax combines the precision of embedded systems engineering with the wisdom of spiritual practice, creating a unique path of growth and understanding.
+stats:
+  str:
+    value: 1
+    real_world_meaning: Physical power, discipline, lifting PRs
+  dex:
+    value: 0
+    real_world_meaning: Hands-on skill (soldering/coding), adaptability
+  const:
+    value: 1
+    real_world_meaning: Resilience (workouts, stress management)
+  int:
+    value: 1
+    real_world_meaning: Problem-solving (embedded projects, learning)
+  wis:
+    value: 0
+    real_world_meaning: Spiritual depth (prayer, reflection, judgment)
+  char:
+    value: 0
+    real_world_meaning: Social confidence, communication
+habit_data:
+- id: 1
+  name: Morning Adhkaar
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 2
+  name: Evening Adhkaar
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 3
+  name: Ishraq
+  value: 75
+  compounded_value: 75
+  last_executed: '2025-06-09'
+- id: 4
+  name: Drink Creatine
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 5
+  name: Drink Anti Histamine, VitC & VitD
+  value: 50
+  compounded_value: 50
+  last_executed: '2025-06-09'
+- id: 6
+  name: Workout
+  value: 120
+  compounded_value: 120
+  last_executed: '2025-06-09'
+        `;
+
+        // Parse YAML data
+        function parseYamlData() {
+            try {
+                return jsyaml.load(yamlData);
+            } catch (error) {
+                console.error('Error parsing YAML data:', error);
+                return null;
+            }
+        }
+
+        // Update the DOM with character data
+        function updateCharacterData(data) {
+            if (!data) return;
+            
+            const character = data.character;
+            const stats = data.stats;
+            const habits = data.habit_data;
+            
+            // Update XP bar
+            const xpPercentage = (character.current_xp / character.xp_to_next_level) * 100;
+            document.getElementById('xpFill').style.width = `${xpPercentage}%`;
+            document.getElementById('currentXP').textContent = `${character.current_xp} XP`;
+            document.getElementById('nextLevelXP').textContent = `${character.xp_to_next_level} XP to next level`;
+            
+            // Update background
+            document.getElementById('backgroundText').textContent = character.background;
+            
+            // Update stats
+            const statsContainer = document.getElementById('statsContainer');
+            statsContainer.innerHTML = '';
+            
+            for (const [statKey, statData] of Object.entries(stats)) {
+                const statElement = document.createElement('div');
+                statElement.className = 'stat-item';
+                statElement.innerHTML = `
+                    <div class="stat-value">${statData.value}</div>
+                    <div class="stat-name">${statKey.toUpperCase()}</div>
+                    <div class="stat-desc">${statData.real_world_meaning}</div>
+                `;
+                statsContainer.appendChild(statElement);
+            }
+            
+            // Update habits
+            const habitsContainer = document.getElementById('habitsContainer');
+            habitsContainer.innerHTML = '';
+            
+            habits.forEach(habit => {
+                const habitElement = document.createElement('div');
+                habitElement.className = 'habit-item';
+                habitElement.innerHTML = `
+                    <div class="habit-info">
+                        <div class="habit-name">${habit.name}</div>
+                        <div class="habit-date">Last: ${habit.last_executed || 'Not completed'}</div>
+                    </div>
+                    <div class="habit-value">+${habit.value} XP</div>
+                `;
+                habitsContainer.appendChild(habitElement);
+            });
+        }
+
+        // Initialize the dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = parseYamlData();
+            updateCharacterData(data);
+            
+            // Add animation to XP bar on load
+            setTimeout(() => {
+                document.getElementById('xpFill').style.transition = 'width 1.5s ease';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
