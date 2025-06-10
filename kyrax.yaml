@@ -8,16 +8,16 @@ character:
     and spirit.
 stats:
   str:
-    value: 1
+    value: 0
     real_world_meaning: Physical power, discipline, lifting PRs
   dex:
     value: 0
     real_world_meaning: Hands-on skill (soldering/coding), adaptability
   const:
-    value: 1
+    value: 0
     real_world_meaning: Resilience (workouts, stress management)
   int:
-    value: 1
+    value: 0
     real_world_meaning: Problem-solving (embedded projects, learning)
   wis:
     value: 0
