@@ -56,3 +56,8 @@ habit_data:
   value: 120
   compounded_value: 120
   last_executed: '2025-06-09'
+- id: 7
+  name: test
+  value: 100
+  compounded_value: 100
+  last_executed: '2025-06-10'
