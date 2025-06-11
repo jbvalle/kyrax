@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 2
-  current_xp: 626
+  current_xp: 846
   xp_to_next_level: 990
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -59,7 +59,7 @@ habit_data:
 - id: 7
   name: (Evening) Read Al-Mulk before sleeping
   value: 75
-  compounded_value: 77
+  compounded_value: 75
   last_executed: '2025-06-11'
 - id: 8
   name: (Evening) Perform 12 Rakat Sunnah
