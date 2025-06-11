@@ -102,3 +102,26 @@ challenges:
   start_date: '2025-06-11'
   difficulty: hard
   k_factor: 3
+- id: 197
+  title: Introduction to the 6 Pillars of Iman const 1, wis 1
+  body: '## Introduction to the 6 Pillars of Iman
+
+
+    **Level 1 - Foundations of Iman and Practice**
+
+
+    ### Requirements:
+
+    - Memorize and explain the 6 pillars
+
+    - Find one Qur''anic ayah for each pillar
+
+    - Reflect on how each pillar impacts your daily life'
+  labels:
+  - 'status: todo'
+  - 'area: islam'
+  - level 1
+  - 'area: islamic_challenges'
+  start_date: '2025-06-11'
+  difficulty: hard
+  k_factor: 3
