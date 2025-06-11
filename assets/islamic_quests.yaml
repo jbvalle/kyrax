@@ -1,0 +1,166 @@
+levels:
+  - level: 1
+    theme: "Foundations of Iman and Practice"
+    projects:
+      - name: "Daily Salah Commitment"
+        requirements:
+          - "Pray 5 daily prayers on time for 30 consecutive days"
+          - "Learn the Arabic meaning of each part of salah"
+          - "Establish pre-prayer wudu discipline"
+
+      - name: "Introduction to the 6 Pillars of Iman"
+        requirements:
+          - "Memorize and explain the 6 pillars"
+          - "Find one Qur'anic ayah for each pillar"
+          - "Reflect on how each pillar impacts your daily life"
+
+      - name: "Surah Al-Fatihah Mastery"
+        requirements:
+          - "Perfect recitation with Tajweed"
+          - "Memorize and understand the tafsir (Ibn Kathir)"
+          - "Reflect on it before every salah"
+
+      - name: "Avoiding the Major Sins"
+        requirements:
+          - "List the major sins from classical sources"
+          - "Track and avoid 3 you struggle with"
+          - "Make daily istighfar and weekly tawbah"
+
+      - name: "Weekly Jumu'ah Preparation"
+        requirements:
+          - "Attend 4 Jumu’ah prayers in a row"
+          - "Read Surah Kahf every Friday"
+          - "Arrive early and reflect on the khutbah"
+
+  - level: 2
+    theme: "Developing Consistency and Knowledge"
+    projects:
+      - name: "Morning & Evening Adhkar Routine"
+        requirements:
+          - "Memorize morning and evening duas from Hisnul Muslim"
+          - "Establish a 14-day streak"
+          - "Understand the meanings behind each dua"
+
+      - name: "Fajr Mastery"
+        requirements:
+          - "Pray Fajr in the masjid 10 times"
+          - "Study the virtues of Fajr and early morning in hadith"
+          - "Track sleep and optimize wake-up routines"
+
+      - name: "Learn and Practice Witr & Qiyam"
+        requirements:
+          - "Pray Witr for 10 nights consecutively"
+          - "Learn the Prophet’s ﷺ Qiyam style"
+          - "Read a tafsir reflection during Qiyam"
+
+      - name: "30-Day Qur'an Journey"
+        requirements:
+          - "Read 1 Juz daily (with or without translation)"
+          - "Journal key reflections and verses"
+          - "Join a local or online Qur’an group"
+
+      - name: "Etiquettes of Speech"
+        requirements:
+          - "Avoid backbiting, lying, or harsh speech for 7 days"
+          - "Read relevant ahadith and ayahs on speech"
+          - "Apologize to anyone you wronged with your tongue"
+
+  - level: 3
+    theme: "Engagement with Sunnah and Brotherhood"
+    projects:
+      - name: "40 Hadith of Imam Nawawi"
+        requirements:
+          - "Memorize and understand at least 10"
+          - "Discuss 5 with a friend or mentor"
+          - "Implement 3 ahadith in daily practice"
+
+      - name: "Masjid Anchor Challenge"
+        requirements:
+          - "Attend 1 prayer in the masjid daily for 30 days"
+          - "Greet and build relations with 3 brothers"
+          - "Learn and practice masjid etiquettes"
+
+      - name: "Reviving Forgotten Sunnahs"
+        requirements:
+          - "Research 10 lesser-known Sunnahs"
+          - "Implement at least 5 in your daily routine"
+          - "Share 3 with family/friends"
+
+      - name: "Brotherhood & Support"
+        requirements:
+          - "Help a Muslim brother with a personal or spiritual goal"
+          - "Visit someone sick or isolated"
+          - "Forgive someone for the sake of Allah"
+
+      - name: "Sunnah Fasting Practice"
+        requirements:
+          - "Fast Mondays & Thursdays for 3 weeks"
+          - "Study the virtues and spiritual effects of fasting"
+          - "Break fast with someone else once a week"
+
+  - level: 4
+    theme: "Spiritual Awareness & Social Responsibility"
+    projects:
+      - name: "Zakat and Charity Implementation"
+        requirements:
+          - "Calculate your zakat (even if not wajib yet)"
+          - "Give sadaqah weekly (monetary or non-monetary)"
+          - "Learn 3 Quranic ayahs on giving"
+
+      - name: "Media and Mind Detox"
+        requirements:
+          - "Abstain from social media/music for 14 days"
+          - "Replace with beneficial Islamic content"
+          - "Journal your mental and spiritual change"
+
+      - name: "Tazkiyah: Purification of the Heart"
+        requirements:
+          - "Learn the diseases of the heart (riya, kibir, hasad)"
+          - "Track personal struggles with one disease"
+          - "Apply dhikr and dua to counteract it"
+
+      - name: "Akhlaq Transformation"
+        requirements:
+          - "Practice patience, gratitude, humility daily"
+          - "Read ‘Riyadh as-Saliheen’ on character"
+          - "Ask feedback from 2 people on your conduct"
+
+      - name: "Dawah Starter"
+        requirements:
+          - "Share 1 beneficial Islamic reminder weekly"
+          - "Give 1 gift with Islamic intent (book, dua card, etc.)"
+          - "Have 1 meaningful Islamic talk with a non-practicing friend"
+
+  - level: 5
+    theme: "Living Islam in All Aspects"
+    projects:
+      - name: "Fiqh of Worship Study Plan"
+        requirements:
+          - "Choose a madhhab and study purification & salah rulings"
+          - "Compare rulings with evidence where relevant"
+          - "Teach a younger sibling or friend what you learn"
+
+      - name: "Long-term Qur'an Memorization Plan"
+        requirements:
+          - "Commit to memorizing 1 new Surah monthly"
+          - "Use 2 revision techniques consistently"
+          - "Recite to a teacher/peer for correction"
+
+      - name: "Leadership in the Community"
+        requirements:
+          - "Lead or support an Islamic initiative"
+          - "Organize a halaqah or youth gathering"
+          - "Solve a real issue in the community (e.g. masjid cleaning, food bank)"
+
+      - name: "Understanding Aqeedah and Deviance"
+        requirements:
+          - "Read a classical text (e.g. ‘Aqeedah al-Tahawiyyah’)"
+          - "Learn the dangers of bid’ah and modern deviations"
+          - "Discuss key beliefs with an ustadh"
+
+      - name: "Sincerity and Long-term Vision"
+        requirements:
+          - "Create a personal Islamic mission statement"
+          - "Set 5-year spiritual goals with check-ins"
+          - "Evaluate your deeds weekly for sincerity (ikhlas)"
+
