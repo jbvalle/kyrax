@@ -1,0 +1,83 @@
+# Key Features of This Curriculum:
+# 
+# Progressive Complexity:
+# 
+# Level 1-3: Bare-metal → RTOS
+# 
+# Level 4-6: Connectivity → Real-time → Security
+# 
+# Level 7-9: AI → Advanced SoCs → Future Systems
+# 
+# Balanced Requirements:
+# 
+# Hardware constraints (e.g., "<50μA sleep current")
+# 
+# Performance targets (e.g., "30fps animation")
+# 
+# Implementation specifics (e.g., "AES-GCM encryption")
+# 
+# Modern Focus Areas:
+# 
+# Level 4: 5 wireless technologies (BLE/WiFi/LoRa/Zigbee/NFC)
+# 
+# Level 7: Practical edge AI with TinyML optimizations
+# 
+# Level 9: Quantum-safe crypto and neuromorphic computing
+# 
+# Safety & Reliability:
+# 
+# IEC 62304 (medical)
+# 
+# SIL-2 (industrial)
+# 
+# Fail-safe protocols (drones)
+# 
+# Implementation Notes:
+# 
+# Hardware Scaling:
+# 
+# Levels 1-3: $20 dev boards (STM32, ESP32)
+# 
+# Levels 4-6: $50 kits (sensors, wireless)
+# 
+# Levels 7-9: $200+ platforms (FPGA, multi-core)
+# 
+# Skill Development Path:
+# 
+# Foundational: GPIO, timers, interrupts
+# 
+# Intermediate: RTOS, wireless, control theory
+# 
+# Advanced: Security, AI, heterogeneous computing
+# 
+# Assessment Metrics:
+# 
+# Power consumption measurements
+# 
+# Real-time latency profiling
+# 
+# Security vulnerability testing
+# 
+# Algorithm accuracy benchmarks
+
+levels:
+  - level: 1
+    theme: "Microcontroller Fundamentals"
+    projects:
+      - name: "Blinking LED with GPIO control"
+        requirements:
+          - "Register-level programming (no HAL)"
+          - "Variable blink rates via button presses"
+          - "Cycle-counted delays for precise timing"
+          
+      - name: "Button-controlled LED state machine"
+        requirements:
+          - "Interrupt-based edge detection with debounce"
+          - "4-state FSM (Off/Low/Med/High)"
+          - "Long-press/short-press differentiation"
+
+      - name: "7-segment display counter"
+        requirements:
+          - "GPIO multiplexing without driver IC"
+          - "<5ms refresh rate per digit"
+          - "Increment/decrement with rollover"
