@@ -69,15 +69,36 @@ habit_data:
 challenges:
 - id: 222
   title: Dip Basics str 1, const 1
-  body: "## Dip Basics\n\n**Level 1 - Foundations of Strength**\n\n### Requirements:\n\
-    - Perform 3 sets of 5 strict bodyweight dips, 3\xD7/week for 4 weeks\n- Maintain\
-    \ upright torso and controlled descent\n- Add 1\u20132 reps per set each week\
-    \ until you hit 3\xD78"
+  body: "### Requirements:\n- Perform 3 sets of 5 strict bodyweight dips, 3\xD7/week\
+    \ for 4 weeks\n- Maintain upright torso and controlled descent\n- Add 1\u2013\
+    2 reps per set each week until you hit 3\xD78"
   labels:
   - 'status: todo'
   - 'area: weightlifting'
   - level 1
   - 'area: weightlifting_challenges'
+  start_date: '2025-06-11'
+  difficulty: hard
+  k_factor: 3
+- id: 23
+  title: Button-controlled LED state machine dex 1, int 1
+  body: '## Button-controlled LED state machine
+
+
+    **Level 1 - Microcontroller Fundamentals**
+
+
+    ### Requirements:
+
+    - Interrupt-based edge detection with debounce
+
+    - 4-state FSM (Off/Low/Med/High)
+
+    - Long-press/short-press differentiation'
+  labels:
+  - 'area: embedded_systems'
+  - 'area: embedded_challenges'
+  - level 1
   start_date: '2025-06-11'
   difficulty: hard
   k_factor: 3

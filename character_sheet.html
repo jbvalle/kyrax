@@ -514,6 +514,23 @@
             font-size: 12px;
         }
 
+        .challenge-id {
+            background: rgba(126, 87, 194, 0.1);
+            color: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .challenge-xp {
+            background: rgba(102, 187, 106, 0.2);
+            color: var(--success);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
         /* End Challenges Section Styles */
 
         .footer {
@@ -648,6 +665,12 @@
         // GitHub raw YAML URL
         const YAML_URL = 'https://raw.githubusercontent.com/jbvalle/kyrax/refs/heads/main/kyrax.yaml';
         
+        // Function to calculate XP for challenges
+        function calculateChallengeXP(characterLevel, kFactor) {
+            const f = (x) => 110 * Math.pow(x, 2);
+            return Math.round((f(characterLevel + 1) - f(characterLevel)) / kFactor);
+        }
+
         // Fetch YAML data from GitHub
         async function fetchYamlData() {
             try {
@@ -716,30 +739,36 @@
                         <h2 class="card-title"><i class="fas fa-flag"></i> Active Challenges</h2>
                     </div>
                     <div class="challenges-list" id="challengesContainer">
-                        ${data.challenges ? data.challenges.map(challenge => `
-                        <div class="challenge-item">
-                            <div class="challenge-header">
-                                <div class="challenge-title">
-                                    <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'flag' : 'flag'}"></i>
-                                    ${challenge.title}
+                        ${data.challenges ? data.challenges.map(challenge => {
+                            const kFactor = challenge.k_factor || 10; // Default to 1 if k_factor is not specified
+                            const xpValue = calculateChallengeXP(data.character.level, kFactor);
+                            return `
+                            <div class="challenge-item">
+                                <div class="challenge-header">
+                                    <div class="challenge-title">
+                                        <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'flag' : 'flag'}"></i>
+                                        <span class="challenge-id">#${challenge.id}</span>
+                                        ${challenge.title}
+                                    </div>
+                                    <div class="challenge-xp">+${xpValue} XP</div>
+                                </div>
+                                <div class="challenge-body">
+                                    ${marked.parse(challenge.body)}
+                                </div>
+                                <div class="challenge-meta">
+                                    <div class="challenge-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        Started: ${challenge.start_date}
+                                    </div>
+                                    <div class="challenge-tags">
+                                        ${challenge.labels.filter(l => !l.startsWith('status:')).map(label => `
+                                        <span class="challenge-tag">${label}</span>
+                                        `).join('')}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="challenge-body">
-                                ${marked.parse(challenge.body)}
-                            </div>
-                            <div class="challenge-meta">
-                                <div class="challenge-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    Started: ${challenge.start_date}
-                                </div>
-                                <div class="challenge-tags">
-                                    ${challenge.labels.filter(l => !l.startsWith('status:')).map(label => `
-                                    <span class="challenge-tag">${label}</span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        </div>
-                        `).join('') : '<p>No active challenges found.</p>'}
+                            `;
+                        }).join('') : '<p>No active challenges found.</p>'}
                     </div>
                 </div>
 
