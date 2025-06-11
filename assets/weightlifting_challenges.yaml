@@ -1,0 +1,190 @@
+levels:
+  - level: 1
+    theme: "Foundations of Strength"
+    projects:
+      - name: "Pull‑Up Basics"
+        requirements:
+          - "Perform 3 sets of 5 strict unweighted pull‑ups, 3×/week for 4 weeks"
+          - "Master full range of motion and scapular control"
+          - "Add 1–2 reps per set each week until you hit 3×8"
+
+      - name: "Dip Basics"
+        requirements:
+          - "Perform 3 sets of 5 strict bodyweight dips, 3×/week for 4 weeks"
+          - "Maintain upright torso and controlled descent"
+          - "Add 1–2 reps per set each week until you hit 3×8"
+
+      - name: "Squat Foundations"
+        requirements:
+          - "Perform 3 sets of 8 bodyweight or goblet squats, 3×/week for 4 weeks"
+          - "Achieve full depth (hip crease below knee) with upright torso"
+          - "Add 5–10 lb (or 5% bodyweight equivalent) each week"
+
+      - name: "Biceps & Triceps Primer"
+        requirements:
+          - "Perform 3×10 barbell biceps curls with an empty bar or light dumbbells"
+          - "Perform 3×10 overhead triceps extensions with light dumbbell"
+          - "Increase load by 5 lb or one dumbbell increment each week"
+
+      - name: "Shoulder Press Primer"
+        requirements:
+          - "Perform 3 sets of 8 seated barbell or dumbbell shoulder presses with light load"
+          - "Focus on strict form and full lockout"
+          - "Add 5 lb (or 5% bodyweight equivalent) each week"
+
+  - level: 2
+    theme: "Building Base Load"
+    projects:
+      - name: "Weighted Pull‑Up Intro"
+        requirements:
+          - "Perform 3×5 pull‑ups with 10–20% bodyweight added, 3×/week for 4 weeks"
+          - "Increase added weight by 5% bodyweight each week"
+          - "Maintain strict form and full range"
+
+      - name: "Weighted Dip Intro"
+        requirements:
+          - "Perform 3×5 dips with 10–20% bodyweight added, 3×/week for 4 weeks"
+          - "Increase added weight by 5% bodyweight each week"
+          - "Control descent and lockout"
+
+      - name: "Barbell Squat Progression"
+        requirements:
+          - "Perform 3×5 back squats at 60% of bodyweight, 3×/week for 4 weeks"
+          - "Add 5% bodyweight load each week"
+          - "Maintain depth and braced torso"
+
+      - name: "Biceps Curl Progression"
+        requirements:
+          - "Perform 3×8 barbell curls at 20–30% bodyweight, 3×/week for 4 weeks"
+          - "Add 5 lb or 2.5% bodyweight each week"
+          - "Use strict tempo (2s up, 2s down)"
+
+      - name: "Triceps Extension Progression"
+        requirements:
+          - "Perform 3×10 overhead triceps extensions at 15–20% bodyweight, 3×/week for 4 weeks"
+          - "Increase load by 5 lb each week"
+          - "Keep elbows in and full extension"
+
+      - name: "Shoulder Press Progression"
+        requirements:
+          - "Perform 3×5 barbell shoulder presses at 30–40% bodyweight, 3×/week for 4 weeks"
+          - "Add 5 lb or 5% bodyweight each week"
+          - "Maintain straight bar path and locked elbows"
+
+  - level: 3
+    theme: "Intermediate Overload"
+    projects:
+      - name: "Heavy Pull‑Up Phase"
+        requirements:
+          - "Perform 4×4 pull‑ups with 40–60% bodyweight added, 3×/week for 4 weeks"
+          - "Increase added weight by 5–10% bodyweight each week"
+          - "Pause for 1s at top of each rep"
+
+      - name: "Heavy Dip Phase"
+        requirements:
+          - "Perform 4×4 dips with 40–60% bodyweight added, 3×/week for 4 weeks"
+          - "Increase weight by 5–10% bodyweight each week"
+          - "Control descent for 3s"
+
+      - name: "Squat Strength Phase"
+        requirements:
+          - "Perform 4×4 back squats at 100% bodyweight, 3×/week for 4 weeks"
+          - "Add 10 lb (5% bodyweight) each week"
+          - "Use belt and proper bracing"
+
+      - name: "Biceps Curl Strength Phase"
+        requirements:
+          - "Perform 4×6 barbell curls at 35–45% bodyweight, 3×/week for 4 weeks"
+          - "Increase load by 5 lb each week"
+          - "Strict elbows‑in form with full ROM"
+
+      - name: "Triceps Extension Strength Phase"
+        requirements:
+          - "Perform 4×8 overhead triceps extensions at 25–30% bodyweight, 3×/week for 4 weeks"
+          - "Add 5 lb each week"
+          - "Focus on full stretch and contraction"
+
+      - name: "Shoulder Press Strength Phase"
+        requirements:
+          - "Perform 4×4 barbell shoulder presses at 50–60% bodyweight, 3×/week for 4 weeks"
+          - "Increase by 5 lb or 5% bodyweight weekly"
+          - "Use braced core and locked elbows"
+
+  - level: 4
+    theme: "Advanced Overload"
+    projects:
+      - name: "Maximal Pull‑Up Challenge"
+        requirements:
+          - "Perform 5×3 pull‑ups with 80–100% bodyweight added, 3×/week for 4 weeks"
+          - "Add 5–10% bodyweight per week until 100%"
+          - "Maintain perfect form under load"
+
+      - name: "Maximal Dip Challenge"
+        requirements:
+          - "Perform 5×3 dips with 80–100% bodyweight added, 3×/week for 4 weeks"
+          - "Increase 5–10% bodyweight weekly until 100%"
+          - "Control descent and explosive lockout"
+
+      - name: "Squat Peak Phase"
+        requirements:
+          - "Perform 5×3 back squats at 150% bodyweight, 3×/week for 4 weeks"
+          - "Add 10–15% bodyweight per week"
+          - "Use belt, knee sleeves, and focus on bracing"
+
+      - name: "Biceps Curl Peak Phase"
+        requirements:
+          - "Perform 5×5 barbell curls at 50–55% bodyweight, 3×/week for 4 weeks"
+          - "Increase by 5 lb or 2.5% bodyweight weekly"
+          - "Strict form with full ROM"
+
+      - name: "Triceps Extension Peak Phase"
+        requirements:
+          - "Perform 5×6 overhead triceps extensions at 35–40% bodyweight, 3×/week for 4 weeks"
+          - "Add 5 lb each week"
+          - "Focus on slow eccentric and full lockout"
+
+      - name: "Shoulder Press Peak Phase"
+        requirements:
+          - "Perform 5×3 barbell shoulder presses at 70–80% bodyweight, 3×/week for 4 weeks"
+          - "Increase by 5 lb or 5% bodyweight weekly"
+          - "Maintain strict vertical bar path"
+
+  - level: 5
+    theme: "Peak Performance Goals"
+    projects:
+      - name: "Weighted Pull‑Up Mastery"
+        requirements:
+          - "Perform 5×2 pull‑ups with 120–150% bodyweight added"
+          - "Maintain strict form and full ROM under heavy load"
+          - "Test 1RM and record best weight"
+
+      - name: "Weighted Dip Mastery"
+        requirements:
+          - "Perform 5×2 dips with 120–140% bodyweight added"
+          - "Control descent and lockout explosively"
+          - "Test 1RM and record best weight"
+
+      - name: "Squat Mastery"
+        requirements:
+          - "Perform 5×2 back squats at 200% bodyweight"
+          - "Use belt, sleeves, and proper depth under max load"
+          - "Test 1RM and record best weight"
+
+      - name: "Barbell Curl Mastery"
+        requirements:
+          - "Perform 4×6 barbell curls at 50–65% bodyweight"
+          - "Strict elbows‑in form with full ROM"
+          - "Test 1RM and record best weight"
+
+      - name: "Triceps Extension Mastery"
+        requirements:
+          - "Perform 4×8 overhead triceps extensions at 40–50% bodyweight"
+          - "Slow eccentric and powerful concentric"
+          - "Test 1RM and record best weight"
+
+      - name: "Shoulder Press Mastery"
+        requirements:
+          - "Perform 5×2 barbell shoulder presses at 75–100% bodyweight"
+          - "Maintain braced core and vertical bar path"
+          - "Test 1RM and record best weight"
+
