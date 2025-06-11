@@ -67,6 +67,26 @@ habit_data:
   compounded_value: 75
   last_executed: '2025-06-11'
 challenges:
+- id: 23
+  title: Button-controlled LED state machine dex 1, int 1
+  body: '## Button-controlled LED state machine
+
+
+    **Level 1 - Microcontroller Fundamentals**
+
+
+    ### Requirements:
+
+    - Interrupt-based edge detection with debounce
+
+    - 4-state FSM (Off/Low/Med/High)
+
+    - Long-press/short-press differentiation'
+  labels:
+  - 'area: embedded_systems'
+  - 'area: embedded_challenges'
+  - level 1
+  start_date: '2025-06-11'
 - id: 222
   title: Dip Basics str 1, const 1
   body: "## Dip Basics\n\n**Level 1 - Foundations of Strength**\n\n### Requirements:\n\
