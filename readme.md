@@ -1,3 +1,8 @@
+# Real Life RPG to gamify everyday tasks, habits and goals
+![image](https://github.com/user-attachments/assets/afd0ee00-68f7-49a3-9ce6-2dc194775021)
+
+---
+
 # Challenges
 
 ## 1. Choose a challenge / GH Issue
