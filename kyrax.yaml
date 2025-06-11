@@ -66,3 +66,16 @@ habit_data:
   value: 75
   compounded_value: 75
   last_executed: '2025-06-11'
+challenges:
+- id: 222
+  title: Dip Basics str 1, const 1
+  body: "## Dip Basics\n\n**Level 1 - Foundations of Strength**\n\n### Requirements:\n\
+    - Perform 3 sets of 5 strict bodyweight dips, 3\xD7/week for 4 weeks\n- Maintain\
+    \ upright torso and controlled descent\n- Add 1\u20132 reps per set each week\
+    \ until you hit 3\xD78"
+  labels:
+  - 'status: todo'
+  - 'area: weightlifting'
+  - level 1
+  - 'area: weightlifting_challenges'
+  start_date: '2025-06-11'
