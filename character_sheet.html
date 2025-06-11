@@ -720,11 +720,8 @@
                         <div class="challenge-item">
                             <div class="challenge-header">
                                 <div class="challenge-title">
-                                    <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'dumbbell' : 'flag'}"></i>
+                                    <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'flag' : 'flag'}"></i>
                                     ${challenge.title}
-                                </div>
-                                <div class="challenge-status">
-                                    ${challenge.labels.find(l => l.startsWith('status:'))?.split(':')[1]?.trim() || 'active'}
                                 </div>
                             </div>
                             <div class="challenge-body">
