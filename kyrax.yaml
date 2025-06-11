@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 1
-  current_xp: 394
-  xp_to_next_level: 440
+  level: 2
+  current_xp: 626
+  xp_to_next_level: 990
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -28,36 +28,41 @@ stats:
 habit_data:
 - id: 1
   name: Morning Adhkaar
-  value: 50
-  compounded_value: 51
-  last_executed: '2025-06-10'
+  value: 70
+  compounded_value: 72
+  last_executed: '2025-06-11'
 - id: 2
   name: Evening Adhkaar
-  value: 50
-  compounded_value: 50
+  value: 70
+  compounded_value: 70
   last_executed: '2025-06-11'
 - id: 3
-  name: Ishraq
-  value: 75
-  compounded_value: 77
-  last_executed: '2025-06-10'
+  name: (Morning) Ishraq
+  value: 55
+  compounded_value: 56
+  last_executed: '2025-06-11'
 - id: 4
-  name: Drink Creatine
+  name: (Morning) Drink Creatine
   value: 50
-  compounded_value: 51
-  last_executed: '2025-06-10'
+  compounded_value: 52
+  last_executed: '2025-06-11'
 - id: 5
-  name: Drink Anti Histamine, VitC & VitD
+  name: (Morning) Drink Anti Histamine, VitC & VitD
   value: 50
-  compounded_value: 51
-  last_executed: '2025-06-10'
+  compounded_value: 52
+  last_executed: '2025-06-11'
 - id: 6
-  name: Workout
+  name: (Evening) Workout
   value: 120
   compounded_value: 120
   last_executed: '2025-06-09'
 - id: 7
-  name: (Evening Routine) Read Al-Mulk before sleeping
+  name: (Evening) Read Al-Mulk before sleeping
   value: 75
   compounded_value: 77
+  last_executed: '2025-06-11'
+- id: 8
+  name: (Evening) Perform 12 Rakat Sunnah
+  value: 75
+  compounded_value: 75
   last_executed: '2025-06-11'
