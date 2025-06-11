@@ -427,6 +427,95 @@
             line-height: 1;
         }
 
+        /* Challenges Section Styles */
+        .challenges-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .challenge-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .challenge-item:hover {
+            background: rgba(126, 87, 194, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .challenge-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .challenge-title i {
+            color: var(--accent);
+        }
+
+        .challenge-status {
+            background: rgba(255, 112, 67, 0.2);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .challenge-body {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .challenge-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .challenge-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .challenge-date i {
+            color: var(--secondary);
+        }
+
+        .challenge-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .challenge-tag {
+            background: rgba(41, 182, 246, 0.1);
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* End Challenges Section Styles */
+
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -622,6 +711,41 @@
                     </div>
                 </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-flag"></i> Active Challenges</h2>
+                    </div>
+                    <div class="challenges-list" id="challengesContainer">
+                        ${data.challenges ? data.challenges.map(challenge => `
+                        <div class="challenge-item">
+                            <div class="challenge-header">
+                                <div class="challenge-title">
+                                    <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'dumbbell' : 'flag'}"></i>
+                                    ${challenge.title}
+                                </div>
+                                <div class="challenge-status">
+                                    ${challenge.labels.find(l => l.startsWith('status:'))?.split(':')[1]?.trim() || 'active'}
+                                </div>
+                            </div>
+                            <div class="challenge-body">
+                                ${marked.parse(challenge.body)}
+                            </div>
+                            <div class="challenge-meta">
+                                <div class="challenge-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    Started: ${challenge.start_date}
+                                </div>
+                                <div class="challenge-tags">
+                                    ${challenge.labels.filter(l => !l.startsWith('status:')).map(label => `
+                                    <span class="challenge-tag">${label}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        `).join('') : '<p>No active challenges found.</p>'}
+                    </div>
+                </div>
+
                 <div class="card background-card">
                     <div class="card-header">
                         <h2 class="card-title"><i class="fas fa-scroll"></i> Background</h2>
@@ -654,18 +778,25 @@
 
         // Initialize the dashboard
         document.addEventListener('DOMContentLoaded', async () => {
-            const data = await fetchYamlData();
+            // Load marked.js for markdown parsing
+            const markedScript = document.createElement('script');
+            markedScript.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+            document.head.appendChild(markedScript);
             
-            // Create dashboard content
-            document.getElementById('dashboardContent').innerHTML = createDashboardContent(data);
-            
-            // Update character data
-            updateCharacterData(data);
-            
-            // Add animation to XP bar
-            setTimeout(() => {
-                document.getElementById('xpFill').style.transition = 'width 1.5s ease';
-            }, 500);
+            markedScript.onload = async () => {
+                const data = await fetchYamlData();
+                
+                // Create dashboard content
+                document.getElementById('dashboardContent').innerHTML = createDashboardContent(data);
+                
+                // Update character data
+                updateCharacterData(data);
+                
+                // Add animation to XP bar
+                setTimeout(() => {
+                    document.getElementById('xpFill').style.transition = 'width 1.5s ease';
+                }, 500);
+            };
         });
     </script>
 </body>
