@@ -59,90 +59,103 @@
 # Security vulnerability testing
 # 
 # Algorithm accuracy benchmarks
-
 levels:
   - level: 1
     theme: "Microcontroller Fundamentals"
     projects:
       - name: "Blinking LED with GPIO control"
+        skill: "Register-level hardware manipulation"
         requirements:
           - "Register-level programming (no HAL)"
           - "Variable blink rates via button presses"
           - "Cycle-counted delays for precise timing"
           
       - name: "Button-controlled LED state machine"
+        skill: "Hardware interrupt handling"
         requirements:
           - "Interrupt-based edge detection with debounce"
           - "4-state FSM (Off/Low/Med/High)"
           - "Long-press/short-press differentiation"
 
       - name: "7-segment display counter"
+        skill: "Multiplexing and timing control"
         requirements:
           - "GPIO multiplexing without driver IC"
           - "<5ms refresh rate per digit"
           - "Increment/decrement with rollover"
 
       - name: "Buzzer melody player"
+        skill: "PWM signal generation"
         requirements:
           - "PWM musical tone generation"
           - "3-song storage in note-duration arrays"
           - "Duty cycle-based volume control"
 
       - name: "Potentiometer voltage reader"
+        skill: "Analog signal processing"
         requirements:
           - "12-bit ADC with 14-bit ENOB via oversampling"
           - "Real-time moving average filter"
           - "Serial plotter visualization"
 
       - name: "Temperature sensor logger"
+        skill: "I2C protocol implementation"
         requirements:
           - "I2C communication with TMP102"
           - "EEPROM circular buffer logging"
           - "UART statistics reporting (min/max/avg)"
 
       - name: "Serial console command parser"
+        skill: "CLI interface development"
         requirements:
           - "Interrupt-driven UART RX"
           - "5+ command handler"
           - "Error feedback for invalid inputs"
 
       - name: "PWM dimmable LED"
+        skill: "Non-linear brightness control"
         requirements:
           - "16-bit resolution PWM"
           - "Gamma-corrected brightness transitions"
           - "Analog/serial control interface"
 
       - name: "Battery voltage monitor"
+        skill: "Low-power design"
         requirements:
           - "Voltage divider measurement"
           - "Hysteresis-based low-battery warning"
           - "<50μA sleep current"
 
       - name: "LED matrix pattern display"
+        skill: "Charlieplexing technique"
         requirements:
           - "Charlieplexed 8x8 matrix"
           - "3+ animated patterns"
           - "Brightness persistence control"
 
       - name: "Watchdog timer implementation"
+        skill: "System reliability engineering"
         requirements:
           - "Independent watchdog configuration"
           - "System hang recovery simulation"
           - "Non-volatile event logging"
 
       - name: "Interrupt-driven button handler"
+        skill: "Priority-based event handling"
         requirements:
           - "EXTI interrupts for all inputs"
           - "Priority-based queuing"
           - "Multi-button press handling"
 
       - name: "Sleep mode power saving"
+        skill: "Power optimization"
         requirements:
           - "<2μA sleep current"
           - "Multi-source wake (timer/button/UART)"
           - "Power savings measurement"
 
       - name: "UART echo server"
+        skill: "Serial protocol implementation"
         requirements:
           - "Backspace handling and line editing"
           - "XON/XOFF flow control"
@@ -152,84 +165,98 @@ levels:
     theme: "Peripheral Integration"
     projects:
       - name: "I2C environmental sensor hub"
+        skill: "Multi-device bus management"
         requirements:
           - "3+ sensor polling (temp/humidity/pressure)"
           - "Sensor fusion algorithm"
           - "Bus arbitration failure handling"
           
       - name: "SPI OLED display driver"
+        skill: "High-speed serial communication"
         requirements:
           - "Bitmap renderer without libraries"
           - "Double buffering implementation"
           - "30fps animation rate"
 
       - name: "Rotary encoder menu system"
+        skill: "Human-machine interface design"
         requirements:
           - "Quadrature decoding via interrupts"
           - "3-level nested menu"
           - "Selection haptic feedback"
 
       - name: "Stepper motor controller"
+        skill: "Precision motion control"
         requirements:
           - "Microstepping control"
           - "Acceleration/deceleration profiles"
           - "Position tracking with error correction"
 
       - name: "IR remote control decoder"
+        skill: "Infrared protocol decoding"
         requirements:
           - "NEC protocol decoding"
           - "Command learning/replay"
           - "Collision detection"
 
       - name: "Capacitive touch sensor"
+        skill: "Analog signal conditioning"
         requirements:
           - "Charge-transfer sensing"
           - "Automatic calibration routine"
           - "Adjustable proximity detection"
 
       - name: "Real-time clock scheduler"
+        skill: "Time-based automation"
         requirements:
           - "Battery-backed timekeeping"
           - "Time-based task execution"
           - "Daylight saving time handling"
 
       - name: "EEPROM data logger"
+        skill: "Non-volatile storage management"
         requirements:
           - "Wear-leveling implementation"
           - "CRC-16 data integrity"
           - "Delta compression storage"
 
       - name: "Analog comparator"
+        skill: "Threshold detection"
         requirements:
           - "Windowed voltage detection"
           - "Configurable hysteresis"
           - "ADC trigger on threshold"
 
       - name: "DAC waveform generator"
+        skill: "Analog signal synthesis"
         requirements:
           - "Sine/triangle/square wave output"
           - "1Hz-10kHz frequency range"
           - "DMA-based smooth output"
 
       - name: "LCD character display driver"
+        skill: "Parallel interface implementation"
         requirements:
           - "4-bit parallel interface"
           - "5x8 custom character creation"
           - "Variable-speed text scrolling"
 
       - name: "Hall effect RPM counter"
+        skill: "Magnetic sensing"
         requirements:
           - "10,000 RPM measurement"
           - "Angular velocity calculation"
           - "Rotation direction detection"
 
       - name: "DMA-based ADC sampling"
+        skill: "Direct memory access optimization"
         requirements:
           - "100ksps sampling without CPU"
           - "Real-time FFT computation"
           - "Trigger-based acquisition"
 
       - name: "RS-485 industrial communication"
+        skill: "Robust serial communication"
         requirements:
           - "Half-duplex master/slave protocol"
           - "CRC-16 error detection"
@@ -239,84 +266,98 @@ levels:
     theme: "RTOS Foundations"
     projects:
       - name: "Multi-task LED controller"
+        skill: "Real-time task scheduling"
         requirements:
           - "3+ priority-based tasks"
           - "Mutex-protected resource sharing"
           - "CPU usage monitoring"
           
       - name: "Queue-based sensor fusion"
+        skill: "Inter-task communication"
         requirements:
           - "Multiple producer tasks"
           - "Single consumer fusion task"
           - "Time-stamped data synchronization"
 
       - name: "Priority-inversion demo"
+        skill: "RTOS anti-pattern resolution"
         requirements:
           - "Create priority inversion scenario"
           - "Implement priority inheritance"
           - "Measure latency improvements"
 
       - name: "Mutex-protected serial console"
+        skill: "Thread-safe resource sharing"
         requirements:
           - "Thread-safe printf implementation"
           - "Command queue with overflow protection"
           - "Timeout handling for resource access"
 
       - name: "RTOS-aware power management"
+        skill: "Low-power RTOS design"
         requirements:
           - "Tickless idle mode implementation"
           - "Per-task power profiling"
           - "Dynamic frequency scaling"
 
       - name: "Software timer system"
+        skill: "Asynchronous event handling"
         requirements:
           - "Multiple concurrent timers"
           - "Timer callback prioritization"
           - "One-shot/periodic mode support"
 
       - name: "Task notification LED pattern"
+        skill: "Lightweight IPC mechanisms"
         requirements:
           - "IPC via task notifications"
           - "Pattern sequencing without queues"
           - "Notification value masking"
 
       - name: "Heap management analyzer"
+        skill: "Memory optimization"
         requirements:
           - "Fragmentation measurement tool"
           - "Allocation failure simulation"
           - "Alternative allocator comparison"
 
       - name: "Event-driven state machine"
+        skill: "Complex system modeling"
         requirements:
           - "State transitions via event flags"
           - "Timeout-based state transitions"
           - "State history logging"
 
       - name: "Dual-core synchronization"
+        skill: "Multiprocessor coordination"
         requirements:
           - "Inter-processor communication"
           - "Shared memory with semaphores"
           - "Core-to-core interrupt signaling"
 
       - name: "Memory protection unit setup"
+        skill: "System hardening"
         requirements:
           - "Privilege-based memory partitioning"
           - "Stack overflow protection"
           - "Fault exception handler"
 
       - name: "Critical section benchmark"
+        skill: "Performance analysis"
         requirements:
           - "Measure interrupt latency"
           - "Compare mutex vs semaphore performance"
           - "Identify worst-case execution time"
 
       - name: "Task-aware watchdog"
+        skill: "Fault tolerance"
         requirements:
           - "Per-task liveliness monitoring"
           - "Dead task recovery mechanism"
           - "System health reporting"
 
       - name: "RTOS trace visualizer"
+        skill: "System performance analysis"
         requirements:
           - "Task execution timeline logging"
           - "Context switch counter"
@@ -326,84 +367,98 @@ levels:
     theme: "Wireless Connectivity"
     projects:
       - name: "BLE beacon transmitter"
+        skill: "Bluetooth Low Energy advertising"
         requirements:
           - "iBeacon format compatibility"
           - "Configurable TX power levels"
           - "Battery-optimized advertising"
           
       - name: "WiFi sensor dashboard"
+        skill: "Embedded web development"
         requirements:
           - "TCP/IP stack integration"
           - "Web server with dynamic content"
           - "JSON data API endpoint"
 
       - name: "LoRa environmental monitor"
+        skill: "Long-range radio communication"
         requirements:
           - "10km+ range communication"
           - "Adaptive data rate algorithm"
           - "Battery life >6 months"
 
       - name: "NFC access control"
+        skill: "Near-field communication"
         requirements:
           - "ISO14443-A card emulation"
           - "Encrypted payload exchange"
           - "Audit trail logging"
 
       - name: "Zigbee mesh network node"
+        skill: "Mesh networking"
         requirements:
           - "Multi-hop routing implementation"
           - "Network joining procedure"
           - "OTA configuration updates"
 
       - name: "Infrared data transfer"
+        skill: "Optical communication"
         requirements:
           - "IrDA protocol implementation"
           - "115kbps data rate"
           - "Error-correcting codes"
 
       - name: "MQTT over WiFi"
+        skill: "IoT messaging protocols"
         requirements:
           - "TLS-secured connection"
           - "QoS level 2 implementation"
           - "Last will message support"
 
       - name: "Bluetooth HID keyboard"
+        skill: "HID device implementation"
         requirements:
           - "HID report descriptor"
           - "Low-latency key transmission"
           - "Battery level reporting"
 
       - name: "OTA firmware update"
+        skill: "Remote device management"
         requirements:
           - "AES-encrypted image transfer"
           - "Bootloader integration"
           - "Rollback capability"
 
       - name: "Sub-GHz remote control"
+        skill: "RF protocol design"
         requirements:
           - "Frequency hopping implementation"
           - "AES-128 encryption"
           - "<100ms end-to-end latency"
 
       - name: "BLE glucose monitor simulator"
+        skill: "Medical device protocols"
         requirements:
           - "GATT service implementation"
           - "Historical data storage"
           - "Privacy mode support"
 
       - name: "WiFi captive portal"
+        skill: "Network authentication"
         requirements:
           - "DNS redirection"
           - "Authentication page"
           - "Usage time limits"
 
       - name: "RFID inventory tracker"
+        skill: "RFID system integration"
         requirements:
           - "Multi-tag collision handling"
           - "RSSI-based proximity detection"
           - "Cloud synchronization"
 
       - name: "Wireless DFU bootloader"
+        skill: "Secure remote updates"
         requirements:
           - "Fault-tolerant transfer"
           - "Dual-bank firmware switching"
@@ -413,84 +468,98 @@ levels:
     theme: "Real-time Systems"
     projects:
       - name: "PID motor controller"
+        skill: "Closed-loop control systems"
         requirements:
           - "Ziegler-Nichols tuning"
           - "Anti-windup implementation"
           - "<1ms response time"
           
       - name: "Digital filter implementation"
+        skill: "Signal processing"
         requirements:
           - "FIR/IIF filter design"
           - "Fixed-point arithmetic"
           - "Biquad cascade structure"
 
       - name: "Reaction time tester"
+        skill: "High-precision timing"
         requirements:
           - "Microsecond-precision timing"
           - "Statistical analysis (mean/std dev)"
           - "Visual/auditory stimulus"
 
       - name: "Audio spectrum analyzer"
+        skill: "Spectral analysis"
         requirements:
           - "24-bit audio acquisition"
           - "1024-point FFT"
           - "Octave band visualization"
 
       - name: "CAN bus dashboard"
+        skill: "Automotive communication"
         requirements:
           - "J1939 protocol implementation"
           - "Fault confinement handling"
           - "Bus load monitoring"
 
       - name: "Brushless motor FOC"
+        skill: "Advanced motor control"
         requirements:
           - "Clarke/Park transforms"
           - "Space Vector PWM"
           - "Sensorless position estimation"
 
       - name: "Power inverter control"
+        skill: "Power electronics"
         requirements:
           - "Sinusoidal PWM generation"
           - "Dead-time compensation"
           - "Voltage/frequency control"
 
       - name: "Sensor Kalman filter"
+        skill: "State estimation"
         requirements:
           - "6DOF IMU fusion"
           - "Process noise adaptation"
           - "Covariance matrix visualization"
 
       - name: "Digital lock-in amplifier"
+        skill: "Weak signal detection"
         requirements:
           - "Reference signal correlation"
           - "Phase-sensitive detection"
           - "Harmonic rejection >80dB"
 
       - name: "Robotic arm kinematics"
+        skill: "Robotic control systems"
         requirements:
           - "Inverse kinematics solver"
           - "Trajectory planning"
           - "Collision avoidance"
 
       - name: "Battery management system"
+        skill: "Energy system monitoring"
         requirements:
           - "Coulomb counting"
           - "Cell balancing control"
           - "State-of-health estimation"
 
       - name: "Precision timer ISRs"
+        skill: "Deterministic timing"
         requirements:
           - "Sub-microsecond jitter"
           - "Interrupt chaining"
           - "Execution time profiling"
 
       - name: "Control loop stability analysis"
+        skill: "System identification"
         requirements:
           - "Bode plot generation"
           - "Phase margin measurement"
           - "Gain scheduling"
 
       - name: "Hardware-in-loop simulation"
+        skill: "Virtual prototyping"
         requirements:
           - "Real-time plant model"
           - "Fault injection capability"
@@ -500,84 +569,98 @@ levels:
     theme: "Embedded Security"
     projects:
       - name: "Secure boot implementation"
+        skill: "Chain of trust establishment"
         requirements:
           - "Chain of trust with bootloader"
           - "RSA-2048 signature verification"
           - "Tamper detection mechanism"
           
       - name: "AES-256 encryption engine"
+        skill: "Cryptographic implementation"
         requirements:
           - "ECB/CBC/CTR modes"
           - "DMA-assisted encryption"
           - "Side-channel attack countermeasures"
 
       - name: "TLS/DTLS client"
+        skill: "Secure network protocols"
         requirements:
           - "mbedTLS integration"
           - "Certificate validation"
           - "Session resumption support"
 
       - name: "Side-channel attack demo"
+        skill: "Security vulnerability analysis"
         requirements:
           - "Power analysis setup"
           - "Simple power analysis (SPA)"
           - "Constant-time algorithm comparison"
 
       - name: "Secure OTA update"
+        skill: "Cryptographic verification"
         requirements:
           - "Dual-image swap mechanism"
           - "Ed25519 signature verification"
           - "Metadata encryption"
 
       - name: "TrustZone isolation"
+        skill: "Hardware security partitioning"
         requirements:
           - "Secure/non-secure memory partitioning"
           - "Secure gateway implementation"
           - "Attestation protocol"
 
       - name: "Cryptographic signature"
+        skill: "Asymmetric cryptography"
         requirements:
           - "ECDSA implementation"
           - "Hardware key storage"
           - "Signature benchmarking"
 
       - name: "Secure key storage"
+        skill: "Key management"
         requirements:
           - "Anti-tamper response"
           - "Key wrapping with KEK"
           - "Zeroization capability"
 
       - name: "Firmware checksum"
+        skill: "Integrity verification"
         requirements:
           - "Runtime integrity checking"
           - "Tamper-evident logging"
           - "Recovery mechanism"
 
       - name: "Intrusion detection"
+        skill: "Anomaly detection"
         requirements:
           - "Anomaly detection heuristics"
           - "Secure alarm notification"
           - "Forensic data capture"
 
       - name: "Secure debug port"
+        skill: "Access control implementation"
         requirements:
           - "Authentication challenge"
           - "Access control levels"
           - "Audit trail"
 
       - name: "Encrypted EEPROM"
+        skill: "Data-at-rest protection"
         requirements:
           - "AES-GCM mode encryption"
           - "Authentication tags"
           - "Wear-leveling integration"
 
       - name: "Secure device pairing"
+        skill: "Authentication protocols"
         requirements:
           - "Diffie-Hellman key exchange"
           - "Out-of-band verification"
           - "Man-in-middle protection"
 
       - name: "Memory dump protection"
+        skill: "Runtime memory protection"
         requirements:
           - "Address space layout randomization"
           - "Execute-only memory regions"
@@ -587,84 +670,98 @@ levels:
     theme: "Edge AI & Vision"
     projects:
       - name: "TinyML voice recognition"
+        skill: "Embedded machine learning"
         requirements:
           - "<50ms inference latency"
           - "INT8 quantized model"
           - "Background noise suppression"
           
       - name: "Image classification"
+        skill: "Computer vision implementation"
         requirements:
           - "CNN model <100KB"
           - "10fps inference rate"
           - "Transfer learning adaptation"
 
       - name: "Neural network accelerator"
+        skill: "ML performance optimization"
         requirements:
           - "CMSIS-NN implementation"
           - "Layer fusion optimization"
           - "Memory bandwidth profiling"
 
       - name: "Computer vision pipeline"
+        skill: "Real-time image processing"
         requirements:
           - "OV7670 camera interface"
           - "Object detection with tracking"
           - "Optical flow calculation"
 
       - name: "Sensor anomaly detection"
+        skill: "Unsupervised learning"
         requirements:
           - "Autoencoder architecture"
           - "Unsupervised learning"
           - "Adaptive thresholding"
 
       - name: "Gesture recognition"
+        skill: "Motion pattern recognition"
         requirements:
           - "IMU data preprocessing"
           - "DTW algorithm implementation"
           - "9-axis sensor fusion"
 
       - name: "Keyword spotting"
+        skill: "Audio pattern recognition"
         requirements:
           - "MFCC feature extraction"
           - "Wake-word detection"
           - "<1mW power consumption"
 
       - name: "Person detection"
+        skill: "Object detection"
         requirements:
           - "Mobilenet-SSD model"
           - "Bounding box output"
           - "Multi-scale processing"
 
       - name: "Low-power wake word"
+        skill: "Always-on AI"
         requirements:
           - "<100μW sleep power"
           - "Always-on audio processing"
           - "2-stage detection pipeline"
 
       - name: "Optical flow tracker"
+        skill: "Motion estimation"
         requirements:
           - "Lucas-Kanade implementation"
           - "Feature point selection"
           - "Motion vector visualization"
 
       - name: "AI-based predictive maintenance"
+        skill: "Condition monitoring"
         requirements:
           - "Vibration analysis"
           - "Remaining useful life estimation"
           - "Cloud synchronization"
 
       - name: "Camera streaming server"
+        skill: "Embedded video processing"
         requirements:
           - "MJPEG over HTTP"
           - "Adaptive quality control"
           - "Motion-based triggering"
 
       - name: "Embedded model quantization"
+        skill: "ML model optimization"
         requirements:
           - "Post-training quantization"
           - "Accuracy/efficiency tradeoff analysis"
           - "Per-layer quantization sensitivity"
 
       - name: "Sensor fusion with ML"
+        skill: "Multi-modal learning"
         requirements:
           - "Multi-modal data alignment"
           - "Attention mechanism"
@@ -674,84 +771,98 @@ levels:
     theme: "Advanced Architectures"
     projects:
       - name: "Heterogeneous multi-core"
+        skill: "Asymmetric processing"
         requirements:
           - "AMP architecture"
           - "Inter-processor communication"
           - "Hardware semaphore synchronization"
           
       - name: "FPGA co-processing"
+        skill: "Hardware acceleration"
         requirements:
           - "Verilog accelerator design"
           - "AXI bus interfacing"
           - "Software-hardware latency measurement"
 
       - name: "Real-time Linux (PREEMPT_RT)"
+        skill: "Linux real-time extensions"
         requirements:
           - "Kernel patching and building"
           - "<100μs scheduling latency"
           - "Xenomai coexistence"
 
       - name: "PCIe communication"
+        skill: "High-speed interconnect"
         requirements:
           - "DMA transfers"
           - "MSI interrupt handling"
           - "Throughput >5Gbps"
 
       - name: "USB device stack"
+        skill: "USB protocol implementation"
         requirements:
           - "Composite device implementation"
           - "High-speed (480Mbps) operation"
           - "Power delivery negotiation"
 
       - name: "Gigabit Ethernet"
+        skill: "High-speed networking"
         requirements:
           - "LwIP integration"
           - "TCP offloading"
           - "IEEE 1588 PTP support"
 
       - name: "High-speed data acquisition"
+        skill: "Signal acquisition"
         requirements:
           - "100MS/s sampling rate"
           - "JESD204B interface"
           - "Real-time data reduction"
 
       - name: "GPU acceleration"
+        skill: "Parallel computing"
         requirements:
           - "OpenCL kernel development"
           - "Memory transfer optimization"
           - "Performance profiling"
 
       - name: "Distributed sensor network"
+        skill: "Decentralized systems"
         requirements:
           - "Time synchronization protocol"
           - "Decentralized data fusion"
           - "Fault-tolerant topology"
 
       - name: "Time-sensitive networking"
+        skill: "Deterministic networking"
         requirements:
           - "IEEE 802.1Qbv scheduling"
           - "Frame preemption"
           - "End-to-end latency guarantees"
 
       - name: "Embedded hypervisor"
+        skill: "Virtualization technology"
         requirements:
           - "Type-1 hypervisor implementation"
           - "Virtual device emulation"
           - "Inter-VM communication"
 
       - name: "Secure enclave"
+        skill: "Trusted execution"
         requirements:
           - "Trusted execution environment"
           - "Remote attestation"
           - "Sealed storage"
 
       - name: "ASIC prototype"
+        skill: "Hardware design"
         requirements:
           - "RTL design"
           - "FPGA emulation"
           - "Gate-level simulation"
 
       - name: "RISC-V custom ISA"
+        skill: "Processor architecture"
         requirements:
           - "Extension design"
           - "LLVM toolchain modification"
@@ -761,84 +872,98 @@ levels:
     theme: "Cutting-Edge Systems"
     projects:
       - name: "Autonomous drone navigation"
+        skill: "Robotic autonomy"
         requirements:
           - "SLAM implementation"
           - "Obstacle avoidance"
           - "Fail-safe RTH protocol"
           
       - name: "Medical device simulator"
+        skill: "Medical systems development"
         requirements:
           - "IEC 62304 compliance"
           - "Fault tree analysis"
           - "Clinical scenario modeling"
 
       - name: "Industrial PLC controller"
+        skill: "Industrial automation"
         requirements:
           - "IEC 61131-3 support"
           - "Redundant I/O handling"
           - "Safety integrity level (SIL) 2"
 
       - name: "Satellite communication"
+        skill: "Space systems engineering"
         requirements:
           - "LoRa satellite modem"
           - "Orbit prediction algorithm"
           - "Link budget calculation"
 
       - name: "Quantum-safe cryptography"
+        skill: "Post-quantum security"
         requirements:
           - "Kyber key encapsulation"
           - "Dilithium signatures"
           - "NIST standardization compliance"
 
       - name: "Neuromorphic computing"
+        skill: "Brain-inspired computing"
         requirements:
           - "Spiking neural network"
           - "Event-based processing"
           - "Synaptic plasticity rules"
 
       - name: "Self-calibrating sensor"
+        skill: "Autonomous calibration"
         requirements:
           - "Auto-zeroing technique"
           - "Temperature drift compensation"
           - "Long-term stability monitoring"
 
       - name: "Predictive failure system"
+        skill: "Condition-based maintenance"
         requirements:
           - "Anomaly detection"
           - "Remaining useful life estimation"
           - "Maintenance scheduling"
 
       - name: "Embedded blockchain"
+        skill: "Distributed ledger technology"
         requirements:
           - "Light node implementation"
           - "Merkle proof verification"
           - "Smart contract execution"
 
       - name: "Wireless power control"
+        skill: "Energy transfer optimization"
         requirements:
           - "Resonant frequency tracking"
           - "Foreign object detection"
           - "Efficiency optimization"
 
       - name: "Cellular IoT tracker"
+        skill: "Wide-area IoT"
         requirements:
           - "NB-IoT connectivity"
           - "Geofencing alerts"
           - "<200μA sleep current"
 
       - name: "AR HUD prototype"
+        skill: "Augmented reality systems"
         requirements:
           - "Pose estimation"
           - "Optical combiner design"
           - "Latency compensation"
 
       - name: "Digital twin interface"
+        skill: "Cyber-physical systems"
         requirements:
           - "Real-time synchronization"
           - "Physics-based simulation"
           - "Anomaly detection"
 
       - name: "Self-healing firmware"
+        skill: "Autonomous recovery"
         requirements:
           - "Runtime assertion checking"
           - "Automated patching"
