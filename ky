@@ -113,35 +113,23 @@ def close_issue(issue_number):
         )
         print(f"✓ Closed issue #{issue_number} ({title})")
 
-        # Search through all YAML files in ./assets/ for matching gh_issue
-        assets_dir = "./assets"
-        if os.path.exists(assets_dir) and os.path.isdir(assets_dir):
-            for filename in os.listdir(assets_dir):
-                if filename.endswith(".yaml") or filename.endswith(".yml"):
-                    filepath = os.path.join(assets_dir, filename)
-                    try:
-                        with open(filepath, 'r') as file:
-                            data = yaml.safe_load(file)
-                        
-                        updated = False
-                        # Search through all levels and projects
-                        if 'levels' in data:
-                            for level in data['levels']:
-                                if 'projects' in level:
-                                    for project in level['projects']:
-                                        if 'gh_issue' in project and str(project['gh_issue']) == str(issue_number):
-                                            project['state'] = "unlocked"
-                                            updated = True
-                                            print(f"✓ Updated project '{project['name']}' in {filename} to 'unlocked'")
-                        
-                        # Save the file if we made changes
-                        if updated:
-                            with open(filepath, 'w') as file:
-                                yaml.dump(data, file, sort_keys=False)
-                    except Exception as e:
-                        print(f"⚠️  Error processing {filename}: {str(e)}")
+        # Remove challenge from kyrax.yaml if it exists
+        try:
+            with open('kyrax.yaml', 'r') as file:
+                data = yaml.safe_load(file)
+            
+            if 'challenges' in data and data['challenges'] is not None:
+                initial_count = len(data['challenges'])
+                data['challenges'] = [ch for ch in data['challenges'] if ch.get('id') != int(issue_number)]
+                
+                if len(data['challenges']) < initial_count:
+                    with open('kyrax.yaml', 'w') as file:
+                        yaml.dump(data, file, sort_keys=False)
+                    print(f"✓ Removed challenge #{issue_number} from kyrax.yaml")
+        except Exception as e:
+            print(f"⚠️  Error updating kyrax.yaml: {str(e)}")
 
-        # Rest of the existing functionality (stats, XP, etc.)
+        # Existing stats update logic
         patterns = {
             'str': re.IGNORECASE, 'dex': re.IGNORECASE, 'const': re.IGNORECASE,
             'int': re.IGNORECASE, 'wis': re.IGNORECASE, 'char': re.IGNORECASE
@@ -166,6 +154,7 @@ def close_issue(issue_number):
             for stat, info in data['stats'].items():
                 print(f"  - {stat.upper()}: {info['value']}")
 
+        # Existing difficulty selection and XP award
         questions = [
             inquirer.List(
                 'difficulty',
@@ -223,7 +212,8 @@ def add_challenge(issue_number):
 
     data = load_yaml_data()
 
-    if 'challenges' not in data:
+    # Initialize challenges as empty list if it doesn't exist or is None
+    if 'challenges' not in data or data['challenges'] is None:
         data['challenges'] = []
 
     if any(challenge['id'] == int(issue_number) for challenge in data['challenges']):
@@ -264,7 +254,6 @@ def add_challenge(issue_number):
     data['challenges'].append(new_challenge)
     save_yaml_data(data)
     print(f"Added challenge #{issue_number}: {new_challenge['title']} (Difficulty: {difficulty}, K={k_factor})")
-
 
 def check_level():
     data = load_yaml_data()
