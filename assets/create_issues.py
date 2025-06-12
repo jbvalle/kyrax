@@ -19,6 +19,22 @@ def get_repo_labels():
         print(f"Error: {e}")
         sys.exit(1)
 
+def create_label_if_not_exists(label_name):
+    existing_labels = get_repo_labels()
+    if label_name not in existing_labels:
+        try:
+            subprocess.run(
+                ["gh", "label", "create", label_name],
+                check=True
+            )
+            print(f"Created new label: {label_name}")
+            return True
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to create label: {label_name}")
+            print(f"Error: {e}")
+            return False
+    return True
+
 def prompt_for_labels(available_labels):
     questions = [
         inquirer.Checkbox(
@@ -77,13 +93,23 @@ for level in data['levels']:
         name = project['name']
         requirements = project['requirements']
 
-        title = f"{name} {stat_suffix}" if stat_suffix else name
+        title = f"{name}. {stat_suffix}" if stat_suffix else name
         body = f"## {name}\n\n**Level {level_num} - {theme}**\n\n### Requirements:\n"
         body += "\n".join([f"- {req}" for req in requirements])
 
         command = ["gh", "issue", "create", "--title", title, "--body", body]
 
-        for label in selected_labels + [f"level {level_num}"]:
+        # Start with the selected labels and level label
+        labels_to_apply = selected_labels.copy() + [f"level {level_num}"]
+        
+        # Check for skill field and add it as a label if present
+        if 'skill' in project:
+            skill_label = f"skill: {project['skill']}"
+            if create_label_if_not_exists(skill_label):
+                labels_to_apply.append(skill_label)
+
+        # Add all labels to the command
+        for label in labels_to_apply:
             command.extend(["--label", label])
 
         try:
@@ -94,4 +120,3 @@ for level in data['levels']:
             print(f"Error: {e}")
 
 print("🎉 All issues processed!")
-
