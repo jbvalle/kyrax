@@ -11,13 +11,13 @@ stats:
     value: 0
     real_world_meaning: Physical power, discipline, lifting PRs
   dex:
-    value: 1
+    value: 0
     real_world_meaning: Hands-on skill (soldering/coding), adaptability
   const:
-    value: 1
+    value: 0
     real_world_meaning: Resilience (workouts, stress management)
   int:
-    value: 1
+    value: 0
     real_world_meaning: Problem-solving (embedded projects, learning)
   wis:
     value: 0
@@ -66,6 +66,16 @@ habit_data:
   value: 75
   compounded_value: 75
   last_executed: '2025-06-11'
+- id: 9
+  name: (Morning) Attend Fajr in Congregation
+  value: 150
+  compounded_value: 150
+  last_executed: '2025-06-13'
+- id: 10
+  name: (Evening) Attend Isha in Congregation
+  value: 130
+  compounded_value: 130
+  last_executed: '2025-06-13'
 challenges:
 - id: 414
   title: Button-controlled LED state machine. dex 1, int 1
