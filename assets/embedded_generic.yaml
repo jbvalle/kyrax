@@ -1,70 +1,10 @@
-# Key Features of This Curriculum:
-# 
-# Progressive Complexity:
-# 
-# Level 1-3: Bare-metal → RTOS
-# 
-# Level 4-6: Connectivity → Real-time → Security
-# 
-# Level 7-9: AI → Advanced SoCs → Future Systems
-# 
-# Balanced Requirements:
-# 
-# Hardware constraints (e.g., "<50μA sleep current")
-# 
-# Performance targets (e.g., "30fps animation")
-# 
-# Implementation specifics (e.g., "AES-GCM encryption")
-# 
-# Modern Focus Areas:
-# 
-# Level 4: 5 wireless technologies (BLE/WiFi/LoRa/Zigbee/NFC)
-# 
-# Level 7: Practical edge AI with TinyML optimizations
-# 
-# Level 9: Quantum-safe crypto and neuromorphic computing
-# 
-# Safety & Reliability:
-# 
-# IEC 62304 (medical)
-# 
-# SIL-2 (industrial)
-# 
-# Fail-safe protocols (drones)
-# 
-# Implementation Notes:
-# 
-# Hardware Scaling:
-# 
-# Levels 1-3: $20 dev boards (STM32, ESP32)
-# 
-# Levels 4-6: $50 kits (sensors, wireless)
-# 
-# Levels 7-9: $200+ platforms (FPGA, multi-core)
-# 
-# Skill Development Path:
-# 
-# Foundational: GPIO, timers, interrupts
-# 
-# Intermediate: RTOS, wireless, control theory
-# 
-# Advanced: Security, AI, heterogeneous computing
-# 
-# Assessment Metrics:
-# 
-# Power consumption measurements
-# 
-# Real-time latency profiling
-# 
-# Security vulnerability testing
-# 
-# Algorithm accuracy benchmarks
 levels:
   - level: 1
     theme: "Microcontroller Fundamentals"
     projects:
       - name: "Blinking LED with GPIO control"
         skill: "Register-level hardware manipulation"
+        state: "unlocked"
         requirements:
           - "Register-level programming (no HAL)"
           - "Variable blink rates via button presses"
@@ -72,6 +12,7 @@ levels:
           
       - name: "Button-controlled LED state machine"
         skill: "Hardware interrupt handling"
+        state: "locked"
         requirements:
           - "Interrupt-based edge detection with debounce"
           - "4-state FSM (Off/Low/Med/High)"
@@ -79,6 +20,7 @@ levels:
 
       - name: "7-segment display counter"
         skill: "Multiplexing and timing control"
+        state: "locked"
         requirements:
           - "GPIO multiplexing without driver IC"
           - "<5ms refresh rate per digit"
@@ -86,6 +28,7 @@ levels:
 
       - name: "Buzzer melody player"
         skill: "PWM signal generation"
+        state: "locked"
         requirements:
           - "PWM musical tone generation"
           - "3-song storage in note-duration arrays"
@@ -93,6 +36,7 @@ levels:
 
       - name: "Potentiometer voltage reader"
         skill: "Analog signal processing"
+        state: "locked"
         requirements:
           - "12-bit ADC with 14-bit ENOB via oversampling"
           - "Real-time moving average filter"
@@ -100,6 +44,7 @@ levels:
 
       - name: "Temperature sensor logger"
         skill: "I2C protocol implementation"
+        state: "locked"
         requirements:
           - "I2C communication with TMP102"
           - "EEPROM circular buffer logging"
@@ -107,6 +52,7 @@ levels:
 
       - name: "Serial console command parser"
         skill: "CLI interface development"
+        state: "locked"
         requirements:
           - "Interrupt-driven UART RX"
           - "5+ command handler"
@@ -114,6 +60,7 @@ levels:
 
       - name: "PWM dimmable LED"
         skill: "Non-linear brightness control"
+        state: "locked"
         requirements:
           - "16-bit resolution PWM"
           - "Gamma-corrected brightness transitions"
@@ -121,6 +68,7 @@ levels:
 
       - name: "Battery voltage monitor"
         skill: "Low-power design"
+        state: "locked"
         requirements:
           - "Voltage divider measurement"
           - "Hysteresis-based low-battery warning"
@@ -128,6 +76,7 @@ levels:
 
       - name: "LED matrix pattern display"
         skill: "Charlieplexing technique"
+        state: "locked"
         requirements:
           - "Charlieplexed 8x8 matrix"
           - "3+ animated patterns"
@@ -135,6 +84,7 @@ levels:
 
       - name: "Watchdog timer implementation"
         skill: "System reliability engineering"
+        state: "locked"
         requirements:
           - "Independent watchdog configuration"
           - "System hang recovery simulation"
@@ -142,6 +92,7 @@ levels:
 
       - name: "Interrupt-driven button handler"
         skill: "Priority-based event handling"
+        state: "locked"
         requirements:
           - "EXTI interrupts for all inputs"
           - "Priority-based queuing"
@@ -149,6 +100,7 @@ levels:
 
       - name: "Sleep mode power saving"
         skill: "Power optimization"
+        state: "locked"
         requirements:
           - "<2μA sleep current"
           - "Multi-source wake (timer/button/UART)"
@@ -156,6 +108,7 @@ levels:
 
       - name: "UART echo server"
         skill: "Serial protocol implementation"
+        state: "locked"
         requirements:
           - "Backspace handling and line editing"
           - "XON/XOFF flow control"
@@ -166,6 +119,7 @@ levels:
     projects:
       - name: "I2C environmental sensor hub"
         skill: "Multi-device bus management"
+        state: "locked"
         requirements:
           - "3+ sensor polling (temp/humidity/pressure)"
           - "Sensor fusion algorithm"
@@ -173,6 +127,7 @@ levels:
           
       - name: "SPI OLED display driver"
         skill: "High-speed serial communication"
+        state: "locked"
         requirements:
           - "Bitmap renderer without libraries"
           - "Double buffering implementation"
@@ -180,6 +135,7 @@ levels:
 
       - name: "Rotary encoder menu system"
         skill: "Human-machine interface design"
+        state: "locked"
         requirements:
           - "Quadrature decoding via interrupts"
           - "3-level nested menu"
@@ -187,6 +143,7 @@ levels:
 
       - name: "Stepper motor controller"
         skill: "Precision motion control"
+        state: "locked"
         requirements:
           - "Microstepping control"
           - "Acceleration/deceleration profiles"
@@ -194,6 +151,7 @@ levels:
 
       - name: "IR remote control decoder"
         skill: "Infrared protocol decoding"
+        state: "locked"
         requirements:
           - "NEC protocol decoding"
           - "Command learning/replay"
@@ -201,6 +159,7 @@ levels:
 
       - name: "Capacitive touch sensor"
         skill: "Analog signal conditioning"
+        state: "locked"
         requirements:
           - "Charge-transfer sensing"
           - "Automatic calibration routine"
@@ -208,6 +167,7 @@ levels:
 
       - name: "Real-time clock scheduler"
         skill: "Time-based automation"
+        state: "locked"
         requirements:
           - "Battery-backed timekeeping"
           - "Time-based task execution"
@@ -215,6 +175,7 @@ levels:
 
       - name: "EEPROM data logger"
         skill: "Non-volatile storage management"
+        state: "locked"
         requirements:
           - "Wear-leveling implementation"
           - "CRC-16 data integrity"
@@ -222,6 +183,7 @@ levels:
 
       - name: "Analog comparator"
         skill: "Threshold detection"
+        state: "locked"
         requirements:
           - "Windowed voltage detection"
           - "Configurable hysteresis"
@@ -229,6 +191,7 @@ levels:
 
       - name: "DAC waveform generator"
         skill: "Analog signal synthesis"
+        state: "locked"
         requirements:
           - "Sine/triangle/square wave output"
           - "1Hz-10kHz frequency range"
@@ -236,6 +199,7 @@ levels:
 
       - name: "LCD character display driver"
         skill: "Parallel interface implementation"
+        state: "locked"
         requirements:
           - "4-bit parallel interface"
           - "5x8 custom character creation"
@@ -243,6 +207,7 @@ levels:
 
       - name: "Hall effect RPM counter"
         skill: "Magnetic sensing"
+        state: "locked"
         requirements:
           - "10,000 RPM measurement"
           - "Angular velocity calculation"
@@ -250,6 +215,7 @@ levels:
 
       - name: "DMA-based ADC sampling"
         skill: "Direct memory access optimization"
+        state: "locked"
         requirements:
           - "100ksps sampling without CPU"
           - "Real-time FFT computation"
@@ -257,6 +223,7 @@ levels:
 
       - name: "RS-485 industrial communication"
         skill: "Robust serial communication"
+        state: "locked"
         requirements:
           - "Half-duplex master/slave protocol"
           - "CRC-16 error detection"
@@ -267,6 +234,7 @@ levels:
     projects:
       - name: "Multi-task LED controller"
         skill: "Real-time task scheduling"
+        state: "locked"
         requirements:
           - "3+ priority-based tasks"
           - "Mutex-protected resource sharing"
@@ -274,6 +242,7 @@ levels:
           
       - name: "Queue-based sensor fusion"
         skill: "Inter-task communication"
+        state: "locked"
         requirements:
           - "Multiple producer tasks"
           - "Single consumer fusion task"
@@ -281,6 +250,7 @@ levels:
 
       - name: "Priority-inversion demo"
         skill: "RTOS anti-pattern resolution"
+        state: "locked"
         requirements:
           - "Create priority inversion scenario"
           - "Implement priority inheritance"
@@ -288,6 +258,7 @@ levels:
 
       - name: "Mutex-protected serial console"
         skill: "Thread-safe resource sharing"
+        state: "locked"
         requirements:
           - "Thread-safe printf implementation"
           - "Command queue with overflow protection"
@@ -295,6 +266,7 @@ levels:
 
       - name: "RTOS-aware power management"
         skill: "Low-power RTOS design"
+        state: "locked"
         requirements:
           - "Tickless idle mode implementation"
           - "Per-task power profiling"
@@ -302,6 +274,7 @@ levels:
 
       - name: "Software timer system"
         skill: "Asynchronous event handling"
+        state: "locked"
         requirements:
           - "Multiple concurrent timers"
           - "Timer callback prioritization"
@@ -309,6 +282,7 @@ levels:
 
       - name: "Task notification LED pattern"
         skill: "Lightweight IPC mechanisms"
+        state: "locked"
         requirements:
           - "IPC via task notifications"
           - "Pattern sequencing without queues"
@@ -316,6 +290,7 @@ levels:
 
       - name: "Heap management analyzer"
         skill: "Memory optimization"
+        state: "locked"
         requirements:
           - "Fragmentation measurement tool"
           - "Allocation failure simulation"
@@ -323,6 +298,7 @@ levels:
 
       - name: "Event-driven state machine"
         skill: "Complex system modeling"
+        state: "locked"
         requirements:
           - "State transitions via event flags"
           - "Timeout-based state transitions"
@@ -330,6 +306,7 @@ levels:
 
       - name: "Dual-core synchronization"
         skill: "Multiprocessor coordination"
+        state: "locked"
         requirements:
           - "Inter-processor communication"
           - "Shared memory with semaphores"
@@ -337,6 +314,7 @@ levels:
 
       - name: "Memory protection unit setup"
         skill: "System hardening"
+        state: "locked"
         requirements:
           - "Privilege-based memory partitioning"
           - "Stack overflow protection"
@@ -344,6 +322,7 @@ levels:
 
       - name: "Critical section benchmark"
         skill: "Performance analysis"
+        state: "locked"
         requirements:
           - "Measure interrupt latency"
           - "Compare mutex vs semaphore performance"
@@ -351,6 +330,7 @@ levels:
 
       - name: "Task-aware watchdog"
         skill: "Fault tolerance"
+        state: "locked"
         requirements:
           - "Per-task liveliness monitoring"
           - "Dead task recovery mechanism"
@@ -358,6 +338,7 @@ levels:
 
       - name: "RTOS trace visualizer"
         skill: "System performance analysis"
+        state: "locked"
         requirements:
           - "Task execution timeline logging"
           - "Context switch counter"
@@ -368,6 +349,7 @@ levels:
     projects:
       - name: "BLE beacon transmitter"
         skill: "Bluetooth Low Energy advertising"
+        state: "locked"
         requirements:
           - "iBeacon format compatibility"
           - "Configurable TX power levels"
@@ -375,6 +357,7 @@ levels:
           
       - name: "WiFi sensor dashboard"
         skill: "Embedded web development"
+        state: "locked"
         requirements:
           - "TCP/IP stack integration"
           - "Web server with dynamic content"
@@ -382,6 +365,7 @@ levels:
 
       - name: "LoRa environmental monitor"
         skill: "Long-range radio communication"
+        state: "locked"
         requirements:
           - "10km+ range communication"
           - "Adaptive data rate algorithm"
@@ -389,6 +373,7 @@ levels:
 
       - name: "NFC access control"
         skill: "Near-field communication"
+        state: "locked"
         requirements:
           - "ISO14443-A card emulation"
           - "Encrypted payload exchange"
@@ -396,6 +381,7 @@ levels:
 
       - name: "Zigbee mesh network node"
         skill: "Mesh networking"
+        state: "locked"
         requirements:
           - "Multi-hop routing implementation"
           - "Network joining procedure"
@@ -403,6 +389,7 @@ levels:
 
       - name: "Infrared data transfer"
         skill: "Optical communication"
+        state: "locked"
         requirements:
           - "IrDA protocol implementation"
           - "115kbps data rate"
@@ -410,6 +397,7 @@ levels:
 
       - name: "MQTT over WiFi"
         skill: "IoT messaging protocols"
+        state: "locked"
         requirements:
           - "TLS-secured connection"
           - "QoS level 2 implementation"
@@ -417,6 +405,7 @@ levels:
 
       - name: "Bluetooth HID keyboard"
         skill: "HID device implementation"
+        state: "locked"
         requirements:
           - "HID report descriptor"
           - "Low-latency key transmission"
@@ -424,6 +413,7 @@ levels:
 
       - name: "OTA firmware update"
         skill: "Remote device management"
+        state: "locked"
         requirements:
           - "AES-encrypted image transfer"
           - "Bootloader integration"
@@ -431,6 +421,7 @@ levels:
 
       - name: "Sub-GHz remote control"
         skill: "RF protocol design"
+        state: "locked"
         requirements:
           - "Frequency hopping implementation"
           - "AES-128 encryption"
@@ -438,6 +429,7 @@ levels:
 
       - name: "BLE glucose monitor simulator"
         skill: "Medical device protocols"
+        state: "locked"
         requirements:
           - "GATT service implementation"
           - "Historical data storage"
@@ -445,6 +437,7 @@ levels:
 
       - name: "WiFi captive portal"
         skill: "Network authentication"
+        state: "locked"
         requirements:
           - "DNS redirection"
           - "Authentication page"
@@ -452,6 +445,7 @@ levels:
 
       - name: "RFID inventory tracker"
         skill: "RFID system integration"
+        state: "locked"
         requirements:
           - "Multi-tag collision handling"
           - "RSSI-based proximity detection"
@@ -459,6 +453,7 @@ levels:
 
       - name: "Wireless DFU bootloader"
         skill: "Secure remote updates"
+        state: "locked"
         requirements:
           - "Fault-tolerant transfer"
           - "Dual-bank firmware switching"
@@ -469,6 +464,7 @@ levels:
     projects:
       - name: "PID motor controller"
         skill: "Closed-loop control systems"
+        state: "locked"
         requirements:
           - "Ziegler-Nichols tuning"
           - "Anti-windup implementation"
@@ -476,6 +472,7 @@ levels:
           
       - name: "Digital filter implementation"
         skill: "Signal processing"
+        state: "locked"
         requirements:
           - "FIR/IIF filter design"
           - "Fixed-point arithmetic"
@@ -483,6 +480,7 @@ levels:
 
       - name: "Reaction time tester"
         skill: "High-precision timing"
+        state: "locked"
         requirements:
           - "Microsecond-precision timing"
           - "Statistical analysis (mean/std dev)"
@@ -490,6 +488,7 @@ levels:
 
       - name: "Audio spectrum analyzer"
         skill: "Spectral analysis"
+        state: "locked"
         requirements:
           - "24-bit audio acquisition"
           - "1024-point FFT"
@@ -497,6 +496,7 @@ levels:
 
       - name: "CAN bus dashboard"
         skill: "Automotive communication"
+        state: "locked"
         requirements:
           - "J1939 protocol implementation"
           - "Fault confinement handling"
@@ -504,6 +504,7 @@ levels:
 
       - name: "Brushless motor FOC"
         skill: "Advanced motor control"
+        state: "locked"
         requirements:
           - "Clarke/Park transforms"
           - "Space Vector PWM"
@@ -511,6 +512,7 @@ levels:
 
       - name: "Power inverter control"
         skill: "Power electronics"
+        state: "locked"
         requirements:
           - "Sinusoidal PWM generation"
           - "Dead-time compensation"
@@ -518,6 +520,7 @@ levels:
 
       - name: "Sensor Kalman filter"
         skill: "State estimation"
+        state: "locked"
         requirements:
           - "6DOF IMU fusion"
           - "Process noise adaptation"
@@ -525,6 +528,7 @@ levels:
 
       - name: "Digital lock-in amplifier"
         skill: "Weak signal detection"
+        state: "locked"
         requirements:
           - "Reference signal correlation"
           - "Phase-sensitive detection"
@@ -532,6 +536,7 @@ levels:
 
       - name: "Robotic arm kinematics"
         skill: "Robotic control systems"
+        state: "locked"
         requirements:
           - "Inverse kinematics solver"
           - "Trajectory planning"
@@ -539,6 +544,7 @@ levels:
 
       - name: "Battery management system"
         skill: "Energy system monitoring"
+        state: "locked"
         requirements:
           - "Coulomb counting"
           - "Cell balancing control"
@@ -546,6 +552,7 @@ levels:
 
       - name: "Precision timer ISRs"
         skill: "Deterministic timing"
+        state: "locked"
         requirements:
           - "Sub-microsecond jitter"
           - "Interrupt chaining"
@@ -553,6 +560,7 @@ levels:
 
       - name: "Control loop stability analysis"
         skill: "System identification"
+        state: "locked"
         requirements:
           - "Bode plot generation"
           - "Phase margin measurement"
@@ -560,6 +568,7 @@ levels:
 
       - name: "Hardware-in-loop simulation"
         skill: "Virtual prototyping"
+        state: "locked"
         requirements:
           - "Real-time plant model"
           - "Fault injection capability"
@@ -570,6 +579,7 @@ levels:
     projects:
       - name: "Secure boot implementation"
         skill: "Chain of trust establishment"
+        state: "locked"
         requirements:
           - "Chain of trust with bootloader"
           - "RSA-2048 signature verification"
@@ -577,6 +587,7 @@ levels:
           
       - name: "AES-256 encryption engine"
         skill: "Cryptographic implementation"
+        state: "locked"
         requirements:
           - "ECB/CBC/CTR modes"
           - "DMA-assisted encryption"
@@ -584,6 +595,7 @@ levels:
 
       - name: "TLS/DTLS client"
         skill: "Secure network protocols"
+        state: "locked"
         requirements:
           - "mbedTLS integration"
           - "Certificate validation"
@@ -591,6 +603,7 @@ levels:
 
       - name: "Side-channel attack demo"
         skill: "Security vulnerability analysis"
+        state: "locked"
         requirements:
           - "Power analysis setup"
           - "Simple power analysis (SPA)"
@@ -598,6 +611,7 @@ levels:
 
       - name: "Secure OTA update"
         skill: "Cryptographic verification"
+        state: "locked"
         requirements:
           - "Dual-image swap mechanism"
           - "Ed25519 signature verification"
@@ -605,6 +619,7 @@ levels:
 
       - name: "TrustZone isolation"
         skill: "Hardware security partitioning"
+        state: "locked"
         requirements:
           - "Secure/non-secure memory partitioning"
           - "Secure gateway implementation"
@@ -612,6 +627,7 @@ levels:
 
       - name: "Cryptographic signature"
         skill: "Asymmetric cryptography"
+        state: "locked"
         requirements:
           - "ECDSA implementation"
           - "Hardware key storage"
@@ -619,6 +635,7 @@ levels:
 
       - name: "Secure key storage"
         skill: "Key management"
+        state: "locked"
         requirements:
           - "Anti-tamper response"
           - "Key wrapping with KEK"
@@ -626,6 +643,7 @@ levels:
 
       - name: "Firmware checksum"
         skill: "Integrity verification"
+        state: "locked"
         requirements:
           - "Runtime integrity checking"
           - "Tamper-evident logging"
@@ -633,6 +651,7 @@ levels:
 
       - name: "Intrusion detection"
         skill: "Anomaly detection"
+        state: "locked"
         requirements:
           - "Anomaly detection heuristics"
           - "Secure alarm notification"
@@ -640,6 +659,7 @@ levels:
 
       - name: "Secure debug port"
         skill: "Access control implementation"
+        state: "locked"
         requirements:
           - "Authentication challenge"
           - "Access control levels"
@@ -647,6 +667,7 @@ levels:
 
       - name: "Encrypted EEPROM"
         skill: "Data-at-rest protection"
+        state: "locked"
         requirements:
           - "AES-GCM mode encryption"
           - "Authentication tags"
@@ -654,6 +675,7 @@ levels:
 
       - name: "Secure device pairing"
         skill: "Authentication protocols"
+        state: "locked"
         requirements:
           - "Diffie-Hellman key exchange"
           - "Out-of-band verification"
@@ -661,6 +683,7 @@ levels:
 
       - name: "Memory dump protection"
         skill: "Runtime memory protection"
+        state: "locked"
         requirements:
           - "Address space layout randomization"
           - "Execute-only memory regions"
@@ -671,6 +694,7 @@ levels:
     projects:
       - name: "TinyML voice recognition"
         skill: "Embedded machine learning"
+        state: "locked"
         requirements:
           - "<50ms inference latency"
           - "INT8 quantized model"
@@ -678,6 +702,7 @@ levels:
           
       - name: "Image classification"
         skill: "Computer vision implementation"
+        state: "locked"
         requirements:
           - "CNN model <100KB"
           - "10fps inference rate"
@@ -685,6 +710,7 @@ levels:
 
       - name: "Neural network accelerator"
         skill: "ML performance optimization"
+        state: "locked"
         requirements:
           - "CMSIS-NN implementation"
           - "Layer fusion optimization"
@@ -692,6 +718,7 @@ levels:
 
       - name: "Computer vision pipeline"
         skill: "Real-time image processing"
+        state: "locked"
         requirements:
           - "OV7670 camera interface"
           - "Object detection with tracking"
@@ -699,6 +726,7 @@ levels:
 
       - name: "Sensor anomaly detection"
         skill: "Unsupervised learning"
+        state: "locked"
         requirements:
           - "Autoencoder architecture"
           - "Unsupervised learning"
@@ -706,6 +734,7 @@ levels:
 
       - name: "Gesture recognition"
         skill: "Motion pattern recognition"
+        state: "locked"
         requirements:
           - "IMU data preprocessing"
           - "DTW algorithm implementation"
@@ -713,6 +742,7 @@ levels:
 
       - name: "Keyword spotting"
         skill: "Audio pattern recognition"
+        state: "locked"
         requirements:
           - "MFCC feature extraction"
           - "Wake-word detection"
@@ -720,6 +750,7 @@ levels:
 
       - name: "Person detection"
         skill: "Object detection"
+        state: "locked"
         requirements:
           - "Mobilenet-SSD model"
           - "Bounding box output"
@@ -727,6 +758,7 @@ levels:
 
       - name: "Low-power wake word"
         skill: "Always-on AI"
+        state: "locked"
         requirements:
           - "<100μW sleep power"
           - "Always-on audio processing"
@@ -734,6 +766,7 @@ levels:
 
       - name: "Optical flow tracker"
         skill: "Motion estimation"
+        state: "locked"
         requirements:
           - "Lucas-Kanade implementation"
           - "Feature point selection"
@@ -741,6 +774,7 @@ levels:
 
       - name: "AI-based predictive maintenance"
         skill: "Condition monitoring"
+        state: "locked"
         requirements:
           - "Vibration analysis"
           - "Remaining useful life estimation"
@@ -748,6 +782,7 @@ levels:
 
       - name: "Camera streaming server"
         skill: "Embedded video processing"
+        state: "locked"
         requirements:
           - "MJPEG over HTTP"
           - "Adaptive quality control"
@@ -755,6 +790,7 @@ levels:
 
       - name: "Embedded model quantization"
         skill: "ML model optimization"
+        state: "locked"
         requirements:
           - "Post-training quantization"
           - "Accuracy/efficiency tradeoff analysis"
@@ -762,6 +798,7 @@ levels:
 
       - name: "Sensor fusion with ML"
         skill: "Multi-modal learning"
+        state: "locked"
         requirements:
           - "Multi-modal data alignment"
           - "Attention mechanism"
@@ -772,6 +809,7 @@ levels:
     projects:
       - name: "Heterogeneous multi-core"
         skill: "Asymmetric processing"
+        state: "locked"
         requirements:
           - "AMP architecture"
           - "Inter-processor communication"
@@ -779,6 +817,7 @@ levels:
           
       - name: "FPGA co-processing"
         skill: "Hardware acceleration"
+        state: "locked"
         requirements:
           - "Verilog accelerator design"
           - "AXI bus interfacing"
@@ -786,6 +825,7 @@ levels:
 
       - name: "Real-time Linux (PREEMPT_RT)"
         skill: "Linux real-time extensions"
+        state: "locked"
         requirements:
           - "Kernel patching and building"
           - "<100μs scheduling latency"
@@ -793,6 +833,7 @@ levels:
 
       - name: "PCIe communication"
         skill: "High-speed interconnect"
+        state: "locked"
         requirements:
           - "DMA transfers"
           - "MSI interrupt handling"
@@ -800,6 +841,7 @@ levels:
 
       - name: "USB device stack"
         skill: "USB protocol implementation"
+        state: "locked"
         requirements:
           - "Composite device implementation"
           - "High-speed (480Mbps) operation"
@@ -807,6 +849,7 @@ levels:
 
       - name: "Gigabit Ethernet"
         skill: "High-speed networking"
+        state: "locked"
         requirements:
           - "LwIP integration"
           - "TCP offloading"
@@ -814,6 +857,7 @@ levels:
 
       - name: "High-speed data acquisition"
         skill: "Signal acquisition"
+        state: "locked"
         requirements:
           - "100MS/s sampling rate"
           - "JESD204B interface"
@@ -821,6 +865,7 @@ levels:
 
       - name: "GPU acceleration"
         skill: "Parallel computing"
+        state: "locked"
         requirements:
           - "OpenCL kernel development"
           - "Memory transfer optimization"
@@ -828,6 +873,7 @@ levels:
 
       - name: "Distributed sensor network"
         skill: "Decentralized systems"
+        state: "locked"
         requirements:
           - "Time synchronization protocol"
           - "Decentralized data fusion"
@@ -835,6 +881,7 @@ levels:
 
       - name: "Time-sensitive networking"
         skill: "Deterministic networking"
+        state: "locked"
         requirements:
           - "IEEE 802.1Qbv scheduling"
           - "Frame preemption"
@@ -842,6 +889,7 @@ levels:
 
       - name: "Embedded hypervisor"
         skill: "Virtualization technology"
+        state: "locked"
         requirements:
           - "Type-1 hypervisor implementation"
           - "Virtual device emulation"
@@ -849,6 +897,7 @@ levels:
 
       - name: "Secure enclave"
         skill: "Trusted execution"
+        state: "locked"
         requirements:
           - "Trusted execution environment"
           - "Remote attestation"
@@ -856,6 +905,7 @@ levels:
 
       - name: "ASIC prototype"
         skill: "Hardware design"
+        state: "locked"
         requirements:
           - "RTL design"
           - "FPGA emulation"
@@ -863,6 +913,7 @@ levels:
 
       - name: "RISC-V custom ISA"
         skill: "Processor architecture"
+        state: "locked"
         requirements:
           - "Extension design"
           - "LLVM toolchain modification"
@@ -873,6 +924,7 @@ levels:
     projects:
       - name: "Autonomous drone navigation"
         skill: "Robotic autonomy"
+        state: "locked"
         requirements:
           - "SLAM implementation"
           - "Obstacle avoidance"
@@ -880,6 +932,7 @@ levels:
           
       - name: "Medical device simulator"
         skill: "Medical systems development"
+        state: "locked"
         requirements:
           - "IEC 62304 compliance"
           - "Fault tree analysis"
@@ -887,6 +940,7 @@ levels:
 
       - name: "Industrial PLC controller"
         skill: "Industrial automation"
+        state: "locked"
         requirements:
           - "IEC 61131-3 support"
           - "Redundant I/O handling"
@@ -894,6 +948,7 @@ levels:
 
       - name: "Satellite communication"
         skill: "Space systems engineering"
+        state: "locked"
         requirements:
           - "LoRa satellite modem"
           - "Orbit prediction algorithm"
@@ -901,6 +956,7 @@ levels:
 
       - name: "Quantum-safe cryptography"
         skill: "Post-quantum security"
+        state: "locked"
         requirements:
           - "Kyber key encapsulation"
           - "Dilithium signatures"
@@ -908,6 +964,7 @@ levels:
 
       - name: "Neuromorphic computing"
         skill: "Brain-inspired computing"
+        state: "locked"
         requirements:
           - "Spiking neural network"
           - "Event-based processing"
@@ -915,6 +972,7 @@ levels:
 
       - name: "Self-calibrating sensor"
         skill: "Autonomous calibration"
+        state: "locked"
         requirements:
           - "Auto-zeroing technique"
           - "Temperature drift compensation"
@@ -922,6 +980,7 @@ levels:
 
       - name: "Predictive failure system"
         skill: "Condition-based maintenance"
+        state: "locked"
         requirements:
           - "Anomaly detection"
           - "Remaining useful life estimation"
@@ -929,6 +988,7 @@ levels:
 
       - name: "Embedded blockchain"
         skill: "Distributed ledger technology"
+        state: "locked"
         requirements:
           - "Light node implementation"
           - "Merkle proof verification"
@@ -936,6 +996,7 @@ levels:
 
       - name: "Wireless power control"
         skill: "Energy transfer optimization"
+        state: "locked"
         requirements:
           - "Resonant frequency tracking"
           - "Foreign object detection"
@@ -943,6 +1004,7 @@ levels:
 
       - name: "Cellular IoT tracker"
         skill: "Wide-area IoT"
+        state: "locked"
         requirements:
           - "NB-IoT connectivity"
           - "Geofencing alerts"
@@ -950,6 +1012,7 @@ levels:
 
       - name: "AR HUD prototype"
         skill: "Augmented reality systems"
+        state: "locked"
         requirements:
           - "Pose estimation"
           - "Optical combiner design"
@@ -957,6 +1020,7 @@ levels:
 
       - name: "Digital twin interface"
         skill: "Cyber-physical systems"
+        state: "locked"
         requirements:
           - "Real-time synchronization"
           - "Physics-based simulation"
@@ -964,7 +1028,26 @@ levels:
 
       - name: "Self-healing firmware"
         skill: "Autonomous recovery"
+        state: "locked"
         requirements:
           - "Runtime assertion checking"
           - "Automated patching"
           - "Behavioral fingerprinting"
+  - level: 10
+    theme: "Cutting-Edge Systems"
+    projects:
+      - name: "Autonomous drone navigation"
+        skill: "Robotic autonomy"
+        state: "locked"
+        requirements:
+          - "SLAM implementation"
+          - "Obstacle avoidance"
+          - "Fail-safe RTH protocol"
+          
+      - name: "Medical device simulator"
+        skill: "Medical systems development"
+        state: "locked"
+        requirements:
+          - "IEC 62304 compliance"
+          - "Fault tree analysis"
+          - "Clinical scenario modeling"

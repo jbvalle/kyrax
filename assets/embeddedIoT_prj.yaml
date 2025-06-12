@@ -8,6 +8,7 @@ levels:
           - "Transmit data to MQTT broker every 30s"
           - "Deep sleep between readings (<10μA)"
         skill: "IoT Sensor Integration & Power Management"
+        state: "locked"
 
       - name: "BLE Proximity Beacon"
         requirements:
@@ -15,6 +16,7 @@ levels:
           - "Adjust transmission power based on RSSI"
           - "Coin cell battery operation (6+ month lifespan)"
         skill: "Bluetooth Low Energy Optimization"
+        state: "locked"
 
       - name: "Cloud-connected Button"
         requirements:
@@ -22,6 +24,7 @@ levels:
           - "Visual feedback using RGB LED"
           - "Debounce with interrupt handling"
         skill: "Cloud API Integration & UX Design"
+        state: "locked"
 
       - name: "LED Stripe Controller"
         requirements:
@@ -29,6 +32,7 @@ levels:
           - "Web-based color picker interface"
           - "Gamma correction for linear brightness"
         skill: "PWM Control & Web Interface Development"
+        state: "locked"
 
   - level: 2
     theme: "Data Handling & Actuation"
@@ -39,6 +43,7 @@ levels:
           - "Water flow control with solenoid valves"
           - "Adaptive scheduling based on weather forecast API"
         skill: "Automated Control Systems & API Integration"
+        state: "locked"
 
       - name: "Energy Monitor"
         requirements:
@@ -46,6 +51,7 @@ levels:
           - "Calculate real power consumption"
           - "Local OLED display + cloud streaming"
         skill: "Energy Measurement & Data Visualization"
+        state: "locked"
 
       - name: "Motorized Window Controller"
         requirements:
@@ -53,6 +59,7 @@ levels:
           - "End-stop detection with limit switches"
           - "Light/rain sensor-based automation"
         skill: "Precision Motor Control & Environmental Automation"
+        state: "locked"
 
       - name: "Voice-controlled Outlet"
         requirements:
@@ -60,6 +67,7 @@ levels:
           - "Relay control with zero-cross detection"
           - "Safety timeout (auto-off after 4hrs)"
         skill: "Voice Interface Design & Electrical Safety"
+        state: "locked"
 
   - level: 3
     theme: "Wireless Protocols"
@@ -70,6 +78,7 @@ levels:
           - "Multi-hop data routing"
           - "Battery reporting to coordinator"
         skill: "Mesh Networking & Power-Aware Routing"
+        state: "locked"
 
       - name: "LoRaWAN Field Monitor"
         requirements:
@@ -77,6 +86,7 @@ levels:
           - "Adaptive Data Rate (ADR) implementation"
           - "GPS position tagging"
         skill: "Long-Range Wireless Communication & Geolocation"
+        state: "locked"
 
       - name: "NFC Access System"
         requirements:
@@ -84,6 +94,7 @@ levels:
           - "Encrypted credential storage"
           - "Audit log to SD card"
         skill: "Contactless Security Systems & Data Encryption"
+        state: "locked"
 
       - name: "Sub-GHz Remote Control"
         requirements:
@@ -91,6 +102,7 @@ levels:
           - "AES-128 encrypted commands"
           - "<100ms end-to-end latency"
         skill: "RF Protocol Design & Low-Latency Systems"
+        state: "locked"
 
   - level: 4
     theme: "Edge Processing"
@@ -101,6 +113,7 @@ levels:
           - "Anomaly detection using ML model"
           - "Early warning cloud alerts"
         skill: "Signal Processing & Predictive Analytics"
+        state: "locked"
 
       - name: "Voice Assistant Interface"
         requirements:
@@ -108,6 +121,7 @@ levels:
           - "Command parsing without cloud"
           - "Context-aware response generation"
         skill: "Edge AI & Natural Language Processing"
+        state: "locked"
 
       - name: "Video Doorbell"
         requirements:
@@ -115,6 +129,7 @@ levels:
           - "Face detection using CNN accelerator"
           - "Local buffering during network outage"
         skill: "Computer Vision & Offline-First Design"
+        state: "locked"
 
       - name: "Smart Energy Router"
         requirements:
@@ -122,6 +137,7 @@ levels:
           - "Peak shaving control logic"
           - "Grid frequency monitoring"
         skill: "Energy Management Algorithms"
+        state: "locked"
 
   - level: 5
     theme: "Security & OTA"
@@ -132,6 +148,7 @@ levels:
           - "ECDSA signature verification"
           - "Encrypted firmware packages"
         skill: "Secure Update Architectures"
+        state: "locked"
 
       - name: "IoT Device Hardening"
         requirements:
@@ -139,6 +156,7 @@ levels:
           - "Runtime attestation to cloud"
           - "Tamper detection with wipe"
         skill: "Device Security & Anti-Tampering Measures"
+        state: "locked"
 
       - name: "Zero-Touch Provisioning"
         requirements:
@@ -146,6 +164,7 @@ levels:
           - "Cloud configuration sync"
           - "Factory reset protection"
         skill: "Device Lifecycle Management"
+        state: "locked"
 
       - name: "Encrypted Edge Storage"
         requirements:
@@ -153,6 +172,7 @@ levels:
           - "Key management using TPM"
           - "Secure erase functionality"
         skill: "Data-at-Rest Protection"
+        state: "locked"
 
   - level: 6
     theme: "Hybrid Networks"
@@ -163,6 +183,7 @@ levels:
           - "Data plan usage monitoring"
           - "Seamless MQTT session migration"
         skill: "Multi-Network Management"
+        state: "locked"
 
       - name: "Bluetooth Mesh Gateway"
         requirements:
@@ -170,6 +191,7 @@ levels:
           - "Cloud-to-mesh bridging"
           - "Group address management"
         skill: "Protocol Translation & Bridging"
+        state: "locked"
 
       - name: "Satellite IoT Messenger"
         requirements:
@@ -177,6 +199,7 @@ levels:
           - "Solar-powered operation"
           - "Message queuing during outages"
         skill: "Satellite Communication & Offgrid Design"
+        state: "locked"
 
       - name: "LPWAN Gateway"
         requirements:
@@ -184,6 +207,7 @@ levels:
           - "Protocol translation to MQTT"
           - "Local data caching"
         skill: "Gateway Architecture & Data Aggregation"
+        state: "locked"
 
   - level: 7
     theme: "AI at Edge"
@@ -194,6 +218,7 @@ levels:
           - "Motion-triggered capture"
           - "Battery-optimized inference"
         skill: "Edge AI & Wildlife Monitoring"
+        state: "locked"
 
       - name: "Industrial Anomaly Detection"
         requirements:
@@ -201,6 +226,7 @@ levels:
           - "Multi-sensor fusion"
           - "Edge-to-cloud model updates"
         skill: "Industrial IoT & Predictive Maintenance"
+        state: "locked"
 
       - name: "Gesture Control System"
         requirements:
@@ -208,6 +234,7 @@ levels:
           - "3D gesture recognition"
           - "<50ms response latency"
         skill: "Radar Processing & Real-time Gesture AI"
+        state: "locked"
 
       - name: "Predictive HVAC"
         requirements:
@@ -215,6 +242,7 @@ levels:
           - "Occupancy pattern learning"
           - "Energy optimization algorithm"
         skill: "Smart Building Automation"
+        state: "locked"
 
   - level: 8
     theme: "Distributed Systems"
@@ -225,6 +253,7 @@ levels:
           - "Service mesh for microservices"
           - "Distributed inference pipeline"
         skill: "Edge Orchestration & Distributed Computing"
+        state: "locked"
 
       - name: "Blockchain IoT Integrator"
         requirements:
@@ -232,6 +261,7 @@ levels:
           - "Sensor data anchoring"
           - "Smart contract interaction"
         skill: "Blockchain for IoT & Data Provenance"
+        state: "locked"
 
       - name: "Federated Learning System"
         requirements:
@@ -239,6 +269,7 @@ levels:
           - "Secure parameter aggregation"
           - "Convergence monitoring"
         skill: "Privacy-Preserving Machine Learning"
+        state: "locked"
 
       - name: "Fault-Tolerant Controller"
         requirements:
@@ -246,6 +277,7 @@ levels:
           - "Automated failover"
           - "State synchronization"
         skill: "High-Availability Systems Design"
+        state: "locked"
 
   - level: 9
     theme: "Cutting-Edge IoT"
@@ -256,6 +288,7 @@ levels:
           - "Bidirectional cloud-device sync"
           - "Predictive what-if analysis"
         skill: "Digital Twin Implementation & Simulation"
+        state: "locked"
 
       - name: "Autonomous Drone Swarm"
         requirements:
@@ -263,6 +296,7 @@ levels:
           - "Collision avoidance"
           - "Mesh communication network"
         skill: "Swarm Intelligence & Autonomous Systems"
+        state: "locked"
 
       - name: "Quantum-Resistant Security"
         requirements:
@@ -270,6 +304,7 @@ levels:
           - "Dilithium signatures"
           - "Hybrid classical-PQC handshake"
         skill: "Post-Quantum Cryptography"
+        state: "locked"
 
       - name: "AR Maintenance Assistant"
         requirements:
@@ -277,3 +312,5 @@ levels:
           - "Overlay procedural guidance"
           - "Hands-free voice interaction"
         skill: "Augmented Reality for Industrial Applications"
+        state: "locked"
+

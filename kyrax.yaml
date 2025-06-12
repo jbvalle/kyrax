@@ -88,5 +88,5 @@ challenges:
   - level 1
   - 'skill: Hardware interrupt handling'
   start_date: '2025-06-12'
-  difficulty: hard
-  k_factor: 3
+  difficulty: medium
+  k_factor: 5
