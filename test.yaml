@@ -1,0 +1,121 @@
+levels:
+  - level: 1
+    theme: "Microcontroller Fundamentals"
+    projects:
+      - name: "Blinking LED with GPIO control"
+        skill: "Register-level hardware manipulation"
+        state: "locked"
+        requirements:
+          - "Register-level programming (no HAL)"
+          - "Variable blink rates via button presses"
+          - "Cycle-counted delays for precise timing"
+          
+      - name: "Button-controlled LED state machine"
+        skill: "Hardware interrupt handling"
+        state: "locked"
+        requirements:
+          - "Interrupt-based edge detection with debounce"
+          - "4-state FSM (Off/Low/Med/High)"
+          - "Long-press/short-press differentiation"
+
+      - name: "7-segment display counter"
+        skill: "Multiplexing and timing control"
+        state: "locked"
+        requirements:
+          - "GPIO multiplexing without driver IC"
+          - "<5ms refresh rate per digit"
+          - "Increment/decrement with rollover"
+
+      - name: "Buzzer melody player"
+        skill: "PWM signal generation"
+        state: "locked"
+        requirements:
+          - "PWM musical tone generation"
+          - "3-song storage in note-duration arrays"
+          - "Duty cycle-based volume control"
+
+      - name: "Potentiometer voltage reader"
+        skill: "Analog signal processing"
+        state: "locked"
+        requirements:
+          - "12-bit ADC with 14-bit ENOB via oversampling"
+          - "Real-time moving average filter"
+          - "Serial plotter visualization"
+
+  - level: 2
+    theme: "Peripheral Integration"
+    projects:
+      - name: "I2C environmental sensor hub"
+        skill: "Multi-device bus management"
+        state: "locked"
+        requirements:
+          - "3+ sensor polling (temp/humidity/pressure)"
+          - "Sensor fusion algorithm"
+          - "Bus arbitration failure handling"
+          
+      - name: "SPI OLED display driver"
+        skill: "High-speed serial communication"
+        state: "locked"
+        requirements:
+          - "Bitmap renderer without libraries"
+          - "Double buffering implementation"
+          - "30fps animation rate"
+
+      - name: "Rotary encoder menu system"
+        skill: "Human-machine interface design"
+        state: "locked"
+        requirements:
+          - "Quadrature decoding via interrupts"
+          - "3-level nested menu"
+          - "Selection haptic feedback"
+
+      - name: "Stepper motor controller"
+        skill: "Precision motion control"
+        state: "locked"
+        requirements:
+          - "Microstepping control"
+          - "Acceleration/deceleration profiles"
+          - "Position tracking with error correction"
+
+  - level: 3
+    theme: "RTOS Foundations"
+    projects:
+      - name: "Multi-task LED controller"
+        skill: "Real-time task scheduling"
+        state: "locked"
+        requirements:
+          - "3+ priority-based tasks"
+          - "Mutex-protected resource sharing"
+          - "CPU usage monitoring"
+          
+      - name: "Queue-based sensor fusion"
+        skill: "Inter-task communication"
+        state: "locked"
+        requirements:
+          - "Multiple producer tasks"
+          - "Single consumer fusion task"
+          - "Time-stamped data synchronization"
+
+      - name: "Priority-inversion demo"
+        skill: "RTOS anti-pattern resolution"
+        state: "locked"
+        requirements:
+          - "Create priority inversion scenario"
+          - "Implement priority inheritance"
+          - "Measure latency improvements"
+
+      - name: "Mutex-protected serial console"
+        skill: "Thread-safe resource sharing"
+        state: "locked"
+        requirements:
+          - "Thread-safe printf implementation"
+          - "Command queue with overflow protection"
+          - "Timeout handling for resource access"
+
+  - level: 4
+    theme: "Wireless Connectivity"
+    projects:
+      - name: "BLE beacon transmitter"
+        skill: "Bluetooth Low Energy advertising"
+        state: "locked"
+        requirements
