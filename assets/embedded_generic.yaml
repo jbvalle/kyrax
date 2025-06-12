@@ -1,1053 +1,1036 @@
 levels:
-  - level: 1
-    theme: "Microcontroller Fundamentals"
-    projects:
-      - name: "Blinking LED with GPIO control"
-        skill: "Register-level hardware manipulation"
-        state: "unlocked"
-        requirements:
-          - "Register-level programming (no HAL)"
-          - "Variable blink rates via button presses"
-          - "Cycle-counted delays for precise timing"
-          
-      - name: "Button-controlled LED state machine"
-        skill: "Hardware interrupt handling"
-        state: "locked"
-        requirements:
-          - "Interrupt-based edge detection with debounce"
-          - "4-state FSM (Off/Low/Med/High)"
-          - "Long-press/short-press differentiation"
-
-      - name: "7-segment display counter"
-        skill: "Multiplexing and timing control"
-        state: "locked"
-        requirements:
-          - "GPIO multiplexing without driver IC"
-          - "<5ms refresh rate per digit"
-          - "Increment/decrement with rollover"
-
-      - name: "Buzzer melody player"
-        skill: "PWM signal generation"
-        state: "locked"
-        requirements:
-          - "PWM musical tone generation"
-          - "3-song storage in note-duration arrays"
-          - "Duty cycle-based volume control"
-
-      - name: "Potentiometer voltage reader"
-        skill: "Analog signal processing"
-        state: "locked"
-        requirements:
-          - "12-bit ADC with 14-bit ENOB via oversampling"
-          - "Real-time moving average filter"
-          - "Serial plotter visualization"
-
-      - name: "Temperature sensor logger"
-        skill: "I2C protocol implementation"
-        state: "locked"
-        requirements:
-          - "I2C communication with TMP102"
-          - "EEPROM circular buffer logging"
-          - "UART statistics reporting (min/max/avg)"
-
-      - name: "Serial console command parser"
-        skill: "CLI interface development"
-        state: "locked"
-        requirements:
-          - "Interrupt-driven UART RX"
-          - "5+ command handler"
-          - "Error feedback for invalid inputs"
-
-      - name: "PWM dimmable LED"
-        skill: "Non-linear brightness control"
-        state: "locked"
-        requirements:
-          - "16-bit resolution PWM"
-          - "Gamma-corrected brightness transitions"
-          - "Analog/serial control interface"
-
-      - name: "Battery voltage monitor"
-        skill: "Low-power design"
-        state: "locked"
-        requirements:
-          - "Voltage divider measurement"
-          - "Hysteresis-based low-battery warning"
-          - "<50μA sleep current"
-
-      - name: "LED matrix pattern display"
-        skill: "Charlieplexing technique"
-        state: "locked"
-        requirements:
-          - "Charlieplexed 8x8 matrix"
-          - "3+ animated patterns"
-          - "Brightness persistence control"
-
-      - name: "Watchdog timer implementation"
-        skill: "System reliability engineering"
-        state: "locked"
-        requirements:
-          - "Independent watchdog configuration"
-          - "System hang recovery simulation"
-          - "Non-volatile event logging"
-
-      - name: "Interrupt-driven button handler"
-        skill: "Priority-based event handling"
-        state: "locked"
-        requirements:
-          - "EXTI interrupts for all inputs"
-          - "Priority-based queuing"
-          - "Multi-button press handling"
-
-      - name: "Sleep mode power saving"
-        skill: "Power optimization"
-        state: "locked"
-        requirements:
-          - "<2μA sleep current"
-          - "Multi-source wake (timer/button/UART)"
-          - "Power savings measurement"
-
-      - name: "UART echo server"
-        skill: "Serial protocol implementation"
-        state: "locked"
-        requirements:
-          - "Backspace handling and line editing"
-          - "XON/XOFF flow control"
-          - "Escape sequence processing"
-
-  - level: 2
-    theme: "Peripheral Integration"
-    projects:
-      - name: "I2C environmental sensor hub"
-        skill: "Multi-device bus management"
-        state: "locked"
-        requirements:
-          - "3+ sensor polling (temp/humidity/pressure)"
-          - "Sensor fusion algorithm"
-          - "Bus arbitration failure handling"
-          
-      - name: "SPI OLED display driver"
-        skill: "High-speed serial communication"
-        state: "locked"
-        requirements:
-          - "Bitmap renderer without libraries"
-          - "Double buffering implementation"
-          - "30fps animation rate"
-
-      - name: "Rotary encoder menu system"
-        skill: "Human-machine interface design"
-        state: "locked"
-        requirements:
-          - "Quadrature decoding via interrupts"
-          - "3-level nested menu"
-          - "Selection haptic feedback"
-
-      - name: "Stepper motor controller"
-        skill: "Precision motion control"
-        state: "locked"
-        requirements:
-          - "Microstepping control"
-          - "Acceleration/deceleration profiles"
-          - "Position tracking with error correction"
-
-      - name: "IR remote control decoder"
-        skill: "Infrared protocol decoding"
-        state: "locked"
-        requirements:
-          - "NEC protocol decoding"
-          - "Command learning/replay"
-          - "Collision detection"
-
-      - name: "Capacitive touch sensor"
-        skill: "Analog signal conditioning"
-        state: "locked"
-        requirements:
-          - "Charge-transfer sensing"
-          - "Automatic calibration routine"
-          - "Adjustable proximity detection"
-
-      - name: "Real-time clock scheduler"
-        skill: "Time-based automation"
-        state: "locked"
-        requirements:
-          - "Battery-backed timekeeping"
-          - "Time-based task execution"
-          - "Daylight saving time handling"
-
-      - name: "EEPROM data logger"
-        skill: "Non-volatile storage management"
-        state: "locked"
-        requirements:
-          - "Wear-leveling implementation"
-          - "CRC-16 data integrity"
-          - "Delta compression storage"
-
-      - name: "Analog comparator"
-        skill: "Threshold detection"
-        state: "locked"
-        requirements:
-          - "Windowed voltage detection"
-          - "Configurable hysteresis"
-          - "ADC trigger on threshold"
-
-      - name: "DAC waveform generator"
-        skill: "Analog signal synthesis"
-        state: "locked"
-        requirements:
-          - "Sine/triangle/square wave output"
-          - "1Hz-10kHz frequency range"
-          - "DMA-based smooth output"
-
-      - name: "LCD character display driver"
-        skill: "Parallel interface implementation"
-        state: "locked"
-        requirements:
-          - "4-bit parallel interface"
-          - "5x8 custom character creation"
-          - "Variable-speed text scrolling"
-
-      - name: "Hall effect RPM counter"
-        skill: "Magnetic sensing"
-        state: "locked"
-        requirements:
-          - "10,000 RPM measurement"
-          - "Angular velocity calculation"
-          - "Rotation direction detection"
-
-      - name: "DMA-based ADC sampling"
-        skill: "Direct memory access optimization"
-        state: "locked"
-        requirements:
-          - "100ksps sampling without CPU"
-          - "Real-time FFT computation"
-          - "Trigger-based acquisition"
-
-      - name: "RS-485 industrial communication"
-        skill: "Robust serial communication"
-        state: "locked"
-        requirements:
-          - "Half-duplex master/slave protocol"
-          - "CRC-16 error detection"
-          - "Auto-direction control"
-
-  - level: 3
-    theme: "RTOS Foundations"
-    projects:
-      - name: "Multi-task LED controller"
-        skill: "Real-time task scheduling"
-        state: "locked"
-        requirements:
-          - "3+ priority-based tasks"
-          - "Mutex-protected resource sharing"
-          - "CPU usage monitoring"
-          
-      - name: "Queue-based sensor fusion"
-        skill: "Inter-task communication"
-        state: "locked"
-        requirements:
-          - "Multiple producer tasks"
-          - "Single consumer fusion task"
-          - "Time-stamped data synchronization"
-
-      - name: "Priority-inversion demo"
-        skill: "RTOS anti-pattern resolution"
-        state: "locked"
-        requirements:
-          - "Create priority inversion scenario"
-          - "Implement priority inheritance"
-          - "Measure latency improvements"
-
-      - name: "Mutex-protected serial console"
-        skill: "Thread-safe resource sharing"
-        state: "locked"
-        requirements:
-          - "Thread-safe printf implementation"
-          - "Command queue with overflow protection"
-          - "Timeout handling for resource access"
-
-      - name: "RTOS-aware power management"
-        skill: "Low-power RTOS design"
-        state: "locked"
-        requirements:
-          - "Tickless idle mode implementation"
-          - "Per-task power profiling"
-          - "Dynamic frequency scaling"
-
-      - name: "Software timer system"
-        skill: "Asynchronous event handling"
-        state: "locked"
-        requirements:
-          - "Multiple concurrent timers"
-          - "Timer callback prioritization"
-          - "One-shot/periodic mode support"
-
-      - name: "Task notification LED pattern"
-        skill: "Lightweight IPC mechanisms"
-        state: "locked"
-        requirements:
-          - "IPC via task notifications"
-          - "Pattern sequencing without queues"
-          - "Notification value masking"
-
-      - name: "Heap management analyzer"
-        skill: "Memory optimization"
-        state: "locked"
-        requirements:
-          - "Fragmentation measurement tool"
-          - "Allocation failure simulation"
-          - "Alternative allocator comparison"
-
-      - name: "Event-driven state machine"
-        skill: "Complex system modeling"
-        state: "locked"
-        requirements:
-          - "State transitions via event flags"
-          - "Timeout-based state transitions"
-          - "State history logging"
-
-      - name: "Dual-core synchronization"
-        skill: "Multiprocessor coordination"
-        state: "locked"
-        requirements:
-          - "Inter-processor communication"
-          - "Shared memory with semaphores"
-          - "Core-to-core interrupt signaling"
-
-      - name: "Memory protection unit setup"
-        skill: "System hardening"
-        state: "locked"
-        requirements:
-          - "Privilege-based memory partitioning"
-          - "Stack overflow protection"
-          - "Fault exception handler"
-
-      - name: "Critical section benchmark"
-        skill: "Performance analysis"
-        state: "locked"
-        requirements:
-          - "Measure interrupt latency"
-          - "Compare mutex vs semaphore performance"
-          - "Identify worst-case execution time"
-
-      - name: "Task-aware watchdog"
-        skill: "Fault tolerance"
-        state: "locked"
-        requirements:
-          - "Per-task liveliness monitoring"
-          - "Dead task recovery mechanism"
-          - "System health reporting"
-
-      - name: "RTOS trace visualizer"
-        skill: "System performance analysis"
-        state: "locked"
-        requirements:
-          - "Task execution timeline logging"
-          - "Context switch counter"
-          - "System load calculation"
-
-  - level: 4
-    theme: "Wireless Connectivity"
-    projects:
-      - name: "BLE beacon transmitter"
-        skill: "Bluetooth Low Energy advertising"
-        state: "locked"
-        requirements:
-          - "iBeacon format compatibility"
-          - "Configurable TX power levels"
-          - "Battery-optimized advertising"
-          
-      - name: "WiFi sensor dashboard"
-        skill: "Embedded web development"
-        state: "locked"
-        requirements:
-          - "TCP/IP stack integration"
-          - "Web server with dynamic content"
-          - "JSON data API endpoint"
-
-      - name: "LoRa environmental monitor"
-        skill: "Long-range radio communication"
-        state: "locked"
-        requirements:
-          - "10km+ range communication"
-          - "Adaptive data rate algorithm"
-          - "Battery life >6 months"
-
-      - name: "NFC access control"
-        skill: "Near-field communication"
-        state: "locked"
-        requirements:
-          - "ISO14443-A card emulation"
-          - "Encrypted payload exchange"
-          - "Audit trail logging"
-
-      - name: "Zigbee mesh network node"
-        skill: "Mesh networking"
-        state: "locked"
-        requirements:
-          - "Multi-hop routing implementation"
-          - "Network joining procedure"
-          - "OTA configuration updates"
-
-      - name: "Infrared data transfer"
-        skill: "Optical communication"
-        state: "locked"
-        requirements:
-          - "IrDA protocol implementation"
-          - "115kbps data rate"
-          - "Error-correcting codes"
-
-      - name: "MQTT over WiFi"
-        skill: "IoT messaging protocols"
-        state: "locked"
-        requirements:
-          - "TLS-secured connection"
-          - "QoS level 2 implementation"
-          - "Last will message support"
-
-      - name: "Bluetooth HID keyboard"
-        skill: "HID device implementation"
-        state: "locked"
-        requirements:
-          - "HID report descriptor"
-          - "Low-latency key transmission"
-          - "Battery level reporting"
-
-      - name: "OTA firmware update"
-        skill: "Remote device management"
-        state: "locked"
-        requirements:
-          - "AES-encrypted image transfer"
-          - "Bootloader integration"
-          - "Rollback capability"
-
-      - name: "Sub-GHz remote control"
-        skill: "RF protocol design"
-        state: "locked"
-        requirements:
-          - "Frequency hopping implementation"
-          - "AES-128 encryption"
-          - "<100ms end-to-end latency"
-
-      - name: "BLE glucose monitor simulator"
-        skill: "Medical device protocols"
-        state: "locked"
-        requirements:
-          - "GATT service implementation"
-          - "Historical data storage"
-          - "Privacy mode support"
-
-      - name: "WiFi captive portal"
-        skill: "Network authentication"
-        state: "locked"
-        requirements:
-          - "DNS redirection"
-          - "Authentication page"
-          - "Usage time limits"
-
-      - name: "RFID inventory tracker"
-        skill: "RFID system integration"
-        state: "locked"
-        requirements:
-          - "Multi-tag collision handling"
-          - "RSSI-based proximity detection"
-          - "Cloud synchronization"
-
-      - name: "Wireless DFU bootloader"
-        skill: "Secure remote updates"
-        state: "locked"
-        requirements:
-          - "Fault-tolerant transfer"
-          - "Dual-bank firmware switching"
-          - "Cryptographic signature verification"
-
-  - level: 5
-    theme: "Real-time Systems"
-    projects:
-      - name: "PID motor controller"
-        skill: "Closed-loop control systems"
-        state: "locked"
-        requirements:
-          - "Ziegler-Nichols tuning"
-          - "Anti-windup implementation"
-          - "<1ms response time"
-          
-      - name: "Digital filter implementation"
-        skill: "Signal processing"
-        state: "locked"
-        requirements:
-          - "FIR/IIF filter design"
-          - "Fixed-point arithmetic"
-          - "Biquad cascade structure"
-
-      - name: "Reaction time tester"
-        skill: "High-precision timing"
-        state: "locked"
-        requirements:
-          - "Microsecond-precision timing"
-          - "Statistical analysis (mean/std dev)"
-          - "Visual/auditory stimulus"
-
-      - name: "Audio spectrum analyzer"
-        skill: "Spectral analysis"
-        state: "locked"
-        requirements:
-          - "24-bit audio acquisition"
-          - "1024-point FFT"
-          - "Octave band visualization"
-
-      - name: "CAN bus dashboard"
-        skill: "Automotive communication"
-        state: "locked"
-        requirements:
-          - "J1939 protocol implementation"
-          - "Fault confinement handling"
-          - "Bus load monitoring"
-
-      - name: "Brushless motor FOC"
-        skill: "Advanced motor control"
-        state: "locked"
-        requirements:
-          - "Clarke/Park transforms"
-          - "Space Vector PWM"
-          - "Sensorless position estimation"
-
-      - name: "Power inverter control"
-        skill: "Power electronics"
-        state: "locked"
-        requirements:
-          - "Sinusoidal PWM generation"
-          - "Dead-time compensation"
-          - "Voltage/frequency control"
-
-      - name: "Sensor Kalman filter"
-        skill: "State estimation"
-        state: "locked"
-        requirements:
-          - "6DOF IMU fusion"
-          - "Process noise adaptation"
-          - "Covariance matrix visualization"
-
-      - name: "Digital lock-in amplifier"
-        skill: "Weak signal detection"
-        state: "locked"
-        requirements:
-          - "Reference signal correlation"
-          - "Phase-sensitive detection"
-          - "Harmonic rejection >80dB"
-
-      - name: "Robotic arm kinematics"
-        skill: "Robotic control systems"
-        state: "locked"
-        requirements:
-          - "Inverse kinematics solver"
-          - "Trajectory planning"
-          - "Collision avoidance"
-
-      - name: "Battery management system"
-        skill: "Energy system monitoring"
-        state: "locked"
-        requirements:
-          - "Coulomb counting"
-          - "Cell balancing control"
-          - "State-of-health estimation"
-
-      - name: "Precision timer ISRs"
-        skill: "Deterministic timing"
-        state: "locked"
-        requirements:
-          - "Sub-microsecond jitter"
-          - "Interrupt chaining"
-          - "Execution time profiling"
-
-      - name: "Control loop stability analysis"
-        skill: "System identification"
-        state: "locked"
-        requirements:
-          - "Bode plot generation"
-          - "Phase margin measurement"
-          - "Gain scheduling"
-
-      - name: "Hardware-in-loop simulation"
-        skill: "Virtual prototyping"
-        state: "locked"
-        requirements:
-          - "Real-time plant model"
-          - "Fault injection capability"
-          - "Simulation speed control"
-
-  - level: 6
-    theme: "Embedded Security"
-    projects:
-      - name: "Secure boot implementation"
-        skill: "Chain of trust establishment"
-        state: "locked"
-        requirements:
-          - "Chain of trust with bootloader"
-          - "RSA-2048 signature verification"
-          - "Tamper detection mechanism"
-          
-      - name: "AES-256 encryption engine"
-        skill: "Cryptographic implementation"
-        state: "locked"
-        requirements:
-          - "ECB/CBC/CTR modes"
-          - "DMA-assisted encryption"
-          - "Side-channel attack countermeasures"
-
-      - name: "TLS/DTLS client"
-        skill: "Secure network protocols"
-        state: "locked"
-        requirements:
-          - "mbedTLS integration"
-          - "Certificate validation"
-          - "Session resumption support"
-
-      - name: "Side-channel attack demo"
-        skill: "Security vulnerability analysis"
-        state: "locked"
-        requirements:
-          - "Power analysis setup"
-          - "Simple power analysis (SPA)"
-          - "Constant-time algorithm comparison"
-
-      - name: "Secure OTA update"
-        skill: "Cryptographic verification"
-        state: "locked"
-        requirements:
-          - "Dual-image swap mechanism"
-          - "Ed25519 signature verification"
-          - "Metadata encryption"
-
-      - name: "TrustZone isolation"
-        skill: "Hardware security partitioning"
-        state: "locked"
-        requirements:
-          - "Secure/non-secure memory partitioning"
-          - "Secure gateway implementation"
-          - "Attestation protocol"
-
-      - name: "Cryptographic signature"
-        skill: "Asymmetric cryptography"
-        state: "locked"
-        requirements:
-          - "ECDSA implementation"
-          - "Hardware key storage"
-          - "Signature benchmarking"
-
-      - name: "Secure key storage"
-        skill: "Key management"
-        state: "locked"
-        requirements:
-          - "Anti-tamper response"
-          - "Key wrapping with KEK"
-          - "Zeroization capability"
-
-      - name: "Firmware checksum"
-        skill: "Integrity verification"
-        state: "locked"
-        requirements:
-          - "Runtime integrity checking"
-          - "Tamper-evident logging"
-          - "Recovery mechanism"
-
-      - name: "Intrusion detection"
-        skill: "Anomaly detection"
-        state: "locked"
-        requirements:
-          - "Anomaly detection heuristics"
-          - "Secure alarm notification"
-          - "Forensic data capture"
-
-      - name: "Secure debug port"
-        skill: "Access control implementation"
-        state: "locked"
-        requirements:
-          - "Authentication challenge"
-          - "Access control levels"
-          - "Audit trail"
-
-      - name: "Encrypted EEPROM"
-        skill: "Data-at-rest protection"
-        state: "locked"
-        requirements:
-          - "AES-GCM mode encryption"
-          - "Authentication tags"
-          - "Wear-leveling integration"
-
-      - name: "Secure device pairing"
-        skill: "Authentication protocols"
-        state: "locked"
-        requirements:
-          - "Diffie-Hellman key exchange"
-          - "Out-of-band verification"
-          - "Man-in-middle protection"
-
-      - name: "Memory dump protection"
-        skill: "Runtime memory protection"
-        state: "locked"
-        requirements:
-          - "Address space layout randomization"
-          - "Execute-only memory regions"
-          - "Memory encryption"
-
-  - level: 7
-    theme: "Edge AI & Vision"
-    projects:
-      - name: "TinyML voice recognition"
-        skill: "Embedded machine learning"
-        state: "locked"
-        requirements:
-          - "<50ms inference latency"
-          - "INT8 quantized model"
-          - "Background noise suppression"
-          
-      - name: "Image classification"
-        skill: "Computer vision implementation"
-        state: "locked"
-        requirements:
-          - "CNN model <100KB"
-          - "10fps inference rate"
-          - "Transfer learning adaptation"
-
-      - name: "Neural network accelerator"
-        skill: "ML performance optimization"
-        state: "locked"
-        requirements:
-          - "CMSIS-NN implementation"
-          - "Layer fusion optimization"
-          - "Memory bandwidth profiling"
-
-      - name: "Computer vision pipeline"
-        skill: "Real-time image processing"
-        state: "locked"
-        requirements:
-          - "OV7670 camera interface"
-          - "Object detection with tracking"
-          - "Optical flow calculation"
-
-      - name: "Sensor anomaly detection"
-        skill: "Unsupervised learning"
-        state: "locked"
-        requirements:
-          - "Autoencoder architecture"
-          - "Unsupervised learning"
-          - "Adaptive thresholding"
-
-      - name: "Gesture recognition"
-        skill: "Motion pattern recognition"
-        state: "locked"
-        requirements:
-          - "IMU data preprocessing"
-          - "DTW algorithm implementation"
-          - "9-axis sensor fusion"
-
-      - name: "Keyword spotting"
-        skill: "Audio pattern recognition"
-        state: "locked"
-        requirements:
-          - "MFCC feature extraction"
-          - "Wake-word detection"
-          - "<1mW power consumption"
-
-      - name: "Person detection"
-        skill: "Object detection"
-        state: "locked"
-        requirements:
-          - "Mobilenet-SSD model"
-          - "Bounding box output"
-          - "Multi-scale processing"
-
-      - name: "Low-power wake word"
-        skill: "Always-on AI"
-        state: "locked"
-        requirements:
-          - "<100μW sleep power"
-          - "Always-on audio processing"
-          - "2-stage detection pipeline"
-
-      - name: "Optical flow tracker"
-        skill: "Motion estimation"
-        state: "locked"
-        requirements:
-          - "Lucas-Kanade implementation"
-          - "Feature point selection"
-          - "Motion vector visualization"
-
-      - name: "AI-based predictive maintenance"
-        skill: "Condition monitoring"
-        state: "locked"
-        requirements:
-          - "Vibration analysis"
-          - "Remaining useful life estimation"
-          - "Cloud synchronization"
-
-      - name: "Camera streaming server"
-        skill: "Embedded video processing"
-        state: "locked"
-        requirements:
-          - "MJPEG over HTTP"
-          - "Adaptive quality control"
-          - "Motion-based triggering"
-
-      - name: "Embedded model quantization"
-        skill: "ML model optimization"
-        state: "locked"
-        requirements:
-          - "Post-training quantization"
-          - "Accuracy/efficiency tradeoff analysis"
-          - "Per-layer quantization sensitivity"
-
-      - name: "Sensor fusion with ML"
-        skill: "Multi-modal learning"
-        state: "locked"
-        requirements:
-          - "Multi-modal data alignment"
-          - "Attention mechanism"
-          - "Uncertainty estimation"
-
-  - level: 8
-    theme: "Advanced Architectures"
-    projects:
-      - name: "Heterogeneous multi-core"
-        skill: "Asymmetric processing"
-        state: "locked"
-        requirements:
-          - "AMP architecture"
-          - "Inter-processor communication"
-          - "Hardware semaphore synchronization"
-          
-      - name: "FPGA co-processing"
-        skill: "Hardware acceleration"
-        state: "locked"
-        requirements:
-          - "Verilog accelerator design"
-          - "AXI bus interfacing"
-          - "Software-hardware latency measurement"
-
-      - name: "Real-time Linux (PREEMPT_RT)"
-        skill: "Linux real-time extensions"
-        state: "locked"
-        requirements:
-          - "Kernel patching and building"
-          - "<100μs scheduling latency"
-          - "Xenomai coexistence"
-
-      - name: "PCIe communication"
-        skill: "High-speed interconnect"
-        state: "locked"
-        requirements:
-          - "DMA transfers"
-          - "MSI interrupt handling"
-          - "Throughput >5Gbps"
-
-      - name: "USB device stack"
-        skill: "USB protocol implementation"
-        state: "locked"
-        requirements:
-          - "Composite device implementation"
-          - "High-speed (480Mbps) operation"
-          - "Power delivery negotiation"
-
-      - name: "Gigabit Ethernet"
-        skill: "High-speed networking"
-        state: "locked"
-        requirements:
-          - "LwIP integration"
-          - "TCP offloading"
-          - "IEEE 1588 PTP support"
-
-      - name: "High-speed data acquisition"
-        skill: "Signal acquisition"
-        state: "locked"
-        requirements:
-          - "100MS/s sampling rate"
-          - "JESD204B interface"
-          - "Real-time data reduction"
-
-      - name: "GPU acceleration"
-        skill: "Parallel computing"
-        state: "locked"
-        requirements:
-          - "OpenCL kernel development"
-          - "Memory transfer optimization"
-          - "Performance profiling"
-
-      - name: "Distributed sensor network"
-        skill: "Decentralized systems"
-        state: "locked"
-        requirements:
-          - "Time synchronization protocol"
-          - "Decentralized data fusion"
-          - "Fault-tolerant topology"
-
-      - name: "Time-sensitive networking"
-        skill: "Deterministic networking"
-        state: "locked"
-        requirements:
-          - "IEEE 802.1Qbv scheduling"
-          - "Frame preemption"
-          - "End-to-end latency guarantees"
-
-      - name: "Embedded hypervisor"
-        skill: "Virtualization technology"
-        state: "locked"
-        requirements:
-          - "Type-1 hypervisor implementation"
-          - "Virtual device emulation"
-          - "Inter-VM communication"
-
-      - name: "Secure enclave"
-        skill: "Trusted execution"
-        state: "locked"
-        requirements:
-          - "Trusted execution environment"
-          - "Remote attestation"
-          - "Sealed storage"
-
-      - name: "ASIC prototype"
-        skill: "Hardware design"
-        state: "locked"
-        requirements:
-          - "RTL design"
-          - "FPGA emulation"
-          - "Gate-level simulation"
-
-      - name: "RISC-V custom ISA"
-        skill: "Processor architecture"
-        state: "locked"
-        requirements:
-          - "Extension design"
-          - "LLVM toolchain modification"
-          - "Performance benchmarking"
-
-  - level: 9
-    theme: "Cutting-Edge Systems"
-    projects:
-      - name: "Autonomous drone navigation"
-        skill: "Robotic autonomy"
-        state: "locked"
-        requirements:
-          - "SLAM implementation"
-          - "Obstacle avoidance"
-          - "Fail-safe RTH protocol"
-          
-      - name: "Medical device simulator"
-        skill: "Medical systems development"
-        state: "locked"
-        requirements:
-          - "IEC 62304 compliance"
-          - "Fault tree analysis"
-          - "Clinical scenario modeling"
-
-      - name: "Industrial PLC controller"
-        skill: "Industrial automation"
-        state: "locked"
-        requirements:
-          - "IEC 61131-3 support"
-          - "Redundant I/O handling"
-          - "Safety integrity level (SIL) 2"
-
-      - name: "Satellite communication"
-        skill: "Space systems engineering"
-        state: "locked"
-        requirements:
-          - "LoRa satellite modem"
-          - "Orbit prediction algorithm"
-          - "Link budget calculation"
-
-      - name: "Quantum-safe cryptography"
-        skill: "Post-quantum security"
-        state: "locked"
-        requirements:
-          - "Kyber key encapsulation"
-          - "Dilithium signatures"
-          - "NIST standardization compliance"
-
-      - name: "Neuromorphic computing"
-        skill: "Brain-inspired computing"
-        state: "locked"
-        requirements:
-          - "Spiking neural network"
-          - "Event-based processing"
-          - "Synaptic plasticity rules"
-
-      - name: "Self-calibrating sensor"
-        skill: "Autonomous calibration"
-        state: "locked"
-        requirements:
-          - "Auto-zeroing technique"
-          - "Temperature drift compensation"
-          - "Long-term stability monitoring"
-
-      - name: "Predictive failure system"
-        skill: "Condition-based maintenance"
-        state: "locked"
-        requirements:
-          - "Anomaly detection"
-          - "Remaining useful life estimation"
-          - "Maintenance scheduling"
-
-      - name: "Embedded blockchain"
-        skill: "Distributed ledger technology"
-        state: "locked"
-        requirements:
-          - "Light node implementation"
-          - "Merkle proof verification"
-          - "Smart contract execution"
-
-      - name: "Wireless power control"
-        skill: "Energy transfer optimization"
-        state: "locked"
-        requirements:
-          - "Resonant frequency tracking"
-          - "Foreign object detection"
-          - "Efficiency optimization"
-
-      - name: "Cellular IoT tracker"
-        skill: "Wide-area IoT"
-        state: "locked"
-        requirements:
-          - "NB-IoT connectivity"
-          - "Geofencing alerts"
-          - "<200μA sleep current"
-
-      - name: "AR HUD prototype"
-        skill: "Augmented reality systems"
-        state: "locked"
-        requirements:
-          - "Pose estimation"
-          - "Optical combiner design"
-          - "Latency compensation"
-
-      - name: "Digital twin interface"
-        skill: "Cyber-physical systems"
-        state: "locked"
-        requirements:
-          - "Real-time synchronization"
-          - "Physics-based simulation"
-          - "Anomaly detection"
-
-      - name: "Self-healing firmware"
-        skill: "Autonomous recovery"
-        state: "locked"
-        requirements:
-          - "Runtime assertion checking"
-          - "Automated patching"
-          - "Behavioral fingerprinting"
-  - level: 10
-    theme: "Cutting-Edge Systems"
-    projects:
-      - name: "Autonomous drone navigation"
-        skill: "Robotic autonomy"
-        state: "locked"
-        requirements:
-          - "SLAM implementation"
-          - "Obstacle avoidance"
-          - "Fail-safe RTH protocol"
-          
-      - name: "Medical device simulator"
-        skill: "Medical systems development"
-        state: "locked"
-        requirements:
-          - "IEC 62304 compliance"
-          - "Fault tree analysis"
-          - "Clinical scenario modeling"
+- level: 1
+  theme: Microcontroller Fundamentals
+  projects:
+  - name: Blinking LED with GPIO control
+    skill: Register-level hardware manipulation
+    state: locked
+    requirements:
+    - Register-level programming (no HAL)
+    - Variable blink rates via button presses
+    - Cycle-counted delays for precise timing
+    gh_issue: '413'
+  - name: Button-controlled LED state machine
+    skill: Hardware interrupt handling
+    state: locked
+    requirements:
+    - Interrupt-based edge detection with debounce
+    - 4-state FSM (Off/Low/Med/High)
+    - Long-press/short-press differentiation
+    gh_issue: '414'
+  - name: 7-segment display counter
+    skill: Multiplexing and timing control
+    state: locked
+    requirements:
+    - GPIO multiplexing without driver IC
+    - <5ms refresh rate per digit
+    - Increment/decrement with rollover
+    gh_issue: '415'
+  - name: Buzzer melody player
+    skill: PWM signal generation
+    state: locked
+    requirements:
+    - PWM musical tone generation
+    - 3-song storage in note-duration arrays
+    - Duty cycle-based volume control
+    gh_issue: '416'
+  - name: Potentiometer voltage reader
+    skill: Analog signal processing
+    state: locked
+    requirements:
+    - 12-bit ADC with 14-bit ENOB via oversampling
+    - Real-time moving average filter
+    - Serial plotter visualization
+    gh_issue: '417'
+  - name: Temperature sensor logger
+    skill: I2C protocol implementation
+    state: locked
+    requirements:
+    - I2C communication with TMP102
+    - EEPROM circular buffer logging
+    - UART statistics reporting (min/max/avg)
+    gh_issue: '418'
+  - name: Serial console command parser
+    skill: CLI interface development
+    state: locked
+    requirements:
+    - Interrupt-driven UART RX
+    - 5+ command handler
+    - Error feedback for invalid inputs
+    gh_issue: '419'
+  - name: PWM dimmable LED
+    skill: Non-linear brightness control
+    state: locked
+    requirements:
+    - 16-bit resolution PWM
+    - Gamma-corrected brightness transitions
+    - Analog/serial control interface
+    gh_issue: '420'
+  - name: Battery voltage monitor
+    skill: Low-power design
+    state: locked
+    requirements:
+    - Voltage divider measurement
+    - Hysteresis-based low-battery warning
+    - "<50\u03BCA sleep current"
+    gh_issue: '421'
+  - name: LED matrix pattern display
+    skill: Charlieplexing technique
+    state: locked
+    requirements:
+    - Charlieplexed 8x8 matrix
+    - 3+ animated patterns
+    - Brightness persistence control
+    gh_issue: '422'
+  - name: Watchdog timer implementation
+    skill: System reliability engineering
+    state: locked
+    requirements:
+    - Independent watchdog configuration
+    - System hang recovery simulation
+    - Non-volatile event logging
+    gh_issue: '423'
+  - name: Interrupt-driven button handler
+    skill: Priority-based event handling
+    state: locked
+    requirements:
+    - EXTI interrupts for all inputs
+    - Priority-based queuing
+    - Multi-button press handling
+    gh_issue: '424'
+  - name: Sleep mode power saving
+    skill: Power optimization
+    state: locked
+    requirements:
+    - "<2\u03BCA sleep current"
+    - Multi-source wake (timer/button/UART)
+    - Power savings measurement
+    gh_issue: '425'
+  - name: UART echo server
+    skill: Serial protocol implementation
+    state: locked
+    requirements:
+    - Backspace handling and line editing
+    - XON/XOFF flow control
+    - Escape sequence processing
+    gh_issue: '426'
+- level: 2
+  theme: Peripheral Integration
+  projects:
+  - name: I2C environmental sensor hub
+    skill: Multi-device bus management
+    state: locked
+    requirements:
+    - 3+ sensor polling (temp/humidity/pressure)
+    - Sensor fusion algorithm
+    - Bus arbitration failure handling
+    gh_issue: '427'
+  - name: SPI OLED display driver
+    skill: High-speed serial communication
+    state: locked
+    requirements:
+    - Bitmap renderer without libraries
+    - Double buffering implementation
+    - 30fps animation rate
+    gh_issue: '428'
+  - name: Rotary encoder menu system
+    skill: Human-machine interface design
+    state: locked
+    requirements:
+    - Quadrature decoding via interrupts
+    - 3-level nested menu
+    - Selection haptic feedback
+    gh_issue: '429'
+  - name: Stepper motor controller
+    skill: Precision motion control
+    state: locked
+    requirements:
+    - Microstepping control
+    - Acceleration/deceleration profiles
+    - Position tracking with error correction
+    gh_issue: '430'
+  - name: IR remote control decoder
+    skill: Infrared protocol decoding
+    state: locked
+    requirements:
+    - NEC protocol decoding
+    - Command learning/replay
+    - Collision detection
+    gh_issue: '431'
+  - name: Capacitive touch sensor
+    skill: Analog signal conditioning
+    state: locked
+    requirements:
+    - Charge-transfer sensing
+    - Automatic calibration routine
+    - Adjustable proximity detection
+    gh_issue: '432'
+  - name: Real-time clock scheduler
+    skill: Time-based automation
+    state: locked
+    requirements:
+    - Battery-backed timekeeping
+    - Time-based task execution
+    - Daylight saving time handling
+    gh_issue: '433'
+  - name: EEPROM data logger
+    skill: Non-volatile storage management
+    state: locked
+    requirements:
+    - Wear-leveling implementation
+    - CRC-16 data integrity
+    - Delta compression storage
+    gh_issue: '434'
+  - name: Analog comparator
+    skill: Threshold detection
+    state: locked
+    requirements:
+    - Windowed voltage detection
+    - Configurable hysteresis
+    - ADC trigger on threshold
+    gh_issue: '435'
+  - name: DAC waveform generator
+    skill: Analog signal synthesis
+    state: locked
+    requirements:
+    - Sine/triangle/square wave output
+    - 1Hz-10kHz frequency range
+    - DMA-based smooth output
+    gh_issue: '436'
+  - name: LCD character display driver
+    skill: Parallel interface implementation
+    state: locked
+    requirements:
+    - 4-bit parallel interface
+    - 5x8 custom character creation
+    - Variable-speed text scrolling
+    gh_issue: '437'
+  - name: Hall effect RPM counter
+    skill: Magnetic sensing
+    state: locked
+    requirements:
+    - 10,000 RPM measurement
+    - Angular velocity calculation
+    - Rotation direction detection
+    gh_issue: '438'
+  - name: DMA-based ADC sampling
+    skill: Direct memory access optimization
+    state: locked
+    requirements:
+    - 100ksps sampling without CPU
+    - Real-time FFT computation
+    - Trigger-based acquisition
+    gh_issue: '439'
+  - name: RS-485 industrial communication
+    skill: Robust serial communication
+    state: locked
+    requirements:
+    - Half-duplex master/slave protocol
+    - CRC-16 error detection
+    - Auto-direction control
+    gh_issue: '440'
+- level: 3
+  theme: RTOS Foundations
+  projects:
+  - name: Multi-task LED controller
+    skill: Real-time task scheduling
+    state: locked
+    requirements:
+    - 3+ priority-based tasks
+    - Mutex-protected resource sharing
+    - CPU usage monitoring
+    gh_issue: '441'
+  - name: Queue-based sensor fusion
+    skill: Inter-task communication
+    state: locked
+    requirements:
+    - Multiple producer tasks
+    - Single consumer fusion task
+    - Time-stamped data synchronization
+    gh_issue: '442'
+  - name: Priority-inversion demo
+    skill: RTOS anti-pattern resolution
+    state: locked
+    requirements:
+    - Create priority inversion scenario
+    - Implement priority inheritance
+    - Measure latency improvements
+    gh_issue: '443'
+  - name: Mutex-protected serial console
+    skill: Thread-safe resource sharing
+    state: locked
+    requirements:
+    - Thread-safe printf implementation
+    - Command queue with overflow protection
+    - Timeout handling for resource access
+    gh_issue: '444'
+  - name: RTOS-aware power management
+    skill: Low-power RTOS design
+    state: locked
+    requirements:
+    - Tickless idle mode implementation
+    - Per-task power profiling
+    - Dynamic frequency scaling
+    gh_issue: '445'
+  - name: Software timer system
+    skill: Asynchronous event handling
+    state: locked
+    requirements:
+    - Multiple concurrent timers
+    - Timer callback prioritization
+    - One-shot/periodic mode support
+    gh_issue: '446'
+  - name: Task notification LED pattern
+    skill: Lightweight IPC mechanisms
+    state: locked
+    requirements:
+    - IPC via task notifications
+    - Pattern sequencing without queues
+    - Notification value masking
+    gh_issue: '447'
+  - name: Heap management analyzer
+    skill: Memory optimization
+    state: locked
+    requirements:
+    - Fragmentation measurement tool
+    - Allocation failure simulation
+    - Alternative allocator comparison
+    gh_issue: '448'
+  - name: Event-driven state machine
+    skill: Complex system modeling
+    state: locked
+    requirements:
+    - State transitions via event flags
+    - Timeout-based state transitions
+    - State history logging
+    gh_issue: '449'
+  - name: Dual-core synchronization
+    skill: Multiprocessor coordination
+    state: locked
+    requirements:
+    - Inter-processor communication
+    - Shared memory with semaphores
+    - Core-to-core interrupt signaling
+    gh_issue: '450'
+  - name: Memory protection unit setup
+    skill: System hardening
+    state: locked
+    requirements:
+    - Privilege-based memory partitioning
+    - Stack overflow protection
+    - Fault exception handler
+    gh_issue: '451'
+  - name: Critical section benchmark
+    skill: Performance analysis
+    state: locked
+    requirements:
+    - Measure interrupt latency
+    - Compare mutex vs semaphore performance
+    - Identify worst-case execution time
+    gh_issue: '452'
+  - name: Task-aware watchdog
+    skill: Fault tolerance
+    state: locked
+    requirements:
+    - Per-task liveliness monitoring
+    - Dead task recovery mechanism
+    - System health reporting
+    gh_issue: '453'
+  - name: RTOS trace visualizer
+    skill: System performance analysis
+    state: locked
+    requirements:
+    - Task execution timeline logging
+    - Context switch counter
+    - System load calculation
+    gh_issue: '454'
+- level: 4
+  theme: Wireless Connectivity
+  projects:
+  - name: BLE beacon transmitter
+    skill: Bluetooth Low Energy advertising
+    state: locked
+    requirements:
+    - iBeacon format compatibility
+    - Configurable TX power levels
+    - Battery-optimized advertising
+    gh_issue: '455'
+  - name: WiFi sensor dashboard
+    skill: Embedded web development
+    state: locked
+    requirements:
+    - TCP/IP stack integration
+    - Web server with dynamic content
+    - JSON data API endpoint
+    gh_issue: '456'
+  - name: LoRa environmental monitor
+    skill: Long-range radio communication
+    state: locked
+    requirements:
+    - 10km+ range communication
+    - Adaptive data rate algorithm
+    - Battery life >6 months
+    gh_issue: '457'
+  - name: NFC access control
+    skill: Near-field communication
+    state: locked
+    requirements:
+    - ISO14443-A card emulation
+    - Encrypted payload exchange
+    - Audit trail logging
+    gh_issue: '458'
+  - name: Zigbee mesh network node
+    skill: Mesh networking
+    state: locked
+    requirements:
+    - Multi-hop routing implementation
+    - Network joining procedure
+    - OTA configuration updates
+    gh_issue: '459'
+  - name: Infrared data transfer
+    skill: Optical communication
+    state: locked
+    requirements:
+    - IrDA protocol implementation
+    - 115kbps data rate
+    - Error-correcting codes
+    gh_issue: '460'
+  - name: MQTT over WiFi
+    skill: IoT messaging protocols
+    state: locked
+    requirements:
+    - TLS-secured connection
+    - QoS level 2 implementation
+    - Last will message support
+    gh_issue: '461'
+  - name: Bluetooth HID keyboard
+    skill: HID device implementation
+    state: locked
+    requirements:
+    - HID report descriptor
+    - Low-latency key transmission
+    - Battery level reporting
+    gh_issue: '462'
+  - name: OTA firmware update
+    skill: Remote device management
+    state: locked
+    requirements:
+    - AES-encrypted image transfer
+    - Bootloader integration
+    - Rollback capability
+    gh_issue: '463'
+  - name: Sub-GHz remote control
+    skill: RF protocol design
+    state: locked
+    requirements:
+    - Frequency hopping implementation
+    - AES-128 encryption
+    - <100ms end-to-end latency
+    gh_issue: '464'
+  - name: BLE glucose monitor simulator
+    skill: Medical device protocols
+    state: locked
+    requirements:
+    - GATT service implementation
+    - Historical data storage
+    - Privacy mode support
+    gh_issue: '465'
+  - name: WiFi captive portal
+    skill: Network authentication
+    state: locked
+    requirements:
+    - DNS redirection
+    - Authentication page
+    - Usage time limits
+    gh_issue: '466'
+  - name: RFID inventory tracker
+    skill: RFID system integration
+    state: locked
+    requirements:
+    - Multi-tag collision handling
+    - RSSI-based proximity detection
+    - Cloud synchronization
+    gh_issue: '467'
+  - name: Wireless DFU bootloader
+    skill: Secure remote updates
+    state: locked
+    requirements:
+    - Fault-tolerant transfer
+    - Dual-bank firmware switching
+    - Cryptographic signature verification
+    gh_issue: '468'
+- level: 5
+  theme: Real-time Systems
+  projects:
+  - name: PID motor controller
+    skill: Closed-loop control systems
+    state: locked
+    requirements:
+    - Ziegler-Nichols tuning
+    - Anti-windup implementation
+    - <1ms response time
+    gh_issue: '469'
+  - name: Digital filter implementation
+    skill: Signal processing
+    state: locked
+    requirements:
+    - FIR/IIF filter design
+    - Fixed-point arithmetic
+    - Biquad cascade structure
+    gh_issue: '470'
+  - name: Reaction time tester
+    skill: High-precision timing
+    state: locked
+    requirements:
+    - Microsecond-precision timing
+    - Statistical analysis (mean/std dev)
+    - Visual/auditory stimulus
+    gh_issue: '471'
+  - name: Audio spectrum analyzer
+    skill: Spectral analysis
+    state: locked
+    requirements:
+    - 24-bit audio acquisition
+    - 1024-point FFT
+    - Octave band visualization
+    gh_issue: '472'
+  - name: CAN bus dashboard
+    skill: Automotive communication
+    state: locked
+    requirements:
+    - J1939 protocol implementation
+    - Fault confinement handling
+    - Bus load monitoring
+    gh_issue: '473'
+  - name: Brushless motor FOC
+    skill: Advanced motor control
+    state: locked
+    requirements:
+    - Clarke/Park transforms
+    - Space Vector PWM
+    - Sensorless position estimation
+    gh_issue: '474'
+  - name: Power inverter control
+    skill: Power electronics
+    state: locked
+    requirements:
+    - Sinusoidal PWM generation
+    - Dead-time compensation
+    - Voltage/frequency control
+    gh_issue: '475'
+  - name: Sensor Kalman filter
+    skill: State estimation
+    state: locked
+    requirements:
+    - 6DOF IMU fusion
+    - Process noise adaptation
+    - Covariance matrix visualization
+    gh_issue: '476'
+  - name: Digital lock-in amplifier
+    skill: Weak signal detection
+    state: locked
+    requirements:
+    - Reference signal correlation
+    - Phase-sensitive detection
+    - Harmonic rejection >80dB
+    gh_issue: '477'
+  - name: Robotic arm kinematics
+    skill: Robotic control systems
+    state: locked
+    requirements:
+    - Inverse kinematics solver
+    - Trajectory planning
+    - Collision avoidance
+    gh_issue: '478'
+  - name: Battery management system
+    skill: Energy system monitoring
+    state: locked
+    requirements:
+    - Coulomb counting
+    - Cell balancing control
+    - State-of-health estimation
+    gh_issue: '479'
+  - name: Precision timer ISRs
+    skill: Deterministic timing
+    state: locked
+    requirements:
+    - Sub-microsecond jitter
+    - Interrupt chaining
+    - Execution time profiling
+    gh_issue: '480'
+  - name: Control loop stability analysis
+    skill: System identification
+    state: locked
+    requirements:
+    - Bode plot generation
+    - Phase margin measurement
+    - Gain scheduling
+    gh_issue: '481'
+  - name: Hardware-in-loop simulation
+    skill: Virtual prototyping
+    state: locked
+    requirements:
+    - Real-time plant model
+    - Fault injection capability
+    - Simulation speed control
+    gh_issue: '482'
+- level: 6
+  theme: Embedded Security
+  projects:
+  - name: Secure boot implementation
+    skill: Chain of trust establishment
+    state: locked
+    requirements:
+    - Chain of trust with bootloader
+    - RSA-2048 signature verification
+    - Tamper detection mechanism
+    gh_issue: '483'
+  - name: AES-256 encryption engine
+    skill: Cryptographic implementation
+    state: locked
+    requirements:
+    - ECB/CBC/CTR modes
+    - DMA-assisted encryption
+    - Side-channel attack countermeasures
+    gh_issue: '484'
+  - name: TLS/DTLS client
+    skill: Secure network protocols
+    state: locked
+    requirements:
+    - mbedTLS integration
+    - Certificate validation
+    - Session resumption support
+    gh_issue: '485'
+  - name: Side-channel attack demo
+    skill: Security vulnerability analysis
+    state: locked
+    requirements:
+    - Power analysis setup
+    - Simple power analysis (SPA)
+    - Constant-time algorithm comparison
+    gh_issue: '486'
+  - name: Secure OTA update
+    skill: Cryptographic verification
+    state: locked
+    requirements:
+    - Dual-image swap mechanism
+    - Ed25519 signature verification
+    - Metadata encryption
+    gh_issue: '487'
+  - name: TrustZone isolation
+    skill: Hardware security partitioning
+    state: locked
+    requirements:
+    - Secure/non-secure memory partitioning
+    - Secure gateway implementation
+    - Attestation protocol
+    gh_issue: '488'
+  - name: Cryptographic signature
+    skill: Asymmetric cryptography
+    state: locked
+    requirements:
+    - ECDSA implementation
+    - Hardware key storage
+    - Signature benchmarking
+    gh_issue: '489'
+  - name: Secure key storage
+    skill: Key management
+    state: locked
+    requirements:
+    - Anti-tamper response
+    - Key wrapping with KEK
+    - Zeroization capability
+    gh_issue: '490'
+  - name: Firmware checksum
+    skill: Integrity verification
+    state: locked
+    requirements:
+    - Runtime integrity checking
+    - Tamper-evident logging
+    - Recovery mechanism
+    gh_issue: '491'
+  - name: Intrusion detection
+    skill: Anomaly detection
+    state: locked
+    requirements:
+    - Anomaly detection heuristics
+    - Secure alarm notification
+    - Forensic data capture
+    gh_issue: '492'
+  - name: Secure debug port
+    skill: Access control implementation
+    state: locked
+    requirements:
+    - Authentication challenge
+    - Access control levels
+    - Audit trail
+    gh_issue: '493'
+  - name: Encrypted EEPROM
+    skill: Data-at-rest protection
+    state: locked
+    requirements:
+    - AES-GCM mode encryption
+    - Authentication tags
+    - Wear-leveling integration
+    gh_issue: '494'
+  - name: Secure device pairing
+    skill: Authentication protocols
+    state: locked
+    requirements:
+    - Diffie-Hellman key exchange
+    - Out-of-band verification
+    - Man-in-middle protection
+    gh_issue: '495'
+  - name: Memory dump protection
+    skill: Runtime memory protection
+    state: locked
+    requirements:
+    - Address space layout randomization
+    - Execute-only memory regions
+    - Memory encryption
+    gh_issue: '496'
+- level: 7
+  theme: Edge AI & Vision
+  projects:
+  - name: TinyML voice recognition
+    skill: Embedded machine learning
+    state: locked
+    requirements:
+    - <50ms inference latency
+    - INT8 quantized model
+    - Background noise suppression
+    gh_issue: '497'
+  - name: Image classification
+    skill: Computer vision implementation
+    state: locked
+    requirements:
+    - CNN model <100KB
+    - 10fps inference rate
+    - Transfer learning adaptation
+    gh_issue: '498'
+  - name: Neural network accelerator
+    skill: ML performance optimization
+    state: locked
+    requirements:
+    - CMSIS-NN implementation
+    - Layer fusion optimization
+    - Memory bandwidth profiling
+    gh_issue: '499'
+  - name: Computer vision pipeline
+    skill: Real-time image processing
+    state: locked
+    requirements:
+    - OV7670 camera interface
+    - Object detection with tracking
+    - Optical flow calculation
+    gh_issue: '500'
+  - name: Sensor anomaly detection
+    skill: Unsupervised learning
+    state: locked
+    requirements:
+    - Autoencoder architecture
+    - Unsupervised learning
+    - Adaptive thresholding
+    gh_issue: '501'
+  - name: Gesture recognition
+    skill: Motion pattern recognition
+    state: locked
+    requirements:
+    - IMU data preprocessing
+    - DTW algorithm implementation
+    - 9-axis sensor fusion
+    gh_issue: '502'
+  - name: Keyword spotting
+    skill: Audio pattern recognition
+    state: locked
+    requirements:
+    - MFCC feature extraction
+    - Wake-word detection
+    - <1mW power consumption
+    gh_issue: '503'
+  - name: Person detection
+    skill: Object detection
+    state: locked
+    requirements:
+    - Mobilenet-SSD model
+    - Bounding box output
+    - Multi-scale processing
+    gh_issue: '504'
+  - name: Low-power wake word
+    skill: Always-on AI
+    state: locked
+    requirements:
+    - "<100\u03BCW sleep power"
+    - Always-on audio processing
+    - 2-stage detection pipeline
+    gh_issue: '505'
+  - name: Optical flow tracker
+    skill: Motion estimation
+    state: locked
+    requirements:
+    - Lucas-Kanade implementation
+    - Feature point selection
+    - Motion vector visualization
+    gh_issue: '506'
+  - name: AI-based predictive maintenance
+    skill: Condition monitoring
+    state: locked
+    requirements:
+    - Vibration analysis
+    - Remaining useful life estimation
+    - Cloud synchronization
+    gh_issue: '507'
+  - name: Camera streaming server
+    skill: Embedded video processing
+    state: locked
+    requirements:
+    - MJPEG over HTTP
+    - Adaptive quality control
+    - Motion-based triggering
+    gh_issue: '508'
+  - name: Embedded model quantization
+    skill: ML model optimization
+    state: locked
+    requirements:
+    - Post-training quantization
+    - Accuracy/efficiency tradeoff analysis
+    - Per-layer quantization sensitivity
+    gh_issue: '509'
+  - name: Sensor fusion with ML
+    skill: Multi-modal learning
+    state: locked
+    requirements:
+    - Multi-modal data alignment
+    - Attention mechanism
+    - Uncertainty estimation
+    gh_issue: '510'
+- level: 8
+  theme: Advanced Architectures
+  projects:
+  - name: Heterogeneous multi-core
+    skill: Asymmetric processing
+    state: locked
+    requirements:
+    - AMP architecture
+    - Inter-processor communication
+    - Hardware semaphore synchronization
+    gh_issue: '511'
+  - name: FPGA co-processing
+    skill: Hardware acceleration
+    state: locked
+    requirements:
+    - Verilog accelerator design
+    - AXI bus interfacing
+    - Software-hardware latency measurement
+    gh_issue: '512'
+  - name: Real-time Linux (PREEMPT_RT)
+    skill: Linux real-time extensions
+    state: locked
+    requirements:
+    - Kernel patching and building
+    - "<100\u03BCs scheduling latency"
+    - Xenomai coexistence
+    gh_issue: '513'
+  - name: PCIe communication
+    skill: High-speed interconnect
+    state: locked
+    requirements:
+    - DMA transfers
+    - MSI interrupt handling
+    - Throughput >5Gbps
+    gh_issue: '514'
+  - name: USB device stack
+    skill: USB protocol implementation
+    state: locked
+    requirements:
+    - Composite device implementation
+    - High-speed (480Mbps) operation
+    - Power delivery negotiation
+    gh_issue: '515'
+  - name: Gigabit Ethernet
+    skill: High-speed networking
+    state: locked
+    requirements:
+    - LwIP integration
+    - TCP offloading
+    - IEEE 1588 PTP support
+    gh_issue: '516'
+  - name: High-speed data acquisition
+    skill: Signal acquisition
+    state: locked
+    requirements:
+    - 100MS/s sampling rate
+    - JESD204B interface
+    - Real-time data reduction
+    gh_issue: '517'
+  - name: GPU acceleration
+    skill: Parallel computing
+    state: locked
+    requirements:
+    - OpenCL kernel development
+    - Memory transfer optimization
+    - Performance profiling
+    gh_issue: '518'
+  - name: Distributed sensor network
+    skill: Decentralized systems
+    state: locked
+    requirements:
+    - Time synchronization protocol
+    - Decentralized data fusion
+    - Fault-tolerant topology
+    gh_issue: '519'
+  - name: Time-sensitive networking
+    skill: Deterministic networking
+    state: locked
+    requirements:
+    - IEEE 802.1Qbv scheduling
+    - Frame preemption
+    - End-to-end latency guarantees
+    gh_issue: '520'
+  - name: Embedded hypervisor
+    skill: Virtualization technology
+    state: locked
+    requirements:
+    - Type-1 hypervisor implementation
+    - Virtual device emulation
+    - Inter-VM communication
+    gh_issue: '521'
+  - name: Secure enclave
+    skill: Trusted execution
+    state: locked
+    requirements:
+    - Trusted execution environment
+    - Remote attestation
+    - Sealed storage
+    gh_issue: '522'
+  - name: ASIC prototype
+    skill: Hardware design
+    state: locked
+    requirements:
+    - RTL design
+    - FPGA emulation
+    - Gate-level simulation
+    gh_issue: '523'
+  - name: RISC-V custom ISA
+    skill: Processor architecture
+    state: locked
+    requirements:
+    - Extension design
+    - LLVM toolchain modification
+    - Performance benchmarking
+    gh_issue: '524'
+- level: 9
+  theme: Cutting-Edge Systems
+  projects:
+  - name: Autonomous drone navigation
+    skill: Robotic autonomy
+    state: locked
+    requirements:
+    - SLAM implementation
+    - Obstacle avoidance
+    - Fail-safe RTH protocol
+    gh_issue: '525'
+  - name: Medical device simulator
+    skill: Medical systems development
+    state: locked
+    requirements:
+    - IEC 62304 compliance
+    - Fault tree analysis
+    - Clinical scenario modeling
+    gh_issue: '526'
+  - name: Industrial PLC controller
+    skill: Industrial automation
+    state: locked
+    requirements:
+    - IEC 61131-3 support
+    - Redundant I/O handling
+    - Safety integrity level (SIL) 2
+    gh_issue: '527'
+  - name: Satellite communication
+    skill: Space systems engineering
+    state: locked
+    requirements:
+    - LoRa satellite modem
+    - Orbit prediction algorithm
+    - Link budget calculation
+    gh_issue: '528'
+  - name: Quantum-safe cryptography
+    skill: Post-quantum security
+    state: locked
+    requirements:
+    - Kyber key encapsulation
+    - Dilithium signatures
+    - NIST standardization compliance
+    gh_issue: '529'
+  - name: Neuromorphic computing
+    skill: Brain-inspired computing
+    state: locked
+    requirements:
+    - Spiking neural network
+    - Event-based processing
+    - Synaptic plasticity rules
+    gh_issue: '530'
+  - name: Self-calibrating sensor
+    skill: Autonomous calibration
+    state: locked
+    requirements:
+    - Auto-zeroing technique
+    - Temperature drift compensation
+    - Long-term stability monitoring
+    gh_issue: '531'
+  - name: Predictive failure system
+    skill: Condition-based maintenance
+    state: locked
+    requirements:
+    - Anomaly detection
+    - Remaining useful life estimation
+    - Maintenance scheduling
+    gh_issue: '532'
+  - name: Embedded blockchain
+    skill: Distributed ledger technology
+    state: locked
+    requirements:
+    - Light node implementation
+    - Merkle proof verification
+    - Smart contract execution
+    gh_issue: '533'
+  - name: Wireless power control
+    skill: Energy transfer optimization
+    state: locked
+    requirements:
+    - Resonant frequency tracking
+    - Foreign object detection
+    - Efficiency optimization
+    gh_issue: '534'
+  - name: Cellular IoT tracker
+    skill: Wide-area IoT
+    state: locked
+    requirements:
+    - NB-IoT connectivity
+    - Geofencing alerts
+    - "<200\u03BCA sleep current"
+    gh_issue: '535'
+  - name: AR HUD prototype
+    skill: Augmented reality systems
+    state: locked
+    requirements:
+    - Pose estimation
+    - Optical combiner design
+    - Latency compensation
+    gh_issue: '536'
+  - name: Digital twin interface
+    skill: Cyber-physical systems
+    state: locked
+    requirements:
+    - Real-time synchronization
+    - Physics-based simulation
+    - Anomaly detection
+    gh_issue: '537'
+  - name: Self-healing firmware
+    skill: Autonomous recovery
+    state: locked
+    requirements:
+    - Runtime assertion checking
+    - Automated patching
+    - Behavioral fingerprinting
+    gh_issue: '538'

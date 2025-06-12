@@ -58,6 +58,34 @@ def prompt_for_stats():
     answers = inquirer.prompt(questions)
     return answers['selected_stats']
 
+def update_yaml_with_issue_number(yaml_file_path, level_num, project_name, issue_number):
+    try:
+        with open(yaml_file_path, 'r') as file:
+            data = yaml.safe_load(file)
+            
+        # Find the project and update/add gh_issue field
+        for level in data['levels']:
+            if level['level'] == level_num:
+                for project in level['projects']:
+                    if project['name'] == project_name:
+                        project['gh_issue'] = issue_number
+                        break
+                break
+                
+        # Write the updated data back to the YAML file
+        with open(yaml_file_path, 'w') as file:
+            yaml.dump(data, file, sort_keys=False)
+            
+    except Exception as e:
+        print(f"Error updating YAML file with issue number: {e}")
+
+def extract_issue_number(output):
+    # Extract issue number from gh CLI output (e.g., "https://github.com/.../issues/123")
+    try:
+        return output.strip().split('/')[-1]
+    except:
+        return None
+
 # === MAIN ===
 if len(sys.argv) != 2:
     print("Usage: python create_issues.py <path_to_yaml_file>")
@@ -90,6 +118,11 @@ for level in data['levels']:
     theme = level['theme']
 
     for project in level['projects']:
+        # Skip if this project already has an issue number
+        if 'gh_issue' in project:
+            print(f"ℹ️  Skipping {project['name']} - already has issue #{project['gh_issue']}")
+            continue
+            
         name = project['name']
         requirements = project['requirements']
 
@@ -113,8 +146,16 @@ for level in data['levels']:
             command.extend(["--label", label])
 
         try:
-            subprocess.run(command, check=True)
-            print(f"✅ Created issue: {title} (Level {level_num})")
+            # Capture output to get issue number
+            result = subprocess.run(command, check=True, capture_output=True, text=True)
+            issue_number = extract_issue_number(result.stdout)
+            
+            if issue_number:
+                # Update the YAML file with the issue number
+                update_yaml_with_issue_number(yaml_file_path, level_num, name, issue_number)
+                print(f"✅ Created issue #{issue_number}: {title} (Level {level_num})")
+            else:
+                print(f"⚠️  Created issue but couldn't determine issue number: {title}")
         except subprocess.CalledProcessError as e:
             print(f"❌ Failed to create issue: {title}")
             print(f"Error: {e}")
