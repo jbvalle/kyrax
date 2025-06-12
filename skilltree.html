@@ -3,827 +3,616 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Systems Skill Tree</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <title>Kyrax - Skill Tree</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #0a0e17;
-            --bg-darker: #05080f;
-            --primary: #00c6ff;
-            --primary-dark: #0072ff;
-            --secondary: #6a11cb;
-            --accent: #ff2d75;
-            --accent-light: #ff5e9c;
-            --text: #e6f1ff;
-            --text-dim: #8ca0c7;
-            --success: #00ff9d;
-            --warning: #ffcc00;
-            --danger: #ff3860;
-            --node-size: 90px;
-            --connector-width: 4px;
-            --glow-intensity: 8px;
+            --bg-dark: #0c0c14;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #25253d;
+            --primary: #7e57c2;
+            --primary-light: #9c7de8;
+            --secondary: #29b6f6;
+            --accent: #ff7043;
+            --success: #66bb6a;
+            --text: #e0e0e0;
+            --text-secondary: #a0a0c0;
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-dark) 70%);
+            background: linear-gradient(135deg, var(--bg-dark), #0f0c29);
             color: var(--text);
-            font-family: 'Exo 2', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(106, 17, 203, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 198, 255, 0.1) 0%, transparent 20%);
-            z-index: -1;
-        }
-
-        .header {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.9) 0%, rgba(5, 8, 15, 0.7) 100%);
-            border-bottom: 1px solid rgba(0, 198, 255, 0.2);
-            position: relative;
-            z-index: 10;
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, var(--primary), var(--accent-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            color: var(--text-dim);
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
             line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1rem;
         }
 
-        .levels-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            padding: 2rem 0;
-        }
-
-        .level {
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 198, 255, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .level:hover {
-            transform: translateY(-5px);
-        }
-
-        .level-header {
-            background: linear-gradient(to right, rgba(106, 17, 203, 0.7), rgba(0, 114, 255, 0.7));
-            padding: 1.2rem 2rem;
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(0, 198, 255, 0.3);
+            padding: 20px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(126, 87, 194, 0.5);
+            border: 3px solid transparent;
+            background: 
+                linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(126, 87, 194, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(126, 87, 194, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(126, 87, 194, 0.5); }
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .logo-icon:hover img {
+            transform: scale(1.08);
+        }
+
+        .logo-text h1 {
+            font-size: 32px;
+            background: linear-gradient(to right, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(126, 87, 194, 0.3);
+        }
+
+        .logo-text p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-text p i {
+            color: var(--accent);
+        }
+
+        .level-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 5px 20px rgba(126, 87, 194, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Skill Tree Styles */
+        .skill-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .skill-level {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-level::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+
+        .skill-level:hover::before {
+            transform: scaleX(1);
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .level-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-light);
+            position: relative;
+            padding-left: 20px;
         }
 
-        .level-number {
-            background: var(--bg-dark);
-            color: var(--primary);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+        .level-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 30px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .level-theme {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-style: italic;
         }
 
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
+            gap: 25px;
         }
 
-        .project-node {
-            background: rgba(20, 30, 48, 0.8);
+        .project-card {
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 198, 255, 0.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
         }
 
-        .project-node:hover {
+        .project-card.unlocked {
+            border-color: rgba(102, 187, 106, 0.3);
+            box-shadow: 0 0 20px rgba(102, 187, 106, 0.1);
+        }
+
+        .project-card.locked {
+            border-color: rgba(255, 112, 67, 0.2);
+            filter: brightness(0.7);
+        }
+
+        .project-card.unlocked:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 198, 255, 0.4);
-            box-shadow: 0 5px 25px rgba(0, 198, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(102, 187, 106, 0.2);
+        }
+
+        .project-card.locked:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 112, 67, 0.1);
+        }
+
+        .project-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .project-status.unlocked {
+            background: rgba(102, 187, 106, 0.2);
+            color: var(--success);
+        }
+
+        .project-status.locked {
+            background: rgba(255, 112, 67, 0.2);
+            color: var(--accent);
         }
 
         .project-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-light);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .skill-tag {
-            background: rgba(106, 17, 203, 0.3);
-            color: var(--accent-light);
-            font-size: 0.8rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
-            margin-bottom: 1.2rem;
-            display: inline-block;
+        .project-name i {
+            width: 24px;
+            text-align: center;
         }
 
-        .requirements {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px dashed rgba(0, 198, 255, 0.2);
+        .project-name.unlocked i {
+            color: var(--success);
         }
 
-        .requirements h4 {
-            color: var(--text-dim);
-            margin-bottom: 0.7rem;
-            font-size: 0.9rem;
+        .project-name.locked i {
+            color: var(--accent);
+        }
+
+        .project-skill {
+            font-size: 16px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .requirements-title {
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .requirements ul {
-            padding-left: 1.2rem;
-        }
-
-        .requirements li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: var(--text-dim);
-        }
-
-        .status {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+            gap: 8px;
         }
 
-        .status.locked {
-            background: var(--danger);
-            animation: pulse 2s infinite;
+        .requirements-title i {
+            color: var(--accent);
         }
 
-        .status.unlocked {
-            background: var(--success);
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+        .requirements-list {
+            list-style-type: none;
+            margin-left: 10px;
         }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 56, 96, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 56, 96, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 56, 96, 0);
-            }
+        .requirement-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
 
-        .progress-bar {
+        .requirement-item::before {
+            content: '';
             position: absolute;
-            bottom: 0;
             left: 0;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--accent-light));
-            border-radius: 0 0 12px 12px;
-            transition: width 1.5s ease;
+            top: 7px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
         }
 
-        /* Connectors and lines for the tree */
-        .tree-connectors {
+        .unlocked .requirement-item::before {
+            background: var(--success);
+            box-shadow: 0 0 10px rgba(102, 187, 106, 0.5);
+            animation: pulseDot 2s infinite;
+        }
+
+        .locked .requirement-item::before {
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(255, 112, 67, 0.3);
+        }
+
+        @keyframes pulseDot {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at center, rgba(102, 187, 106, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .unlocked:hover .glow-effect {
+            opacity: 1;
+        }
+
+        .locked-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            background: rgba(26, 26, 46, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .connector {
-            position: absolute;
-            background: rgba(0, 198, 255, 0.3);
-            z-index: -1;
+        .locked:hover .locked-overlay {
+            opacity: 1;
         }
 
-        .horizontal-connector {
-            height: var(--connector-width);
-        }
-
-        .vertical-connector {
-            width: var(--connector-width);
-        }
-
-        /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(0, 198, 255, 0.1);
-            margin-top: 3rem;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 900px) {
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
+        .data-source {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        @media (max-width: 600px) {
+        .data-source a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 20px;
+            color: var(--secondary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(126, 87, 194, 0.3);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .level-header {
+            header {
                 flex-direction: column;
                 text-align: center;
-                gap: 10px;
+                gap: 25px;
+            }
+            
+            .logo {
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-icon {
+                margin-bottom: 15px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>EMBEDDED SYSTEMS SKILL TREE</h1>
-        <p class="subtitle">Master embedded systems development through this RPG-style progression path. Complete projects to unlock new skills and advance through levels.</p>
-    </div>
-    
     <div class="container">
-        <div id="skill-tree" class="levels-container">
-            <!-- Skill tree will be dynamically generated here -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://raw.githubusercontent.com/jbvalle/kyrax/refs/heads/main/assets/kyrax_character_img_color.jpeg" alt="Kyrax Character">
+                </div>
+                <div class="logo-text">
+                    <h1 id="characterName">Kyrax</h1>
+                    <p id="characterClass"><i class="fas fa-hat-wizard"></i> Embedded Artificer / Spiritual Warrior</p>
+                </div>
+            </div>
+            <div class="level-badge">
+                <i class="fas fa-level-up-alt"></i>
+                <span id="levelBadge">SKILL TREE</span>
+            </div>
+        </header>
+
+        <div id="skillTreeContent">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading skill tree data from GitHub...</p>
+            </div>
         </div>
-    </div>
-    
-    <div class="footer">
-        <p>Progress through 9 levels of embedded systems mastery | &copy; 2023 Embedded Engineering RPG</p>
+
+        <div class="footer">
+            <div class="copyright">
+                RPG Skill Tree Dashboard • Last updated: <span id="currentDate"></span>
+            </div>
+            <div class="data-source">
+                <i class="fab fa-github"></i>
+                <span>Data source: <a href="https://raw.githubusercontent.com/jbvalle/kyrax/refs/heads/main/test.yaml" target="_blank">GitHub Repository</a></span>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Dummy YAML data - to be replaced with GitHub fetch later
-        const dummyYaml = `
-levels:
-  - level: 1
-    theme: "Microcontroller Fundamentals"
-    projects:
-      - name: "Blinking LED with GPIO control"
-        skill: "Register-level hardware manipulation"
-        state: "locked"
-        requirements:
-          - "Register-level programming (no HAL)"
-          - "Variable blink rates via button presses"
-          - "Cycle-counted delays for precise timing"
-          
-      - name: "Button-controlled LED state machine"
-        skill: "Hardware interrupt handling"
-        state: "locked"
-        requirements:
-          - "Interrupt-based edge detection with debounce"
-          - "4-state FSM (Off/Low/Med/High)"
-          - "Long-press/short-press differentiation"
-
-      - name: "7-segment display counter"
-        skill: "Multiplexing and timing control"
-        state: "locked"
-        requirements:
-          - "GPIO multiplexing without driver IC"
-          - "<5ms refresh rate per digit"
-          - "Increment/decrement with rollover"
-
-      - name: "Buzzer melody player"
-        skill: "PWM signal generation"
-        state: "locked"
-        requirements:
-          - "PWM musical tone generation"
-          - "3-song storage in note-duration arrays"
-          - "Duty cycle-based volume control"
-
-      - name: "Potentiometer voltage reader"
-        skill: "Analog signal processing"
-        state: "locked"
-        requirements:
-          - "12-bit ADC with 14-bit ENOB via oversampling"
-          - "Real-time moving average filter"
-          - "Serial plotter visualization"
-
-  - level: 2
-    theme: "Peripheral Integration"
-    projects:
-      - name: "I2C environmental sensor hub"
-        skill: "Multi-device bus management"
-        state: "locked"
-        requirements:
-          - "3+ sensor polling (temp/humidity/pressure)"
-          - "Sensor fusion algorithm"
-          - "Bus arbitration failure handling"
-          
-      - name: "SPI OLED display driver"
-        skill: "High-speed serial communication"
-        state: "locked"
-        requirements:
-          - "Bitmap renderer without libraries"
-          - "Double buffering implementation"
-          - "30fps animation rate"
-
-      - name: "Rotary encoder menu system"
-        skill: "Human-machine interface design"
-        state: "locked"
-        requirements:
-          - "Quadrature decoding via interrupts"
-          - "3-level nested menu"
-          - "Selection haptic feedback"
-
-      - name: "Stepper motor controller"
-        skill: "Precision motion control"
-        state: "locked"
-        requirements:
-          - "Microstepping control"
-          - "Acceleration/deceleration profiles"
-          - "Position tracking with error correction"
-
-  - level: 3
-    theme: "RTOS Foundations"
-    projects:
-      - name: "Multi-task LED controller"
-        skill: "Real-time task scheduling"
-        state: "locked"
-        requirements:
-          - "3+ priority-based tasks"
-          - "Mutex-protected resource sharing"
-          - "CPU usage monitoring"
-          
-      - name: "Queue-based sensor fusion"
-        skill: "Inter-task communication"
-        state: "locked"
-        requirements:
-          - "Multiple producer tasks"
-          - "Single consumer fusion task"
-          - "Time-stamped data synchronization"
-
-      - name: "Priority-inversion demo"
-        skill: "RTOS anti-pattern resolution"
-        state: "locked"
-        requirements:
-          - "Create priority inversion scenario"
-          - "Implement priority inheritance"
-          - "Measure latency improvements"
-
-      - name: "Mutex-protected serial console"
-        skill: "Thread-safe resource sharing"
-        state: "locked"
-        requirements:
-          - "Thread-safe printf implementation"
-          - "Command queue with overflow protection"
-          - "Timeout handling for resource access"
-
-  - level: 4
-    theme: "Wireless Connectivity"
-    projects:
-      - name: "BLE beacon transmitter"
-        skill: "Bluetooth Low Energy advertising"
-        state: "locked"
-        requirements:
-          - "iBeacon format compatibility"
-          - "Configurable TX power levels"
-          - "Battery-optimized advertising"
-          
-      - name: "WiFi sensor dashboard"
-        skill: "Embedded web development"
-        state: "locked"
-        requirements:
-          - "TCP/IP stack integration"
-          - "Web server with dynamic content"
-          - "JSON data API endpoint"
-
-      - name: "LoRa environmental monitor"
-        skill: "Long-range radio communication"
-        state: "locked"
-        requirements:
-          - "10km+ range communication"
-          - "Adaptive data rate algorithm"
-          - "Battery life >6 months"
-
-      - name: "NFC access control"
-        skill: "Near-field communication"
-        state: "locked"
-        requirements:
-          - "ISO14443-A card emulation"
-          - "Encrypted payload exchange"
-          - "Audit trail logging"
-
-  - level: 5
-    theme: "Real-time Systems"
-    projects:
-      - name: "PID motor controller"
-        skill: "Closed-loop control systems"
-        state: "locked"
-        requirements:
-          - "Ziegler-Nichols tuning"
-          - "Anti-windup implementation"
-          - "<1ms response time"
-          
-      - name: "Digital filter implementation"
-        skill: "Signal processing"
-        state: "locked"
-        requirements:
-          - "FIR/IIF filter design"
-          - "Fixed-point arithmetic"
-          - "Biquad cascade structure"
-
-      - name: "Reaction time tester"
-        skill: "High-precision timing"
-        state: "locked"
-        requirements:
-          - "Microsecond-precision timing"
-          - "Statistical analysis (mean/std dev)"
-          - "Visual/auditory stimulus"
-
-      - name: "Audio spectrum analyzer"
-        skill: "Spectral analysis"
-        state: "locked"
-        requirements:
-          - "24-bit audio acquisition"
-          - "1024-point FFT"
-          - "Octave band visualization"
-
-  - level: 6
-    theme: "Embedded Security"
-    projects:
-      - name: "Secure boot implementation"
-        skill: "Chain of trust establishment"
-        state: "locked"
-        requirements:
-          - "Chain of trust with bootloader"
-          - "RSA-2048 signature verification"
-          - "Tamper detection mechanism"
-          
-      - name: "AES-256 encryption engine"
-        skill: "Cryptographic implementation"
-        state: "locked"
-        requirements:
-          - "ECB/CBC/CTR modes"
-          - "DMA-assisted encryption"
-          - "Side-channel attack countermeasures"
-
-      - name: "TLS/DTLS client"
-        skill: "Secure network protocols"
-        state: "locked"
-        requirements:
-          - "mbedTLS integration"
-          - "Certificate validation"
-          - "Session resumption support"
-
-      - name: "Side-channel attack demo"
-        skill: "Security vulnerability analysis"
-        state: "locked"
-        requirements:
-          - "Power analysis setup"
-          - "Simple power analysis (SPA)"
-          - "Constant-time algorithm comparison"
-
-  - level: 7
-    theme: "Edge AI & Vision"
-    projects:
-      - name: "TinyML voice recognition"
-        skill: "Embedded machine learning"
-        state: "locked"
-        requirements:
-          - "<50ms inference latency"
-          - "INT8 quantized model"
-          - "Background noise suppression"
-          
-      - name: "Image classification"
-        skill: "Computer vision implementation"
-        state: "locked"
-        requirements:
-          - "CNN model <100KB"
-          - "10fps inference rate"
-          - "Transfer learning adaptation"
-
-      - name: "Neural network accelerator"
-        skill: "ML performance optimization"
-        state: "locked"
-        requirements:
-          - "CMSIS-NN implementation"
-          - "Layer fusion optimization"
-          - "Memory bandwidth profiling"
-
-      - name: "Computer vision pipeline"
-        skill: "Real-time image processing"
-        state: "locked"
-        requirements:
-          - "OV7670 camera interface"
-          - "Object detection with tracking"
-          - "Optical flow calculation"
-
-  - level: 8
-    theme: "Advanced Architectures"
-    projects:
-      - name: "Heterogeneous multi-core"
-        skill: "Asymmetric processing"
-        state: "locked"
-        requirements:
-          - "AMP architecture"
-          - "Inter-processor communication"
-          - "Hardware semaphore synchronization"
-          
-      - name: "FPGA co-processing"
-        skill: "Hardware acceleration"
-        state: "locked"
-        requirements:
-          - "Verilog accelerator design"
-          - "AXI bus interfacing"
-          - "Software-hardware latency measurement"
-
-      - name: "Real-time Linux (PREEMPT_RT)"
-        skill: "Linux real-time extensions"
-        state: "locked"
-        requirements:
-          - "Kernel patching and building"
-          - "<100μs scheduling latency"
-          - "Xenomai coexistence"
-
-      - name: "PCIe communication"
-        skill: "High-speed interconnect"
-        state: "locked"
-        requirements:
-          - "DMA transfers"
-          - "MSI interrupt handling"
-          - "Throughput >5Gbps"
-
-  - level: 9
-    theme: "Cutting-Edge Systems"
-    projects:
-      - name: "Autonomous drone navigation"
-        skill: "Robotic autonomy"
-        state: "locked"
-        requirements:
-          - "SLAM implementation"
-          - "Obstacle avoidance"
-          - "Fail-safe RTH protocol"
-          
-      - name: "Medical device simulator"
-        skill: "Medical systems development"
-        state: "locked"
-        requirements:
-          - "IEC 62304 compliance"
-          - "Fault tree analysis"
-          - "Clinical scenario modeling"
-
-      - name: "Industrial PLC controller"
-        skill: "Industrial automation"
-        state: "locked"
-        requirements:
-          - "IEC 61131-3 support"
-          - "Redundant I/O handling"
-          - "Safety integrity level (SIL) 2"
-
-      - name: "Satellite communication"
-        skill: "Space systems engineering"
-        state: "locked"
-        requirements:
-          - "LoRa satellite modem"
-          - "Orbit prediction algorithm"
-          - "Link budget calculation"
-        `;
-
-        // Function to parse YAML and build the skill tree
-        function buildSkillTree(yamlData) {
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toISOString().split('T')[0];
+        
+        // GitHub raw YAML URL
+        const YAML_URL = 'https://raw.githubusercontent.com/jbvalle/kyrax/refs/heads/main/test.yaml';
+        
+        // Fetch YAML data from GitHub
+        async function fetchYamlData() {
             try {
-                const data = jsyaml.load(yamlData);
-                const container = document.getElementById('skill-tree');
-                
-                // Create each level
-                data.levels.forEach(level => {
-                    const levelElement = document.createElement('div');
-                    levelElement.className = 'level';
-                    
-                    // Level header
-                    const header = document.createElement('div');
-                    header.className = 'level-header';
-                    header.innerHTML = `
-                        <div class="level-title">Level ${level.level}: ${level.theme}</div>
-                        <div class="level-number">${level.level}</div>
-                    `;
-                    
-                    // Projects grid
-                    const projectsGrid = document.createElement('div');
-                    projectsGrid.className = 'projects-grid';
-                    
-                    // Create each project node
-                    level.projects.forEach(project => {
-                        const projectNode = document.createElement('div');
-                        projectNode.className = 'project-node';
-                        
-                        // Requirements list
-                        const requirementsList = project.requirements.map(req => 
-                            <li>${req}</li>
-                        ).join('');
-                        
-                        projectNode.innerHTML = `
-                            <div class="status ${project.state}"></div>
-                            <div class="progress-bar" style="width: ${project.state === 'unlocked' ? '100%' : '0%'};"></div>
-                            <h3 class="project-name">${project.name}</h3>
-                            <div class="skill-tag">${project.skill}</div>
-                            <div class="requirements">
-                                <h4>Requirements</h4>
-                                <ul>${requirementsList}</ul>
-                            </div>
-                        `;
-                        
-                        // Add unlock animation on click (for demo purposes)
-                        projectNode.addEventListener('click', () => {
-                            if (project.state === 'locked') {
-                                projectNode.querySelector('.status').classList.remove('locked');
-                                projectNode.querySelector('.status').classList.add('unlocked');
-                                projectNode.querySelector('.progress-bar').style.width = '100%';
-                                project.state = 'unlocked';
-                                
-                                // Add unlock animation
-                                projectNode.style.animation = 'none';
-                                setTimeout(() => {
-                                    projectNode.style.animation = 'unlockGlow 1.5s ease';
-                                }, 10);
-                            }
-                        });
-                        
-                        projectsGrid.appendChild(projectNode);
-                    });
-                    
-                    levelElement.appendChild(header);
-                    levelElement.appendChild(projectsGrid);
-                    container.appendChild(levelElement);
-                });
-                
-                // Add dynamic connectors after DOM is built
-                setTimeout(addTreeConnectors, 100);
-                
-            } catch (e) {
-                console.error('Error parsing YAML:', e);
-            }
-        }
-        
-        // Function to add tree connectors (visual lines between nodes)
-        function addTreeConnectors() {
-            const levels = document.querySelectorAll('.level');
-            const connectorsContainer = document.createElement('div');
-            connectorsContainer.className = 'tree-connectors';
-            document.querySelector('.levels-container').appendChild(connectorsContainer);
-            
-            levels.forEach((level, levelIndex) => {
-                if (levelIndex < levels.length - 1) {
-                    const projects = level.querySelectorAll('.project-node');
-                    const nextProjects = levels[levelIndex + 1].querySelectorAll('.project-node');
-                    
-                    // Connect each project to the next level's projects
-                    projects.forEach((project, projectIndex) => {
-                        const nextProject = nextProjects[Math.min(projectIndex, nextProjects.length - 1)];
-                        
-                        if (project && nextProject) {
-                            const projectRect = project.getBoundingClientRect();
-                            const nextProjectRect = nextProject.getBoundingClientRect();
-                            const containerRect = document.querySelector('.levels-container').getBoundingClientRect();
-                            
-                            // Calculate positions relative to container
-                            const startX = projectRect.left + projectRect.width/2 - containerRect.left;
-                            const startY = projectRect.top + projectRect.height - containerRect.top;
-                            const endX = nextProjectRect.left + nextProjectRect.width/2 - containerRect.left;
-                            const endY = nextProjectRect.top - containerRect.top;
-                            
-                            // Create connector
-                            const connector = document.createElement('div');
-                            connector.className = 'connector';
-                            connector.style.left = ${startX}px;
-                            connector.style.top = ${startY}px;
-                            connector.style.width = ${Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2))}px;
-                            connector.style.transform = rotate(${Math.atan2(endY - startY, endX - startX)}rad);
-                            connector.style.transformOrigin = 'top left';
-                            connectorsContainer.appendChild(connector);
-                        }
-                    });
+                const response = await fetch(YAML_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-            });
-        }
-        
-        // Add unlock animation to CSS dynamically
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes unlockGlow {
-                0% {
-                    box-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
-                }
-                50% {
-                    box-shadow: 0 0 30px rgba(0, 255, 157, 0.8);
-                }
-                100% {
-                    box-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Initialize the skill tree with dummy data
-        document.addEventListener('DOMContentLoaded', () => {
-            buildSkillTree(dummyYaml);
-            
-            // For demo purposes: unlock the first project
-            setTimeout(() => {
-                const firstProject = document.querySelector('.project-node');
-                if (firstProject) {
-                    firstProject.querySelector('.status').classList.remove('locked');
-                    firstProject.querySelector('.status').classList.add('unlocked');
-                    firstProject.querySelector('.progress-bar').style.width = '100%';
-                    firstProject.style.animation = 'unlockGlow 1.5s ease';
-                }
-            }, 1500);
-        });
-        
-        // Function to load from GitHub (for future implementation)
-        async function loadFromGitHub() {
-            try {
-                const response = await fetch('https://raw.githubusercontent.com/your-username/your-repo/main/skill-tree.yaml');
-                const yamlData = await response.text();
-                buildSkillTree(yamlData);
+                const yamlText = await response.text();
+                return jsyaml.load(yamlText);
             } catch (error) {
-                console.error('Failed to load YAML from GitHub:', error);
-                // Fallback to dummy data
-                buildSkillTree(dummyYaml);
+                console.error('Error fetching YAML data:', error);
+                return null;
             }
         }
-        
-        // Uncomment to use GitHub loading in production:
-        // loadFromGitHub();
+
+        // Get appropriate icon for project based on skill
+        function getSkillIcon(skill) {
+            if (skill.includes("hardware")) return "fa-microchip";
+            if (skill.includes("interrupt")) return "fa-bolt";
+            if (skill.includes("PWM")) return "fa-wave-square";
+            if (skill.includes("ADC")) return "fa-chart-line";
+            if (skill.includes("I2C") || skill.includes("SPI")) return "fa-network-wired";
+            if (skill.includes("motor")) return "fa-cogs";
+            if (skill.includes("menu")) return "fa-list";
+            return "fa-code";
+        }
+
+        // Create HTML elements from data
+        function createSkillTreeContent(data) {
+            if (!data || !data.levels) {
+                return `
+                <div class="loading">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: var(--accent);"></i>
+                    <p>Failed to load skill tree data. Please check the console for errors.</p>
+                </div>
+                `;
+            }
+            
+            return `
+            <div class="skill-tree">
+                ${data.levels.map(level => `
+                <div class="skill-level">
+                    <div class="level-header">
+                        <h2 class="level-title">Level ${level.level}</h2>
+                        <div class="level-theme">${level.theme}</div>
+                    </div>
+                    <div class="projects-grid">
+                        ${level.projects.map(project => `
+                        <div class="project-card ${project.state}">
+                            <div class="project-status ${project.state}">
+                                ${project.state === 'unlocked' ? 'UNLOCKED' : 'LOCKED'}
+                            </div>
+                            <div class="project-name ${project.state}">
+                                <i class="fas ${getSkillIcon(project.skill)}"></i>
+                                ${project.name}
+                            </div>
+                            <div class="project-skill">${project.skill}</div>
+                            
+                            <div class="requirements-title">
+                                <i class="fas fa-tasks"></i>
+                                Requirements
+                            </div>
+                            <ul class="requirements-list">
+                                ${project.requirements.map(req => `
+                                <li class="requirement-item">${req}</li>
+                                `).join('')}
+                            </ul>
+                            
+                            ${project.state === 'unlocked' ? `
+                            <div class="glow-effect"></div>
+                            ` : `
+                            <div class="locked-overlay">
+                                <div>
+                                    <i class="fas fa-lock"></i><br>
+                                    LOCKED
+                                </div>
+                            </div>
+                            `}
+                        </div>
+                        `).join('')}
+                    </div>
+                </div>
+                `).join('')}
+            </div>
+            `;
+        }
+
+        // Initialize the dashboard
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await fetchYamlData();
+            
+            // Create skill tree content
+            document.getElementById('skillTreeContent').innerHTML = createSkillTreeContent(data);
+        });
     </script>
 </body>
 </html>
