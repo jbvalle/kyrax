@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 3
-  current_xp: 1029
-  xp_to_next_level: 1760
+  level: 2
+  current_xp: 846
+  xp_to_next_level: 990
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -11,13 +11,13 @@ stats:
     value: 0
     real_world_meaning: Physical power, discipline, lifting PRs
   dex:
-    value: 1
+    value: 0
     real_world_meaning: Hands-on skill (soldering/coding), adaptability
   const:
     value: 0
     real_world_meaning: Resilience (workouts, stress management)
   int:
-    value: 1
+    value: 0
     real_world_meaning: Problem-solving (embedded projects, learning)
   wis:
     value: 0
@@ -76,4 +76,28 @@ habit_data:
   value: 130
   compounded_value: 130
   last_executed: '2025-06-13'
-challenges: []
+challenges:
+- id: 414
+  title: Button-controlled LED state machine. dex 1, int 1
+  body: '## Button-controlled LED state machine
+
+
+    **Level 1 - Microcontroller Fundamentals**
+
+
+    ### Requirements:
+
+    - Interrupt-based edge detection with debounce
+
+    - 4-state FSM (Off/Low/Med/High)
+
+    - Long-press/short-press differentiation'
+  labels:
+  - 'status: todo'
+  - 'area: embedded_systems'
+  - 'area: embedded_challenges'
+  - level 1
+  - 'skill: Hardware interrupt handling'
+  start_date: '2025-06-13'
+  difficulty: hard
+  k_factor: 3
