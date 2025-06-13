@@ -1209,6 +1209,10 @@
                                         <i class="far fa-calendar-alt"></i>
                                         Started: ${challenge.start_date}
                                     </div>
+                                    <div class="challenge-date">
+                                        <i class="fa-solid fa-flag-checkered"></i>
+                                        Planned: ${challenge.planned_date}
+                                    </div>
                                     <div class="challenge-tags">
                                         ${challenge.labels.filter(l => !l.startsWith('status:')).map(label => `
                                         <span class="challenge-tag">${label}</span>
