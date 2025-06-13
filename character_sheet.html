@@ -1175,7 +1175,7 @@
                                     <i class="fas fa-${habit.id === 6 ? 'dumbbell' : (habit.id <= 3 ? 'pray' : 'pills')}"></i>
                                     ${habit.name}
                                 </div>
-                                <div class="habit-date">Last: ${habit.last_executed || 'Not completed'}</div>
+                                <div class="habit-date">Last: ${habit.last_executed || 'Not completed'}, Streak: ${habit.streak}/${habit.streak_cycle} +1 ${habit.stat_reward}</div>
                             </div>
                             <div class="habit-value">+${habit.compounded_value} XP</div>
                         </div>
