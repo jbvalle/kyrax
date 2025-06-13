@@ -145,7 +145,7 @@ challenges:
   - level 1
   - 'skill: Hardware interrupt handling'
   start_date: '2025-06-13'
-  planned_date: '2025-06-20'
+  planned_date: '2025-06-10'
   monster_encounter: 0
   difficulty: medium
   k_factor: 5
