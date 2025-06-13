@@ -338,6 +338,7 @@ def add_challenge(issue_number):
         'labels': [label['name'] for label in issue_data.get('labels', [])],
         'start_date': start_date.strftime('%Y-%m-%d'),
         'planned_date': planned_date.strftime('%Y-%m-%d'),
+        'monster_encounter': int(0),
         'difficulty': difficulty,
         'k_factor': k_factor,
         'quest_day_limit': quest_day_limit

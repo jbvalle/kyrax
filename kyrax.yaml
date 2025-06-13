@@ -146,6 +146,7 @@ challenges:
   - 'skill: Hardware interrupt handling'
   start_date: '2025-06-13'
   planned_date: '2025-06-20'
+  monster_encounter: 0
   difficulty: medium
   k_factor: 5
   quest_day_limit: 7
