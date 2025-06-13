@@ -4,7 +4,7 @@ levels:
   projects:
   - name: Blinking LED with GPIO control
     skill: Register-level hardware manipulation
-    state: locked
+    state: unlocked
     requirements:
     - Register-level programming (no HAL)
     - Variable blink rates via button presses
