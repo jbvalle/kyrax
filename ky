@@ -20,39 +20,57 @@ def save_yaml_data(data):
         yaml.dump(data, file, sort_keys=False)
 
 
+from datetime import datetime
+import inquirer
+
 def create_habit():
     print("\nCreating habit:\n")
+    
     questions = [
         inquirer.Text('name', message="? Title"),
         inquirer.Text('value', message="? EXP"),
+        inquirer.Text('streak_cycle', message="? Goal Day Streak to for Stat Upgrade"),
+        inquirer.List('stat_reward',
+                      message="? Which stat should this habit reward?",
+                      choices=['STR', 'DEX', 'CONST', 'INT', 'WIS', 'CHAR']),
         inquirer.List('action',
                       message="? What's next?",
                       choices=['Submit', 'Cancel'])
     ]
+
     answers = inquirer.prompt(questions)
+    
     if answers is None or not answers['action']:
         print("\nError: Habit Creation::create_habit()")
     elif answers['action'] == 'Submit':
         data = load_yaml_data()
         new_id = max(habit['id'] for habit in data['habit_data']) + 1 if data['habit_data'] else 1
+
         new_habit = {
             'id': new_id,
             'name': answers['name'],
             'value': int(answers['value']),
             'compounded_value': int(answers['value']),
-            'last_executed': datetime.now().strftime('%Y-%m-%d')
+            'streak': 0,
+            'streak_cycle': int(answers['streak_cycle']),
+            'last_executed': datetime.now().strftime('%Y-%m-%d'),
+            'stat_reward': answers['stat_reward']
         }
+
         data['habit_data'].append(new_habit)
         save_yaml_data(data)
-        print(f"\nHabit '{answers['name']}' added successfully!")
+        print(f"\n✅ Habit '{answers['name']}' added successfully! Rewards: +{answers['value']} EXP, +1 {answers['stat_reward']} after {answers['streak_cycle']}-Days-Streak 💡")
     else:
         print("\nOperation canceled.")
 
+from datetime import datetime
+import inquirer
 
 def track_habit():
     data = load_yaml_data()
     habit_data = data['habit_data']
     today = datetime.now().date()
+
     questions = [
         inquirer.Checkbox(
             "habits",
@@ -69,27 +87,42 @@ def track_habit():
 
     total_xp = 0
     print("\nSelected habits:")
+
     for habit in answers['habits']:
         last_executed = datetime.strptime(habit['last_executed'], '%Y-%m-%d').date()
         days_since = (today - last_executed).days
+
         if days_since == 1:
+            # Increment streak and apply compounded XP
+            habit['streak'] = habit.get('streak', 0) + 1
             compounded_value = round(habit['compounded_value'] * 1.025)
             xp_gain = compounded_value
             habit['compounded_value'] = compounded_value
-            print(f"{habit['id']}. {habit['name']} (Compounded EXP: {xp_gain}!)")
+            print(f"{habit['id']}. {habit['name']} (🎉📈 Compounded EXP: {xp_gain}!) - Streak: {habit['streak']} Days. Keep it Up! 📈🎉")
+
+        elif days_since == 0:
+            # No XP gain, already tracked today
+            xp_gain = 0
+            print(f"⭐ {habit['id']}. {habit['name']} (EXP {habit['value']}) - Already tracked today - Streak: {habit.get('streak', 0)} ⭐")
+
         else:
+            # Reset streak
+            habit['streak'] = 0
             xp_gain = habit['value']
             habit['compounded_value'] = habit['value']
-            if days_since == 0:
-                print(f"{habit['id']}. {habit['name']} (EXP {xp_gain}) - Already tracked today")
-            else:
-                print(f"{habit['id']}. {habit['name']} (EXP {xp_gain}) - Reset streak")
-        habit['last_executed'] = today.strftime('%Y-%m-%d')
-        total_xp += xp_gain
+            print(f"💡 {habit['id']}. {habit['name']} (EXP {xp_gain}) – Streak reset. Progress isn't perfect — just keep going! 💡")
+
+        if days_since != 0:
+            # Only update last_executed if it wasn't done today already
+            habit['last_executed'] = today.strftime('%Y-%m-%d')
+            total_xp += xp_gain
+
     data['character']['current_xp'] += total_xp
     save_yaml_data(data)
+
     print(f"\nAdded {total_xp} XP to your character!")
     print(f"Total XP: {data['character']['current_xp']}/{data['character']['xp_to_next_level']}")
+    
     if data['character']['current_xp'] >= data['character']['xp_to_next_level']:
         print("\nLEVEL UP AVAILABLE!")
 
@@ -296,6 +329,13 @@ def check_level():
         print(f"\n🎉 Congratulations! You've reached Level {new_level}! 🎉")
         print(f"⭐ Next Level at: {data['character']['xp_to_next_level']} XP")
 
+    if new_level < current_level:
+        data['character']['level'] = new_level
+        data['character']['xp_to_next_level'] = 110 * ((new_level + 1) ** 2)
+        save_yaml_data(data)
+        print(f"\n⚠️  Oh no! You've been downgraded to Level {new_level}! ⚠️")
+        print(f"💪 Regain your strength! Next Level at: {data['character']['xp_to_next_level']} XP")
+
 
 def print_help():
     print("\nky create   # Create new Habits")
@@ -309,16 +349,22 @@ def main():
         cmd = sys.argv[1]
         if cmd == "create":
             create_habit()
+            check_level()
         elif cmd == "habit":
             track_habit()
+            check_level()
         elif cmd == "close" and len(sys.argv) > 2:
             close_issue(sys.argv[2])
+            check_level()
         elif cmd == "challenge" and len(sys.argv) > 2:
             add_challenge(sys.argv[2])
+            check_level()
         elif cmd == "help":
             print_help()
+            check_level()
         else:
             print_help()
+            check_level()
     else:
         print_help()
     check_level()
