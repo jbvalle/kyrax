@@ -150,3 +150,6 @@ challenges:
   difficulty: medium
   k_factor: 5
   quest_day_limit: 7
+  stat_rewards:
+  - dex
+  - int

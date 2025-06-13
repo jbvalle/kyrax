@@ -284,7 +284,6 @@ def add_challenge(issue_number):
 
     data = load_yaml_data()
 
-    # Initialize challenges as empty list if it doesn't exist or is None
     if 'challenges' not in data or data['challenges'] is None:
         data['challenges'] = []
 
@@ -331,22 +330,38 @@ def add_challenge(issue_number):
     quest_day_limit = int(quest_ans['quest_day_limit'])
     planned_date = start_date + timedelta(days=quest_day_limit)
 
+    # Parse stats from title and body
+    title = issue_data.get('title', '')
+    body = issue_data.get('body', '')
+    stat_rewards = set()
+    stat_keys = ['str', 'dex', 'const', 'int', 'wis', 'char']
+
+    for stat in stat_keys:
+        pattern = re.compile(fr"\b{stat}\s*\d+", re.IGNORECASE)
+        if pattern.search(title) or pattern.search(body):
+            stat_rewards.add(stat)
+
     new_challenge = {
         'id': int(issue_number),
-        'title': issue_data.get('title', ''),
-        'body': issue_data.get('body', ''),
+        'title': title,
+        'body': body,
         'labels': [label['name'] for label in issue_data.get('labels', [])],
         'start_date': start_date.strftime('%Y-%m-%d'),
         'planned_date': planned_date.strftime('%Y-%m-%d'),
         'monster_encounter': int(0),
         'difficulty': difficulty,
         'k_factor': k_factor,
-        'quest_day_limit': quest_day_limit
+        'quest_day_limit': quest_day_limit,
+        'stat_rewards': sorted(list(stat_rewards))  # Sorted for consistency
     }
 
     data['challenges'].append(new_challenge)
     save_yaml_data(data)
-    print(f"Added challenge #{issue_number}: {new_challenge['title']} (Difficulty: {difficulty}, K={k_factor}, Quest Day Limit: {quest_day_limit}, Planned Date: {new_challenge['planned_date']})")
+    print(f"✓ Added challenge #{issue_number}: {new_challenge['title']}")
+    print(f"  - Difficulty: {difficulty} (K={k_factor})")
+    print(f"  - Quest Day Limit: {quest_day_limit}, Planned Date: {new_challenge['planned_date']}")
+    if new_challenge['stat_rewards']:
+        print(f"  - Stat Rewards: {', '.join(s.upper() for s in new_challenge['stat_rewards'])}")
 
 
 def check_level():
