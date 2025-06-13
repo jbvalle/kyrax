@@ -272,8 +272,9 @@ def fetch_issue_data(issue_number):
         print(f"Error: {str(e)}")
         return None
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import inquirer
+
 
 def add_challenge(issue_number):
     issue_data = fetch_issue_data(issue_number)
@@ -325,21 +326,26 @@ def add_challenge(issue_number):
     difficulty = difficulty_ans['difficulty']
     k_factor = K_map[difficulty]
 
+    # Calculate start_date and planned_date
+    start_date = datetime.now()
+    quest_day_limit = int(quest_ans['quest_day_limit'])
+    planned_date = start_date + timedelta(days=quest_day_limit)
+
     new_challenge = {
         'id': int(issue_number),
         'title': issue_data.get('title', ''),
         'body': issue_data.get('body', ''),
         'labels': [label['name'] for label in issue_data.get('labels', [])],
-        'start_date': datetime.now().strftime('%Y-%m-%d'),
+        'start_date': start_date.strftime('%Y-%m-%d'),
+        'planned_date': planned_date.strftime('%Y-%m-%d'),
         'difficulty': difficulty,
         'k_factor': k_factor,
-        'quest_day_limit': int(quest_ans['quest_day_limit'])  # Ensures it’s stored as an integer
+        'quest_day_limit': quest_day_limit
     }
 
     data['challenges'].append(new_challenge)
     save_yaml_data(data)
-    print(f"Added challenge #{issue_number}: {new_challenge['title']} (Difficulty: {difficulty}, K={k_factor}, Quest Day Limit: {new_challenge['quest_day_limit']})")
-
+    print(f"Added challenge #{issue_number}: {new_challenge['title']} (Difficulty: {difficulty}, K={k_factor}, Quest Day Limit: {quest_day_limit}, Planned Date: {new_challenge['planned_date']})")
 
 
 def check_level():
