@@ -3,7 +3,7 @@ character:
   class: Embedded Artificer / Spiritual Warrior
   level: 0
   current_xp: 0
-  xp_to_next_level: 0
+  xp_to_next_level: 110
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:

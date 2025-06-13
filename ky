@@ -69,6 +69,7 @@ import inquirer
 def track_habit():
     data = load_yaml_data()
     habit_data = data['habit_data']
+    stats = data['stats']
     today = datetime.now().date()
 
     questions = [
@@ -100,6 +101,13 @@ def track_habit():
             habit['compounded_value'] = compounded_value
             print(f"{habit['id']}. {habit['name']} (🎉📈 Compounded EXP: {xp_gain}!) - Streak: {habit['streak']} Days. Keep it Up! 📈🎉")
 
+            # 🚀 Check for stat reward trigger
+            if habit['streak'] % habit['streak_cycle'] == 0:
+                stat_key = habit['stat_reward'].lower()  # e.g. 'STR' → 'str'
+                if stat_key in stats:
+                    stats[stat_key]['value'] += 1
+                    print(f"🌟 {habit['name']} streak bonus reached! Reward: +1 {habit['stat_reward'].upper()} earned! 🌟")
+
         elif days_since == 0:
             # No XP gain, already tracked today
             xp_gain = 0
@@ -122,7 +130,7 @@ def track_habit():
 
     print(f"\nAdded {total_xp} XP to your character!")
     print(f"Total XP: {data['character']['current_xp']}/{data['character']['xp_to_next_level']}")
-    
+
     if data['character']['current_xp'] >= data['character']['xp_to_next_level']:
         print("\nLEVEL UP AVAILABLE!")
 
@@ -321,6 +329,11 @@ def check_level():
     current_xp = data['character']['current_xp']
     current_level = data['character'].get('level', 1)
     new_level = int(math.sqrt(current_xp / 110))
+
+    if new_level == current_level:
+        data['character']['level'] = new_level
+        data['character']['xp_to_next_level'] = 110 * ((new_level + 1) ** 2)
+        save_yaml_data(data)
 
     if new_level > current_level:
         data['character']['level'] = new_level
