@@ -12,7 +12,7 @@ levels:
     gh_issue: '413'
   - name: Button-controlled LED state machine
     skill: Hardware interrupt handling
-    state: locked
+    state: unlocked
     requirements:
     - Interrupt-based edge detection with debounce
     - 4-state FSM (Off/Low/Med/High)
