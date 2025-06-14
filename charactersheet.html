@@ -1535,7 +1535,7 @@
             const xpPercentage = (character.current_xp / character.xp_to_next_level) * 100;
             document.getElementById('xpFill').style.width = `${xpPercentage}%`;
             document.getElementById('currentXP').innerHTML = `<i class="fas fa-star"></i> ${character.current_xp} XP`;
-            document.getElementById('nextLevelXP').innerHTML = `<i class="fas fa-arrow-right"></i> ${character.xp_to_next_level} XP to next level`;
+            document.getElementById('nextLevelXP').innerHTML = `<i class="fas fa-arrow-right"></i> ${character.xp_to_next_level} XP to reach new level`;
         }
 
         // Load skill tree data
