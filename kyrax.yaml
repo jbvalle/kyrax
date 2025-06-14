@@ -138,4 +138,34 @@ habit_data:
   streak_cycle: 4
   last_executed: '2025-06-14'
   stat_reward: DEX
-challenges: []
+challenges:
+- id: 576
+  title: Cooperative Task Scheduler (Register-Level). dex 1, int 1
+  body: '- [ ] Implement a cooperative (non-preemptive) task scheduler
+
+    - [ ] Tasks are registered with function pointers and run periodically
+
+    - [ ] Uses only SysTick or a timer peripheral (register access only)
+
+    - [ ] No use of RTOS or HAL libraries
+
+    - [ ] Support for at least 3 periodic tasks with different rates
+
+    - [ ] Written in C or C++ (no external frameworks)
+
+    '
+  labels:
+  - 'status: todo'
+  - 'area: embedded_systems'
+  - 'area: embedded_challenges'
+  - level 1
+  - 'skill: Cooperative multitasking (bare metal)'
+  start_date: '2025-06-14'
+  planned_date: '2025-06-21'
+  monster_encounter: 0
+  difficulty: medium
+  k_factor: 5
+  quest_day_limit: 7
+  stat_rewards:
+  - dex
+  - int
