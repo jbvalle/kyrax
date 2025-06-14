@@ -29,10 +29,10 @@ habit_data:
 - id: 1
   name: (Morning) Adhkaar
   value: 70
-  compounded_value: 70
-  streak: 0
+  compounded_value: 72
+  streak: 1
   streak_cycle: 7
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-14'
   stat_reward: WIS
 - id: 2
   name: (Morning) Ishraq
@@ -144,8 +144,8 @@ challenges:
   - 'area: embedded_challenges'
   - level 1
   - 'skill: Hardware interrupt handling'
-  start_date: '2025-06-13'
-  planned_date: '2025-06-10'
+  start_date: '2025-06-14'
+  planned_date: '2025-06-21'
   monster_encounter: 0
   difficulty: medium
   k_factor: 5

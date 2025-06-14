@@ -1008,6 +1008,45 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .challenge-item {
+    position: relative;
+    /* existing styles */
+}
+
+.breached-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+            background: rgba(26, 26, 46, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+            color: var(--accent);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    z-index: 2;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+}
+
+
+.breached-overlay i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.8));
+}
+
+.breached-overlay div {
+    transform: translateY(-10px);
+}
         }
     </style>
 </head>
@@ -1169,161 +1208,149 @@
             `;
         }
 
-        // Create HTML elements from character data
-        function createDashboardContent(data) {
-            if (!data) {
-                return `
-                <div class="loading">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: var(--accent);"></i>
-                    <p>Failed to load character data. Please check the console for errors.</p>
+// Create HTML elements from character data
+function createDashboardContent(data) {
+    if (!data) {
+        return `
+        <div class="loading">
+            <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: var(--accent);"></i>
+            <p>Failed to load character data. Please check the console for errors.</p>
+        </div>
+        `;
+    }
+    
+    // Get current date for breach comparison
+    const currentDate = new Date();
+    
+    return `
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i class="fas fa-shield-alt"></i> Attributes</h2>
+            </div>
+            <div class="stats-grid" id="statsContainer">
+                ${Object.entries(data.stats).map(([statKey, statData]) => `
+                <div class="stat-item">
+                    <div class="stat-value">${statData.value}</div>
+                    <div class="stat-name">${statKey.toUpperCase()}</div>
+                    <div class="stat-desc">${statData.real_world_meaning}</div>
                 </div>
-                `;
-            }
-            
-            // Get current date for breach comparison
-            const currentDate = new Date();
-            
-            return `
-            <div class="grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title"><i class="fas fa-shield-alt"></i> Attributes</h2>
-                    </div>
-                    <div class="stats-grid" id="statsContainer">
-                        ${Object.entries(data.stats).map(([statKey, statData]) => `
-                        <div class="stat-item">
-                            <div class="stat-value">${statData.value}</div>
-                            <div class="stat-name">${statKey.toUpperCase()}</div>
-                            <div class="stat-desc">${statData.real_world_meaning}</div>
-                        </div>
-                        `).join('')}
-                    </div>
-                </div>
+                `).join('')}
+            </div>
+        </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title"><i class="fas fa-tasks"></i> Daily Habits</h2>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i class="fas fa-tasks"></i> Daily Habits</h2>
+            </div>
+            <div class="habits-list" id="habitsContainer">
+                ${data.habit_data.map(habit => `
+                <div class="habit-item">
+                    <div class="habit-info">
+                        <div class="habit-name">
+                            <i class="fas fa-${habit.id === 6 ? 'dumbbell' : (habit.id <= 3 ? 'pray' : 'pills')}"></i>
+                            ${habit.name}
+                        </div>
+                        <div class="habit-date">Last: ${habit.last_executed || 'Not completed'}, Streak: ${habit.streak}/${habit.streak_cycle} +1 ${habit.stat_reward}</div>
                     </div>
-                    <div class="habits-list" id="habitsContainer">
-                        ${data.habit_data.map(habit => `
-                        <div class="habit-item">
-                            <div class="habit-info">
-                                <div class="habit-name">
-                                    <i class="fas fa-${habit.id === 6 ? 'dumbbell' : (habit.id <= 3 ? 'pray' : 'pills')}"></i>
-                                    ${habit.name}
-                                </div>
-                                <div class="habit-date">Last: ${habit.last_executed || 'Not completed'}, Streak: ${habit.streak}/${habit.streak_cycle} +1 ${habit.stat_reward}</div>
+                    <div class="habit-value">+${habit.compounded_value} XP</div>
+                </div>
+                `).join('')}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i class="fas fa-flag"></i> Active Challenges</h2>
+            </div>
+            <div class="challenges-list" id="challengesContainer">
+                ${data.challenges ? data.challenges.map(challenge => {
+                    const kFactor = challenge.k_factor || 10;
+                    const xpValue = calculateChallengeXP(data.character.level, kFactor);
+                    
+                    // Check if challenge is breached
+                    let isBreached = false;
+                    if (challenge.planned_date) {
+                        const plannedDate = new Date(challenge.planned_date);
+                        isBreached = currentDate > plannedDate;
+                    }
+                    
+                    return `
+                    <div class="challenge-item ${isBreached ? 'breached' : ''}">
+                        ${isBreached ? `
+                        <div class="breached-overlay">
+                            <div>
+                                <i class="fa-solid fa-dungeon"></i>
+                                <div>DUNGEON BREACHED</div>
                             </div>
-                            <div class="habit-value">+${habit.compounded_value} XP</div>
                         </div>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title"><i class="fas fa-flag"></i> Active Challenges</h2>
-                    </div>
-                    <div class="challenges-list" id="challengesContainer">
-                        ${data.challenges ? data.challenges.map(challenge => {
-                            const kFactor = challenge.k_factor || 10;
-                            const xpValue = calculateChallengeXP(data.character.level, kFactor);
-                            
-                            // Check if challenge is breached
-                            let isBreached = false;
-                            if (challenge.planned_date) {
-                                const plannedDate = new Date(challenge.planned_date);
-                                isBreached = currentDate > plannedDate;
-                            }
-                            
-                            return `
-                            <div class="challenge-item ${isBreached ? 'breached' : ''}">
-                                ${isBreached ? `
-                                <div class="breached-overlay">
-                                    Dungeon Breach. Awaiting Boss Battle
-                                </div>
-                                ` : ''}
-                                <div class="challenge-header">
-                                    <div class="challenge-title">
-                                        <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'flag' : 'flag'}"></i>
-                                        <span class="challenge-id">#${challenge.id}</span>
-                                        ${challenge.title}
-                                    </div>
-                                    <div class="challenge-xp">+${xpValue} XP</div>
-                                </div>
-                                <div class="challenge-body">
-                                    ${marked.parse(challenge.body)}
-                                </div>
-                                <div class="challenge-meta">
-                                    <div class="challenge-date">
-                                        <i class="far fa-calendar-alt"></i>
-                                        Started: ${challenge.start_date}
-                                    </div>
-                                    <div class="challenge-date">
-                                        <i class="fa-solid fa-flag-checkered"></i>
-                                        Planned: ${challenge.planned_date}
-                                    </div>
-                                    <div class="challenge-tags">
-                                        ${challenge.labels.filter(l => !l.startsWith('status:')).map(label => `
-                                        <span class="challenge-tag">${label}</span>
-                                        `).join('')}
-                                    </div>
-                                </div>
+                        ` : ''}
+                        <div class="challenge-header">
+                            <div class="challenge-title">
+                                <i class="fas fa-${challenge.labels.includes('area: weightlifting') ? 'dumbbell' : 'flag'}"></i>
+                                <span class="challenge-id">#${challenge.id}</span>
+                                ${challenge.title}
                             </div>
-                            `;
-                        }).join('') : '<p>No active challenges found.</p>'}
-                    </div>
-                </div>
-
-                <div class="card background-card">
-                    <div class="card-header">
-                        <h2 class="card-title"><i class="fas fa-scroll"></i> Background</h2>
-                    </div>
-                    <p class="background-text" id="backgroundText">
-                        ${data.character.background}
-                    </p>
-                </div>
-
-                <!-- Skill Tree Navigation Section -->
-                <div class="skill-tree-nav">
-                    <div class="skill-tree-header">
-                        <h2><i class="fas fa-sitemap"></i> Skill Trees</h2>
-                        <div class="skill-tree-tabs">
-                            <button class="skill-tree-tab active" data-tree="embedded">
-                                <i class="fas fa-microchip"></i>
-                                Embedded
-                            </button>
-                            <button class="skill-tree-tab" data-tree="embeddedIoT">
-                                <i class="fa-solid fa-network-wired"></i>
-                                Embebedded_IoT
-                            </button>
-<!--
-                            <button class="skill-tree-tab" data-tree="magic">
-                                <i class="fas fa-wand-magic"></i>
-                                Magic
-                            </button>
-                            <button class="skill-tree-tab" data-tree="crafting">
-                                <i class="fas fa-hammer"></i>
-                                Crafting
-                            </button>
-                            <button class="skill-tree-tab" data-tree="social">
-                                <i class="fas fa-users"></i>
-                                Social
-                            </button>
--->
+                            <div class="challenge-xp">+${xpValue} XP</div>
+                        </div>
+                        <div class="challenge-body">
+                            ${marked.parse(challenge.body)}
+                        </div>
+                        <div class="challenge-meta">
+                            <div class="challenge-date">
+                                <i class="far fa-calendar-alt"></i>
+                                Started: ${challenge.start_date}
+                            </div>
+                            <div class="challenge-date">
+                                <i class="fa-solid fa-flag-checkered"></i>
+                                Planned: ${challenge.planned_date}
+                            </div>
+                            <div class="challenge-tags">
+                                ${challenge.labels.filter(l => !l.startsWith('status:')).map(label => `
+                                <span class="challenge-tag">${label}</span>
+                                `).join('')}
+                            </div>
                         </div>
                     </div>
-                    <div class="skill-tree-content" id="skillTreeContent">
-                        <div class="skill-tree-loading">
-                            <div class="spinner"></div>
-                            <p>Loading skill tree data...</p>
-                        </div>
-                    </div>
+                    `;
+                }).join('') : '<p>No active challenges found.</p>'}
+            </div>
+        </div>
+
+        <div class="card background-card">
+            <div class="card-header">
+                <h2 class="card-title"><i class="fas fa-scroll"></i> Background</h2>
+            </div>
+            <p class="background-text" id="backgroundText">
+                ${data.character.background}
+            </p>
+        </div>
+
+        <!-- Skill Tree Navigation Section -->
+        <div class="skill-tree-nav">
+            <div class="skill-tree-header">
+                <h2><i class="fas fa-sitemap"></i> Skill Trees</h2>
+                <div class="skill-tree-tabs">
+                    <button class="skill-tree-tab active" data-tree="embedded">
+                        <i class="fas fa-microchip"></i>
+                        Embedded
+                    </button>
+                    <button class="skill-tree-tab" data-tree="embeddedIoT">
+                        <i class="fa-solid fa-network-wired"></i>
+                        Embedded_IoT
+                    </button>
                 </div>
             </div>
-            `;
-        }
-
+            <div class="skill-tree-content" id="skillTreeContent">
+                <div class="skill-tree-loading">
+                    <div class="spinner"></div>
+                    <p>Loading skill tree data...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+}
         // Update the DOM with character data
         function updateCharacterData(data) {
             if (!data) return;
