@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 0
-  current_xp: 0
-  xp_to_next_level: 110
+  level: 1
+  current_xp: 184
+  xp_to_next_level: 440
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -26,44 +26,52 @@ stats:
     value: 0
     real_world_meaning: Social confidence, communication
 habit_data:
-- id: 1
+- id: 0
   name: (Morning) Adhkaar
   value: 70
-  compounded_value: 72
-  streak: 1
-  streak_cycle: 7
-  last_executed: '2025-06-14'
+  compounded_value: 70
+  streak: 0
+  streak_cycle: 3
+  last_executed: '2025-06-13'
+  stat_reward: WIS
+- id: 1
+  name: (Evening) Adhkaar
+  value: 70
+  compounded_value: 70
+  streak: 0
+  streak_cycle: 3
+  last_executed: '2025-06-13'
   stat_reward: WIS
 - id: 2
   name: (Morning) Ishraq
   value: 50
   compounded_value: 50
   streak: 0
-  streak_cycle: 7
+  streak_cycle: 4
   last_executed: '2025-06-13'
   stat_reward: WIS
 - id: 3
   name: (Morning) Take Creatine
   value: 40
-  compounded_value: 40
-  streak: 0
+  compounded_value: 41
+  streak: 1
   streak_cycle: 7
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-14'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
   value: 40
-  compounded_value: 40
-  streak: 0
+  compounded_value: 41
+  streak: 1
   streak_cycle: 7
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-14'
   stat_reward: CONST
 - id: 5
   name: Workout
   value: 120
   compounded_value: 120
   streak: 0
-  streak_cycle: 5
+  streak_cycle: 3
   last_executed: '2025-06-13'
   stat_reward: STR
 - id: 6
@@ -71,7 +79,7 @@ habit_data:
   value: 75
   compounded_value: 75
   streak: 0
-  streak_cycle: 7
+  streak_cycle: 3
   last_executed: '2025-06-13'
   stat_reward: WIS
 - id: 7
@@ -111,7 +119,7 @@ habit_data:
   value: 20
   compounded_value: 20
   streak: 0
-  streak_cycle: 7
+  streak_cycle: 3
   last_executed: '2025-06-13'
   stat_reward: CHAR
 - id: 12
@@ -122,4 +130,12 @@ habit_data:
   streak_cycle: 3
   last_executed: '2025-06-13'
   stat_reward: CHAR
+- id: 13
+  name: Daily Embedded Practice (30+ mins) (General Programming + Debug)
+  value: 100
+  compounded_value: 102
+  streak: 1
+  streak_cycle: 4
+  last_executed: '2025-06-14'
+  stat_reward: DEX
 challenges: []
