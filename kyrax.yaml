@@ -122,34 +122,4 @@ habit_data:
   streak_cycle: 3
   last_executed: '2025-06-13'
   stat_reward: CHAR
-challenges:
-- id: 414
-  title: Button-controlled LED state machine. dex 1, int 1
-  body: '## Button-controlled LED state machine
-
-
-    **Level 1 - Microcontroller Fundamentals**
-
-
-    ### Requirements:
-
-    - Interrupt-based edge detection with debounce
-
-    - 4-state FSM (Off/Low/Med/High)
-
-    - Long-press/short-press differentiation'
-  labels:
-  - 'status: todo'
-  - 'area: embedded_systems'
-  - 'area: embedded_challenges'
-  - level 1
-  - 'skill: Hardware interrupt handling'
-  start_date: '2025-06-14'
-  planned_date: '2025-06-21'
-  monster_encounter: 0
-  difficulty: medium
-  k_factor: 5
-  quest_day_limit: 7
-  stat_rewards:
-  - dex
-  - int
+challenges: []
