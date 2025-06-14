@@ -114,6 +114,17 @@ levels:
     - XON/XOFF flow control
     - Escape sequence processing
     gh_issue: '426'
+  - name: Cooperative Task Scheduler (Register-Level)
+    state: locked
+    requirements:
+    - '- [ ] Implement a cooperative (non-preemptive) task scheduler'
+    - '- [ ] Tasks are registered with function pointers and run periodically'
+    - '- [ ] Uses only SysTick or a timer peripheral (register access only)'
+    - '- [ ] No use of RTOS or HAL libraries'
+    - '- [ ] Support for at least 3 periodic tasks with different rates'
+    - '- [ ] Written in C or C++ (no external frameworks)'
+    gh_issue: '576'
+    skill: Cooperative multitasking (bare metal)
 - level: 2
   theme: Peripheral Integration
   projects:
