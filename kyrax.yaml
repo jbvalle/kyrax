@@ -138,6 +138,14 @@ habit_data:
   streak_cycle: 4
   last_executed: '2025-06-14'
   stat_reward: DEX
+- id: 14
+  name: Pray Isha in Congregation
+  value: 100
+  compounded_value: 100
+  streak: 0
+  streak_cycle: 3
+  last_executed: '2025-06-14'
+  stat_reward: WIS
 challenges:
 - id: 576
   title: Cooperative Task Scheduler (Register-Level). dex 1, int 1
