@@ -89,7 +89,7 @@ habit_data:
   streak: 0
   streak_cycle: 3
   last_executed: '2025-06-13'
-  stat_reward: INT
+  stat_reward: DEX
 - id: 9
   name: +30' nature walk
   value: 20
