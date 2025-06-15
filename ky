@@ -11,6 +11,12 @@ from datetime import datetime, timedelta
 import random
 import time
 import shutil
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+# ------------------ CONFIGURATION ------------------
+USE_FIREBASE = True  # Set to False to disable Firebase XP penalty system
+SERVICE_ACCOUNT_FILE = ".personal/monsterencounter-4f265-firebase-adminsdk-fbsvc-5b4c458cb8.json"  # Path to Firebase service account JSON
 
 # ------------------ UTILITY FUNCTIONS ------------------
 
@@ -35,6 +41,55 @@ def load_yaml_data():
 def save_yaml_data(data):
     with open('kyrax.yaml', 'w') as file:
         yaml.dump(data, file, sort_keys=False)
+
+# ------------------ FIREBASE XP PENALTY SYSTEM ------------------
+
+def apply_xp_penalty():
+    """Apply XP penalty from Firebase and update YAML file"""
+    if not USE_FIREBASE:
+        return False
+    
+    try:
+        # Initialize Firebase if not already initialized
+        if not firebase_admin._apps:
+            if not os.path.exists(SERVICE_ACCOUNT_FILE):
+                print(f"\n⚠️  Firebase service account file not found: {SERVICE_ACCOUNT_FILE}")
+                print("XP penalty system disabled")
+                return False
+                
+            cred = credentials.Certificate(SERVICE_ACCOUNT_FILE)
+            firebase_admin.initialize_app(cred)
+        
+        db = firestore.client()
+        doc_ref = db.collection("monster_encounter").document("U6LEZ3jFehM6G1KYkl60")
+        doc = doc_ref.get()
+        
+        if doc.exists:
+            firebase_data = doc.to_dict()
+            xp_penalty = firebase_data.get('xp', 0)
+            
+            if xp_penalty > 0:
+                data = load_yaml_data()
+                original_xp = data['character']['current_xp']
+                data['character']['current_xp'] = max(0, original_xp - xp_penalty)
+                save_yaml_data(data)
+                
+                # Print cool message
+                print("\n" + "=" * get_terminal_width())
+                animate_text("🔥 You survived a fearsome clash, and the aftermath still lingers...", 0.03)
+                animate_text(f"💥 {xp_penalty} XP damage hangs in the void like spectral wounds", 0.03)
+                animate_text("⚔️  Keep fighting to resolve your XP debt and reclaim your power! ⚔️", 0.03)
+                print("=" * get_terminal_width())
+                
+                # Reset Firebase XP to zero
+                doc_ref.update({'xp': 0})
+                print(f"\n✅ XP penalty applied and Firebase reset to zero")
+                return True
+    except Exception as e:
+        print(f"\n⚠️  Error applying XP penalty: {str(e)}")
+        print("XP penalty system disabled")
+    
+    return False
 
 # ------------------ HABIT FUNCTIONS ------------------
 
@@ -346,6 +401,41 @@ def boss_battle(challenge, data):
     time.sleep(1)
     print("\n" + "=" * get_terminal_width())
 
+# ------------------ MANUAL BOSS BATTLE ------------------
+
+def trigger_manual_boss_battle():
+    """Trigger a boss battle manually"""
+    data = load_yaml_data()
+    
+    print("\n" + "=" * get_terminal_width())
+    print_centered("⚔️  MANUAL BOSS BATTLE INITIATED ⚔️")
+    print_centered("Summoning a fearsome opponent...")
+    print("=" * get_terminal_width())
+    
+    # Create a temporary challenge for the battle
+    stats = ['str', 'dex', 'const', 'int', 'wis', 'char']
+    temp_challenge = {
+        'id': 999,
+        'title': "Manual Boss Battle",
+        'body': "Triggered by user command",
+        'labels': ['manual'],
+        'start_date': datetime.now().strftime('%Y-%m-%d'),
+        'planned_date': datetime.now().strftime('%Y-%m-%d'),
+        'monster_encounter': 1,
+        'difficulty': random.choice(['easy', 'medium', 'hard']),
+        'k_factor': random.choice([10,5,3]),
+        'quest_day_limit': random.randint(3, 7),
+        'stat_rewards': [random.choice(stats)]
+    }
+    
+    # Map difficulty to k_factor
+    K_map = {'easy': 10, 'medium': 5, 'hard': 3}
+    temp_challenge['k_factor'] = K_map[temp_challenge['difficulty']]
+    
+    boss_battle(temp_challenge, data)
+    
+    print("\nBattle concluded! Your valor will be remembered...")
+
 # ------------------ ISSUE CLOSING SYSTEM ------------------
 
 def close_issue(issue_number):
@@ -486,7 +576,7 @@ def check_level():
         data['character']['level'] = new_level
         data['character']['xp_to_next_level'] = 110 * ((new_level + 1) ** 2)
         save_yaml_data(data)
-        print(f"\n🎉 Congratulations! You've reached Level {new_level}! 🎉")
+        print(f"\n🎉 Congratulations! You've reached Level {new_level}! �")
         print(f"⭐ Next Level at: {data['character']['xp_to_next_level']} XP")
 
     if new_level < current_level:
@@ -499,10 +589,24 @@ def check_level():
 # ------------------ MAIN FUNCTION ------------------
 
 def print_help():
-    print("\nky create   # Create new Habits")
-    print("ky habit    # Track habits for today")
-    print("ky close <issue-number>  # Close GitHub issue and claim rewards")
-    print("ky challenge <issue-number>  # Add GitHub issue as a challenge")
+    help_text = """
+ky create   # Create new Habits
+ky habit    # Track habits for today
+ky close <issue-number>  # Close GitHub issue and claim rewards
+ky challenge <issue-number>  # Add GitHub issue as a challenge
+ky boss     # Trigger a manual boss battle
+ky config   # Show current configuration
+"""
+    print(help_text)
+
+def show_config():
+    config_text = f"""
+Current Configuration:
+──────────────────────
+Firebase XP System: {'ENABLED' if USE_FIREBASE else 'DISABLED'}
+Service Account File: {SERVICE_ACCOUNT_FILE}
+"""
+    print(config_text)
 
 def main():
     # Run original commands
@@ -516,6 +620,10 @@ def main():
             close_issue(sys.argv[2])
         elif cmd == "challenge" and len(sys.argv) > 2:
             add_challenge(sys.argv[2])
+        elif cmd == "boss":
+            trigger_manual_boss_battle()
+        elif cmd == "config":
+            show_config()
         elif cmd == "help":
             print_help()
         else:
@@ -526,6 +634,13 @@ def main():
     # New dungeon break system
     check_dungeon_breaks()
     check_level()
+    
+    # Apply Firebase XP penalty if enabled
+    penalty_applied = apply_xp_penalty()
+    
+    # If XP penalty was applied, re-check level
+    if penalty_applied:
+        check_level()
 
 if __name__ == "__main__":
     main()

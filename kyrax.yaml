@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 1
-  current_xp: 184
+  current_xp: 338
   xp_to_next_level: 440
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -32,7 +32,7 @@ habit_data:
   compounded_value: 70
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-15'
   stat_reward: WIS
 - id: 1
   name: (Evening) Adhkaar
@@ -53,18 +53,18 @@ habit_data:
 - id: 3
   name: (Morning) Take Creatine
   value: 40
-  compounded_value: 41
-  streak: 1
+  compounded_value: 42
+  streak: 2
   streak_cycle: 7
-  last_executed: '2025-06-14'
+  last_executed: '2025-06-15'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
   value: 40
-  compounded_value: 41
-  streak: 1
+  compounded_value: 42
+  streak: 2
   streak_cycle: 7
-  last_executed: '2025-06-14'
+  last_executed: '2025-06-15'
   stat_reward: CONST
 - id: 5
   name: Workout
