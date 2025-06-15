@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 1
-  current_xp: 338
-  xp_to_next_level: 440
+  level: 2
+  current_xp: 583
+  xp_to_next_level: 990
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -72,7 +72,7 @@ habit_data:
   compounded_value: 120
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-15'
   stat_reward: STR
 - id: 6
   name: (Evening) Read Surah al-Mulk
@@ -104,7 +104,7 @@ habit_data:
   compounded_value: 20
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-15'
   stat_reward: CONST
 - id: 10
   name: Hit Protein Goal
@@ -133,10 +133,10 @@ habit_data:
 - id: 13
   name: Daily Embedded Practice (30+ mins) (General Programming + Debug)
   value: 100
-  compounded_value: 102
-  streak: 1
+  compounded_value: 105
+  streak: 2
   streak_cycle: 4
-  last_executed: '2025-06-14'
+  last_executed: '2025-06-15'
   stat_reward: DEX
 - id: 14
   name: Pray Isha in Congregation
@@ -146,6 +146,14 @@ habit_data:
   streak_cycle: 3
   last_executed: '2025-06-14'
   stat_reward: WIS
+- id: 15
+  name: 'Do general cleaning '
+  value: 75
+  compounded_value: 75
+  streak: 0
+  streak_cycle: 3
+  last_executed: '2025-06-15'
+  stat_reward: CONST
 challenges:
 - id: 576
   title: Cooperative Task Scheduler (Register-Level). dex 1, int 1
