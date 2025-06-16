@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 2
-  current_xp: 673
-  xp_to_next_level: 990
+  level: 3
+  current_xp: 1053
+  xp_to_next_level: 1760
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -37,10 +37,10 @@ habit_data:
 - id: 1
   name: (Evening) Adhkaar
   value: 70
-  compounded_value: 70
-  streak: 0
+  compounded_value: 72
+  streak: 1
   streak_cycle: 3
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-16'
   stat_reward: WIS
 - id: 2
   name: (Morning) Ishraq
@@ -48,15 +48,15 @@ habit_data:
   compounded_value: 50
   streak: 0
   streak_cycle: 4
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-16'
   stat_reward: WIS
 - id: 3
   name: (Morning) Take Creatine
   value: 40
-  compounded_value: 42
-  streak: 2
+  compounded_value: 43
+  streak: 3
   streak_cycle: 7
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-16'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
@@ -80,7 +80,7 @@ habit_data:
   compounded_value: 75
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-13'
+  last_executed: '2025-06-16'
   stat_reward: WIS
 - id: 7
   name: +45' General Study Session
@@ -102,9 +102,9 @@ habit_data:
   name: +30' nature walk
   value: 20
   compounded_value: 20
-  streak: 0
+  streak: 1
   streak_cycle: 3
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-16'
   stat_reward: CONST
 - id: 10
   name: Hit Protein Goal
@@ -126,9 +126,9 @@ habit_data:
   name: Give someone a small compliment
   value: 20
   compounded_value: 20
-  streak: 0
+  streak: 1
   streak_cycle: 3
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-16'
   stat_reward: CHAR
 - id: 13
   name: Daily Embedded Practice (30+ mins) (General Programming + Debug)
@@ -144,7 +144,7 @@ habit_data:
   compounded_value: 100
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-14'
+  last_executed: '2025-06-16'
   stat_reward: WIS
 - id: 15
   name: 'Do general cleaning '
