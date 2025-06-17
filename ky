@@ -68,23 +68,78 @@ def apply_xp_penalty():
             firebase_data = doc.to_dict()
             xp_penalty = firebase_data.get('xp', 0)
             
-            if xp_penalty > 0:
+            if xp_penalty != 0:
                 data = load_yaml_data()
                 original_xp = data['character']['current_xp']
-                data['character']['current_xp'] = max(0, original_xp - xp_penalty)
-                save_yaml_data(data)
+                terminal_width = get_terminal_width()
                 
-                # Print cool message
-                print("\n" + "=" * get_terminal_width())
-                animate_text("🔥 You survived a fearsome clash, and the aftermath still lingers...", 0.03)
-                animate_text(f"💥 {xp_penalty} XP damage hangs in the void like spectral wounds", 0.03)
-                animate_text("⚔️  Keep fighting to resolve your XP debt and reclaim your power! ⚔️", 0.03)
-                print("=" * get_terminal_width())
+                # Color codes
+                class colors:
+                    RED = '\033[91m'
+                    GOLD = '\033[93m'
+                    BLUE = '\033[94m'
+                    PURPLE = '\033[95m'
+                    CYAN = '\033[96m'
+                    WHITE = '\033[97m'
+                    GREEN = '\033[92m'
+                    RESET = '\033[0m'
                 
-                # Reset Firebase XP to zero
+                if xp_penalty > 0:
+                    # XP PENALTY - PHANTOM WRATH EDITION
+                    data['character']['current_xp'] = max(0, original_xp - xp_penalty)
+                    save_yaml_data(data)
+                    
+                    print("\n" + colors.RED + "☠" * terminal_width + colors.RESET)
+                    animate_text(f"{colors.RED}The Void claims its due...{colors.RESET}", 0.04)
+                    time.sleep(0.3)
+                    
+                    print(rf"""
+    {colors.RED}   .-~-.
+   /     \
+   |() ()|
+   \  ^  /{colors.WHITE}    A SPECTRAL HAND
+{colors.RED}   |"""""""|{colors.WHITE}    CLAWS {xp_penalty} XP
+{colors.RED}   \     /
+    '~~~'{colors.RESET}""")
+                    
+                    animate_text(f"\n{colors.PURPLE}⚡ Your essence flickers as {colors.RED}{xp_penalty} XP{colors.PURPLE} is torn away!", 0.03)
+                    animate_text(f"{colors.CYAN}The battle scars remain... but so does your resolve.{colors.RESET}", 0.04)
+                    print("\n" + colors.RED + "☠" * terminal_width + colors.RESET)
+                    
+                else:
+                    # XP REWARD - COSMIC BOUNTY EDITION
+                    xp_reward = -xp_penalty
+                    data['character']['current_xp'] = original_xp + xp_reward
+                    save_yaml_data(data)
+                    
+                    print("\n" + colors.GOLD + "✦" * terminal_width + colors.RESET)
+                    animate_text(f"{colors.CYAN}Reality itself bends to your will...{colors.RESET}", 0.03)
+                    time.sleep(0.5)
+                    
+                    print(rf"""
+{colors.GOLD}     *     .  .   {colors.PURPLE}▲
+{colors.GOLD}   *  *  .  .    {colors.PURPLE}▲ ▲
+{colors.GOLD}  *  *  *  .    {colors.CYAN}▲ ▲ ▲{colors.WHITE}   THE COSMOS
+{colors.GOLD} .  *  *  *     {colors.BLUE}▼ ▼ ▼{colors.WHITE}   SHOWERS YOU WITH
+{colors.GOLD}   .  *  *      {colors.BLUE}▼ ▼
+{colors.GOLD}     .  *       {colors.BLUE}▼{colors.RESET}""")
+                    
+                    animate_text(f"\n{colors.GOLD}✧ {xp_reward} XP CRYSTALLIZES FROM THE VOID ✧{colors.RESET}", 0.025)
+                    time.sleep(0.2)
+                    
+                    print(rf"""
+{colors.CYAN}    ╔══════════════╗
+{colors.GOLD}    ║  {colors.WHITE}P O W E R   {colors.GOLD}║
+{colors.CYAN}    ╚══════════════╝{colors.RESET}""")
+                    
+                    animate_text(f"{colors.GOLD}Your being resonates with new energy!{colors.RESET}", 0.03)
+                    print("\n" + colors.GOLD + "✦" * terminal_width + colors.RESET)
+                
+                # Reset Firebase in both cases
                 doc_ref.update({'xp': 0})
-                print(f"\n✅ XP penalty applied and Firebase reset to zero")
+                print(f"\n{colors.GREEN}✅ Transaction complete - cosmic balance restored{colors.RESET}")
                 return True
+
     except Exception as e:
         print(f"\n⚠️  Error applying XP penalty: {str(e)}")
         print("XP penalty system disabled")
@@ -384,6 +439,15 @@ def boss_battle(challenge, data):
     if player_total >= monster_total:
         animate_text("\n✨ VICTORY! You've banished the dungeon break! ✨", 0.03)
         animate_text("The challenge deadline has been reset", 0.03)
+        # Calculate XP Reward
+        level = data['character']['level']
+        xp_next = 110 * (level + 1) ** 2
+        xp_current = 110 * level ** 2
+        xp_reward = (xp_next - xp_current) * ((monster_total - player_total) / monster_total)
+        xp_reward = int(xp_reward)
+        
+        data['character']['current_xp'] = max(0, data['character']['current_xp'] + xp_reward)
+        animate_text(f"✨ You gained {xp_reward} XP! Current XP: {data['character']['current_xp']} ✨", 0.03)
     else:
         animate_text("\n💥 DEFEAT! The monster saps your experience! 💥", 0.03)
         
@@ -576,7 +640,7 @@ def check_level():
         data['character']['level'] = new_level
         data['character']['xp_to_next_level'] = 110 * ((new_level + 1) ** 2)
         save_yaml_data(data)
-        print(f"\n🎉 Congratulations! You've reached Level {new_level}! �")
+        print(f"\n🎉 Congratulations! You've reached Level {new_level}! 🎉")
         print(f"⭐ Next Level at: {data['character']['xp_to_next_level']} XP")
 
     if new_level < current_level:
