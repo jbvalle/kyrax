@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 3
-  current_xp: 1331
-  xp_to_next_level: 1760
+  level: 6
+  current_xp: 4218
+  xp_to_next_level: 5390
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
