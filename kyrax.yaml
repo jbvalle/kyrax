@@ -185,3 +185,17 @@ challenges:
   stat_rewards:
   - dex
   - int
+- id: 578
+  title: Order Anti Histamine. const 0.5
+  body: ''
+  labels:
+  - level 1
+  - 'area: day_quest'
+  start_date: '2025-06-17'
+  planned_date: '2025-06-18'
+  monster_encounter: 0
+  difficulty: easy
+  k_factor: 10
+  quest_day_limit: 1
+  stat_rewards:
+  - const
