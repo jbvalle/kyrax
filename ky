@@ -444,7 +444,7 @@ def boss_battle(challenge, data):
         xp_next = 110 * (level + 1) ** 2
         xp_current = 110 * level ** 2
         xp_reward = (xp_next - xp_current) * ((monster_total - player_total) / monster_total)
-        xp_reward = int(xp_reward)
+        xp_reward = int(round(abs(xp_reward)))
         
         data['character']['current_xp'] = max(0, data['character']['current_xp'] + xp_reward)
         animate_text(f"✨ You gained {xp_reward} XP! Current XP: {data['character']['current_xp']} ✨", 0.03)
