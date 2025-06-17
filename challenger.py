@@ -7,7 +7,7 @@ import sys
 
 def get_repo_labels(repo=None):
     try:
-        cmd = ["gh", "label", "list","--limit", "100", "--json", "name"]
+        cmd = ["gh", "label", "list","--limit", "1000", "--json", "name"]
         if repo:
             cmd += ["--repo", repo]
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)

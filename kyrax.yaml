@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 2
-  current_xp: 444
+  current_xp: 609
   xp_to_next_level: 990
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -14,7 +14,7 @@ stats:
     value: 1
     real_world_meaning: Hands-on skill (soldering/coding), adaptability
   const:
-    value: 0
+    value: 1
     real_world_meaning: Resilience (workouts, stress management)
   int:
     value: 0
@@ -32,7 +32,7 @@ habit_data:
   compounded_value: 70
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-17'
   stat_reward: WIS
 - id: 1
   name: (Evening) Adhkaar
@@ -61,10 +61,10 @@ habit_data:
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
   value: 40
-  compounded_value: 42
-  streak: 2
+  compounded_value: 40
+  streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-17'
   stat_reward: CONST
 - id: 5
   name: Workout
@@ -199,17 +199,3 @@ challenges:
   quest_day_limit: 1
   stat_rewards:
   - int
-- id: 578
-  title: Order Anti Histamine. const 1
-  body: ''
-  labels:
-  - level 1
-  - 'area: day_quest'
-  start_date: '2025-06-17'
-  planned_date: '2025-06-18'
-  monster_encounter: 0
-  difficulty: easy
-  k_factor: 10
-  quest_day_limit: 1
-  stat_rewards:
-  - const

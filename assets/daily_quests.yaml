@@ -3,7 +3,7 @@ levels:
   theme: Custom Level 1
   projects:
   - name: Order Anti Histamine
-    state: locked
+    state: unlocked
     requirements:
     - ''
     gh_issue: '578'
