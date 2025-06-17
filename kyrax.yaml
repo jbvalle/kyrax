@@ -179,8 +179,8 @@ challenges:
   start_date: '2025-06-14'
   planned_date: '2025-06-21'
   monster_encounter: 0
-  difficulty: medium
-  k_factor: 5
+  difficulty: hard
+  k_factor: 3
   quest_day_limit: 7
   stat_rewards:
   - dex
@@ -199,3 +199,61 @@ challenges:
   quest_day_limit: 1
   stat_rewards:
   - const
+- id: 580
+  title: Implement Filter for Active Challenges. dex 0.5
+  body: ''
+  labels:
+  - level 1
+  - 'area: day_quest'
+  start_date: '2025-06-17'
+  planned_date: '2025-06-18'
+  monster_encounter: 0
+  difficulty: easy
+  k_factor: 10
+  quest_day_limit: 1
+  stat_rewards:
+  - dex
+- id: 579
+  title: 'Watch video of Udemy: Swift Course. int 0.5'
+  body: ''
+  labels:
+  - level 1
+  - 'area: day_quest'
+  start_date: '2025-06-17'
+  planned_date: '2025-06-18'
+  monster_encounter: 0
+  difficulty: easy
+  k_factor: 10
+  quest_day_limit: 1
+  stat_rewards:
+  - int
+- id: 414
+  title: Button-controlled LED state machine. dex 1, int 1
+  body: '## Button-controlled LED state machine
+
+
+    **Level 1 - Microcontroller Fundamentals**
+
+
+    ### Requirements:
+
+    - Interrupt-based edge detection with debounce
+
+    - 4-state FSM (Off/Low/Med/High)
+
+    - Long-press/short-press differentiation'
+  labels:
+  - 'status: todo'
+  - 'area: embedded_systems'
+  - 'area: embedded_challenges'
+  - level 1
+  - 'skill: Hardware interrupt handling'
+  start_date: '2025-06-17'
+  planned_date: '2025-06-24'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 7
+  stat_rewards:
+  - dex
+  - int

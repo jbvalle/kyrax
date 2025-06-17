@@ -7,3 +7,13 @@ levels:
     requirements:
     - ''
     gh_issue: '578'
+  - name: 'Watch video of Udemy: Swift Course'
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '579'
+  - name: Implement Filter for Active Challenges
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '580'
