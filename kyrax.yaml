@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 0
-  current_xp: 202
-  xp_to_next_level: 110
+  level: 3
+  current_xp: 1331
+  xp_to_next_level: 1760
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -17,7 +17,7 @@ stats:
     value: 1
     real_world_meaning: Resilience (workouts, stress management)
   int:
-    value: 0
+    value: 1
     real_world_meaning: Problem-solving (embedded projects, learning)
   wis:
     value: 0
@@ -37,10 +37,10 @@ habit_data:
 - id: 1
   name: (Evening) Adhkaar
   value: 70
-  compounded_value: 72
-  streak: 1
+  compounded_value: 74
+  streak: 2
   streak_cycle: 3
-  last_executed: '2025-06-16'
+  last_executed: '2025-06-17'
   stat_reward: WIS
 - id: 2
   name: (Morning) Ishraq
@@ -53,10 +53,10 @@ habit_data:
 - id: 3
   name: (Morning) Take Creatine
   value: 40
-  compounded_value: 43
-  streak: 3
+  compounded_value: 44
+  streak: 4
   streak_cycle: 7
-  last_executed: '2025-06-16'
+  last_executed: '2025-06-17'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
@@ -72,15 +72,15 @@ habit_data:
   compounded_value: 120
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-17'
   stat_reward: STR
 - id: 6
   name: (Evening) Read Surah al-Mulk
   value: 75
-  compounded_value: 75
-  streak: 0
+  compounded_value: 77
+  streak: 1
   streak_cycle: 3
-  last_executed: '2025-06-16'
+  last_executed: '2025-06-17'
   stat_reward: WIS
 - id: 7
   name: +45' General Study Session
@@ -184,18 +184,4 @@ challenges:
   quest_day_limit: 7
   stat_rewards:
   - dex
-  - int
-- id: 579
-  title: 'Watch video of Udemy: Swift Course. int 1'
-  body: ''
-  labels:
-  - level 1
-  - 'area: day_quest'
-  start_date: '2025-06-17'
-  planned_date: '2025-06-18'
-  monster_encounter: 0
-  difficulty: easy
-  k_factor: 10
-  quest_day_limit: 1
-  stat_rewards:
   - int
