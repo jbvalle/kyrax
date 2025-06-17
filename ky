@@ -90,7 +90,7 @@ def apply_xp_penalty():
                     save_yaml_data(data)
                     
                     print("\n" + colors.RED + "☠" * terminal_width + colors.RESET)
-                    animate_text(f"{colors.RED}The Void claims its due...{colors.RESET}", 0.04)
+                    animate_text(f"{colors.RED}The Void claims its due...{colors.RESET}", 0.06)
                     time.sleep(0.3)
                     
                     print(rf"""
@@ -102,8 +102,8 @@ def apply_xp_penalty():
 {colors.RED}   \     /
     '~~~'{colors.RESET}""")
                     
-                    animate_text(f"\n{colors.PURPLE}⚡ Your essence flickers as {colors.RED}{xp_penalty} XP{colors.PURPLE} is torn away!", 0.03)
-                    animate_text(f"{colors.CYAN}The battle scars remain... but so does your resolve.{colors.RESET}", 0.04)
+                    animate_text(f"\n{colors.PURPLE}⚡ Your essence flickers as {colors.RED}{xp_penalty} XP{colors.PURPLE} is torn away!", 0.06)
+                    animate_text(f"{colors.CYAN}The battle scars remain... but so does your resolve.{colors.RESET}", 0.06)
                     print("\n" + colors.RED + "☠" * terminal_width + colors.RESET)
                     
                 else:
@@ -113,7 +113,7 @@ def apply_xp_penalty():
                     save_yaml_data(data)
                     
                     print("\n" + colors.GOLD + "✦" * terminal_width + colors.RESET)
-                    animate_text(f"{colors.CYAN}Reality itself bends to your will...{colors.RESET}", 0.03)
+                    animate_text(f"{colors.CYAN}Reality itself bends to your will...{colors.RESET}", 0.06)
                     time.sleep(0.5)
                     
                     print(rf"""
@@ -124,7 +124,7 @@ def apply_xp_penalty():
 {colors.GOLD}   .  *  *      {colors.BLUE}▼ ▼
 {colors.GOLD}     .  *       {colors.BLUE}▼{colors.RESET}""")
                     
-                    animate_text(f"\n{colors.GOLD}✧ {xp_reward} XP CRYSTALLIZES FROM THE VOID ✧{colors.RESET}", 0.025)
+                    animate_text(f"\n{colors.GOLD}✧ {xp_reward} XP CRYSTALLIZES FROM THE VOID ✧{colors.RESET}", 0.06)
                     time.sleep(0.2)
                     
                     print(rf"""
@@ -132,12 +132,12 @@ def apply_xp_penalty():
 {colors.GOLD}    ║  {colors.WHITE}P O W E R   {colors.GOLD}║
 {colors.CYAN}    ╚══════════════╝{colors.RESET}""")
                     
-                    animate_text(f"{colors.GOLD}Your being resonates with new energy!{colors.RESET}", 0.03)
+                    animate_text(f"{colors.GOLD}Your being resonates with new energy!{colors.RESET}", 0.06)
                     print("\n" + colors.GOLD + "✦" * terminal_width + colors.RESET)
                 
                 # Reset Firebase in both cases
                 doc_ref.update({'xp': 0})
-                print(f"\n{colors.GREEN}✅ Transaction complete - cosmic balance restored{colors.RESET}")
+                animate_text(f"\n{colors.GREEN}✅ Transaction complete - cosmic balance restored{colors.RESET}",0.06)
                 return True
 
     except Exception as e:
