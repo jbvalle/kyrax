@@ -213,3 +213,31 @@ challenges:
   quest_day_limit: 4
   stat_rewards:
   - const
+- id: 583
+  title: FH Brueckenkurse checken. const 1
+  body: ''
+  labels:
+  - level 1
+  - 'area: day_quest'
+  start_date: '2025-06-18'
+  planned_date: '2025-06-22'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 5
+  quest_day_limit: 4
+  stat_rewards:
+  - const
+- id: 584
+  title: Finish G1 & G2 Questions. int 1
+  body: ''
+  labels:
+  - level 1
+  - 'area: day_quest'
+  start_date: '2025-06-18'
+  planned_date: '2025-06-22'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 4
+  stat_rewards:
+  - int

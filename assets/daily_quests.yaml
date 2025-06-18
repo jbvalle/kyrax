@@ -22,3 +22,13 @@ levels:
     requirements:
     - ''
     gh_issue: '582'
+  - name: FH Brueckenkurse checken
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '583'
+  - name: Finish G1 & G2 Questions
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '584'
