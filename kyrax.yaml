@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 7
-  current_xp: 5886
-  xp_to_next_level: 7040
+  level: 9
+  current_xp: 10836
+  xp_to_next_level: 11000
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -184,4 +184,18 @@ challenges:
   quest_day_limit: 7
   stat_rewards:
   - dex
+  - int
+- id: 17
+  title: Start Section1 of swift course ~1h. Int 1
+  body: ''
+  labels:
+  - 'status: todo'
+  - 'area: day_quest'
+  start_date: '2025-06-18'
+  planned_date: '2025-06-19'
+  monster_encounter: 0
+  difficulty: medium
+  k_factor: 5
+  quest_day_limit: 1
+  stat_rewards:
   - int
