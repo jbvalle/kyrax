@@ -17,3 +17,8 @@ levels:
     requirements:
     - ''
     gh_issue: '580'
+  - name: Selbstablesung Thermomatik
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '582'
