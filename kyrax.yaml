@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 11
-  current_xp: 15236
+  current_xp: 15338
   xp_to_next_level: 15840
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -133,10 +133,10 @@ habit_data:
 - id: 13
   name: Daily Embedded Practice (30+ mins) (General Programming + Debug)
   value: 100
-  compounded_value: 100
-  streak: 0
+  compounded_value: 102
+  streak: 1
   streak_cycle: 4
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-18'
   stat_reward: DEX
 - id: 14
   name: Pray Isha in Congregation
@@ -195,7 +195,7 @@ challenges:
   planned_date: '2025-06-19'
   monster_encounter: 0
   difficulty: medium
-  k_factor: 5
+  k_factor: 3
   quest_day_limit: 1
   stat_rewards:
   - int
