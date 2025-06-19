@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 11
-  current_xp: 15338
-  xp_to_next_level: 15840
+  level: 12
+  current_xp: 17873
+  xp_to_next_level: 18590
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -64,7 +64,7 @@ habit_data:
   compounded_value: 40
   streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-19'
   stat_reward: CONST
 - id: 5
   name: Workout
@@ -72,7 +72,7 @@ habit_data:
   compounded_value: 120
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-19'
   stat_reward: STR
 - id: 6
   name: (Evening) Read Surah al-Mulk
@@ -152,7 +152,7 @@ habit_data:
   compounded_value: 75
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-15'
+  last_executed: '2025-06-19'
   stat_reward: CONST
 challenges:
 - id: 576
