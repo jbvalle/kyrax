@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 12
-  current_xp: 17873
+  current_xp: 16162
   xp_to_next_level: 18590
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -53,10 +53,10 @@ habit_data:
 - id: 3
   name: (Morning) Take Creatine
   value: 40
-  compounded_value: 44
-  streak: 4
+  compounded_value: 40
+  streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-21'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
@@ -64,7 +64,7 @@ habit_data:
   compounded_value: 40
   streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-19'
+  last_executed: '2025-06-21'
   stat_reward: CONST
 - id: 5
   name: Workout
@@ -192,7 +192,7 @@ challenges:
   - 'status: todo'
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-19'
+  planned_date: '2025-06-22'
   monster_encounter: 0
   difficulty: medium
   k_factor: 3
