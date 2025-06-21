@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 12
-  current_xp: 16162
+  current_xp: 16547
   xp_to_next_level: 18590
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -37,10 +37,10 @@ habit_data:
 - id: 1
   name: (Evening) Adhkaar
   value: 70
-  compounded_value: 74
-  streak: 2
+  compounded_value: 70
+  streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-21'
   stat_reward: WIS
 - id: 2
   name: (Morning) Ishraq
@@ -72,15 +72,15 @@ habit_data:
   compounded_value: 120
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-19'
+  last_executed: '2025-06-21'
   stat_reward: STR
 - id: 6
   name: (Evening) Read Surah al-Mulk
   value: 75
-  compounded_value: 77
-  streak: 1
+  compounded_value: 75
+  streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-21'
   stat_reward: WIS
 - id: 7
   name: +45' General Study Session
@@ -126,9 +126,9 @@ habit_data:
   name: Give someone a small compliment
   value: 20
   compounded_value: 20
-  streak: 1
+  streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-16'
+  last_executed: '2025-06-21'
   stat_reward: CHAR
 - id: 13
   name: Daily Embedded Practice (30+ mins) (General Programming + Debug)
@@ -144,7 +144,7 @@ habit_data:
   compounded_value: 100
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-16'
+  last_executed: '2025-06-21'
   stat_reward: WIS
 - id: 15
   name: 'Do general cleaning '
@@ -154,6 +154,14 @@ habit_data:
   streak_cycle: 3
   last_executed: '2025-06-19'
   stat_reward: CONST
+- id: 16
+  name: Greet 3 new people
+  value: 30
+  compounded_value: 30
+  streak: 0
+  streak_cycle: 3
+  last_executed: '2025-06-21'
+  stat_reward: CHAR
 challenges:
 - id: 576
   title: Cooperative Task Scheduler (Register-Level). dex 1, int 1
