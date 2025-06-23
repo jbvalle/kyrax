@@ -260,7 +260,7 @@ challenges:
   planned_date: '2025-11-30'
   monster_encounter: 0
   difficulty: hard
-  k_factor: 3
+  k_factor: 1
   quest_day_limit: 160
   stat_rewards:
   - dex
@@ -277,8 +277,8 @@ challenges:
   planned_date: '2026-02-28'
   monster_encounter: 0
   difficulty: hard
-  k_factor: 3
-  quest_day_limit: 250
+  k_factor: 1
+  quest_day_limit: 160
   stat_rewards:
   - dex
   - int
@@ -293,7 +293,7 @@ challenges:
   planned_date: '2025-11-30'
   monster_encounter: 0
   difficulty: hard
-  k_factor: 3
+  k_factor: 1
   quest_day_limit: 160
   stat_rewards:
   - str
@@ -309,7 +309,7 @@ challenges:
   planned_date: '2025-11-30'
   monster_encounter: 0
   difficulty: hard
-  k_factor: 3
+  k_factor: 1
   quest_day_limit: 160
   stat_rewards:
   - wis
@@ -326,7 +326,7 @@ challenges:
   planned_date: '2025-11-30'
   monster_encounter: 0
   difficulty: hard
-  k_factor: 3
+  k_factor: 1
   quest_day_limit: 160
   stat_rewards:
   - char
