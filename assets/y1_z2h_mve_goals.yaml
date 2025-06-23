@@ -1,0 +1,29 @@
+levels:
+- level: 1
+  theme: Custom Level 1
+  projects:
+  - name: '[FH] Reach Average Grade <= 1'
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '585'
+  - name: '[Embedded] Build a STM32 + RTOS CAN Logger'
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '586'
+  - name: '[Strength] DIPS: BWx5; PU: BWx1-3; OHP: 30-40kg'
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '587'
+  - name: '[Islam] Finish Al Aqida Al Wasitiyya'
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '588'
+  - name: '[Writing] Draft 1 Novella (15min Daily journaling)'
+    state: locked
+    requirements:
+    - ''
+    gh_issue: '589'

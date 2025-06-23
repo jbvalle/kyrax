@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 12
-  current_xp: 16547
-  xp_to_next_level: 18590
+  level: 14
+  current_xp: 23789
+  xp_to_next_level: 24750
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -185,7 +185,7 @@ challenges:
   - level 1
   - 'skill: Cooperative multitasking (bare metal)'
   start_date: '2025-06-14'
-  planned_date: '2025-06-21'
+  planned_date: '2025-06-30'
   monster_encounter: 0
   difficulty: hard
   k_factor: 3
@@ -200,7 +200,7 @@ challenges:
   - 'status: todo'
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-22'
+  planned_date: '2025-06-24'
   monster_encounter: 0
   difficulty: medium
   k_factor: 3
@@ -214,7 +214,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-22'
+  planned_date: '2025-06-27'
   monster_encounter: 0
   difficulty: medium
   k_factor: 5
@@ -228,7 +228,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-22'
+  planned_date: '2025-06-27'
   monster_encounter: 0
   difficulty: hard
   k_factor: 5
@@ -242,10 +242,94 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-22'
+  planned_date: '2025-06-27'
   monster_encounter: 0
   difficulty: hard
   k_factor: 3
   quest_day_limit: 4
   stat_rewards:
   - int
+- id: 585
+  title: '[FH] Reach Average Grade <= 1.7 in all subjects. dex 10, int 10'
+  body: ''
+  labels:
+  - 'status: todo'
+  - level 1
+  - 'area: Y1Q1_MVE_challenges'
+  start_date: '2025-06-23'
+  planned_date: '2025-11-30'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 160
+  stat_rewards:
+  - dex
+  - int
+- id: 586
+  title: '[Embedded] Build a STM32 + RTOS CAN Logger. dex 10, int 10'
+  body: ''
+  labels:
+  - 'status: todo'
+  - 'area: embedded_systems'
+  - level 1
+  - 'area: Y1Q1_MVE_challenges'
+  start_date: '2025-06-23'
+  planned_date: '2026-02-28'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 250
+  stat_rewards:
+  - dex
+  - int
+- id: 587
+  title: '[Strength] DIPS: BWx5; PU: BWx1-3; OHP: 30-40kg. str 15'
+  body: ''
+  labels:
+  - 'area: weightlifting'
+  - level 1
+  - 'area: Y1Q1_MVE_challenges'
+  start_date: '2025-06-23'
+  planned_date: '2025-11-30'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 160
+  stat_rewards:
+  - str
+- id: 588
+  title: '[Islam] Finish Al Aqida Al Wasitiyya. wis 15'
+  body: ''
+  labels:
+  - 'status: todo'
+  - 'area: islam'
+  - level 1
+  - 'area: Y1Q1_MVE_challenges'
+  start_date: '2025-06-23'
+  planned_date: '2025-11-30'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 160
+  stat_rewards:
+  - wis
+- id: 589
+  title: '[Writing] Draft 1 Novella (15min Daily journaling). const 10, int 10, wis
+    10, char 10'
+  body: ''
+  labels:
+  - 'status: todo'
+  - 'area: learning'
+  - level 1
+  - 'area: Y1Q1_MVE_challenges'
+  start_date: '2025-06-23'
+  planned_date: '2025-11-30'
+  monster_encounter: 0
+  difficulty: hard
+  k_factor: 3
+  quest_day_limit: 160
+  stat_rewards:
+  - char
+  - const
+  - int
+  - wis
