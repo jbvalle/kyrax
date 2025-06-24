@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 14
-  current_xp: 24059
+  current_xp: 24109
   xp_to_next_level: 24750
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -48,7 +48,7 @@ habit_data:
   compounded_value: 50
   streak: 0
   streak_cycle: 4
-  last_executed: '2025-06-16'
+  last_executed: '2025-06-24'
   stat_reward: WIS
 - id: 3
   name: (Morning) Take Creatine
