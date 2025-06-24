@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 14
-  current_xp: 23789
+  current_xp: 24059
   xp_to_next_level: 24750
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -32,7 +32,7 @@ habit_data:
   compounded_value: 70
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-17'
+  last_executed: '2025-06-24'
   stat_reward: WIS
 - id: 1
   name: (Evening) Adhkaar
@@ -56,7 +56,7 @@ habit_data:
   compounded_value: 40
   streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-21'
+  last_executed: '2025-06-24'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
@@ -64,7 +64,7 @@ habit_data:
   compounded_value: 40
   streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-21'
+  last_executed: '2025-06-24'
   stat_reward: CONST
 - id: 5
   name: Workout
@@ -72,7 +72,7 @@ habit_data:
   compounded_value: 120
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-21'
+  last_executed: '2025-06-24'
   stat_reward: STR
 - id: 6
   name: (Evening) Read Surah al-Mulk
