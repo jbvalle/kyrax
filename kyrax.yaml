@@ -2,7 +2,7 @@ character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
   level: 14
-  current_xp: 24104
+  current_xp: 23139
   xp_to_next_level: 24750
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
@@ -29,10 +29,10 @@ habit_data:
 - id: 0
   name: (Morning) Adhkaar
   value: 70
-  compounded_value: 72
-  streak: 1
+  compounded_value: 70
+  streak: 0
   streak_cycle: 3
-  last_executed: '2025-06-25'
+  last_executed: '2025-07-05'
   stat_reward: WIS
 - id: 1
   name: (Evening) Adhkaar
@@ -61,10 +61,10 @@ habit_data:
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
   value: 40
-  compounded_value: 41
-  streak: 1
+  compounded_value: 40
+  streak: 0
   streak_cycle: 7
-  last_executed: '2025-06-25'
+  last_executed: '2025-07-05'
   stat_reward: CONST
 - id: 5
   name: Workout
@@ -185,7 +185,7 @@ challenges:
   - level 1
   - 'skill: Cooperative multitasking (bare metal)'
   start_date: '2025-06-14'
-  planned_date: '2025-06-30'
+  planned_date: '2025-07-12'
   monster_encounter: 0
   difficulty: hard
   k_factor: 3
@@ -200,7 +200,7 @@ challenges:
   - 'status: todo'
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-26'
+  planned_date: '2025-07-06'
   monster_encounter: 0
   difficulty: medium
   k_factor: 3
@@ -214,7 +214,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-27'
+  planned_date: '2025-07-09'
   monster_encounter: 0
   difficulty: medium
   k_factor: 5
@@ -228,7 +228,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-27'
+  planned_date: '2025-07-09'
   monster_encounter: 0
   difficulty: hard
   k_factor: 5
@@ -242,7 +242,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-06-27'
+  planned_date: '2025-07-09'
   monster_encounter: 0
   difficulty: hard
   k_factor: 3
