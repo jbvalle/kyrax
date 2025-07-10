@@ -1,9 +1,9 @@
 character:
   name: Kyrax
   class: Embedded Artificer / Spiritual Warrior
-  level: 14
-  current_xp: 24210
-  xp_to_next_level: 24750
+  level: 28
+  current_xp: 92020
+  xp_to_next_level: 92510
   background: A seeker of knowledge and strength, bridging the realms of technology
     and spirit.
 stats:
@@ -32,7 +32,7 @@ habit_data:
   compounded_value: 70
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-07-05'
+  last_executed: '2025-07-10'
   stat_reward: WIS
 - id: 1
   name: (Evening) Adhkaar
@@ -48,7 +48,7 @@ habit_data:
   compounded_value: 50
   streak: 0
   streak_cycle: 4
-  last_executed: '2025-07-07'
+  last_executed: '2025-07-10'
   stat_reward: WIS
 - id: 3
   name: (Morning) Take Creatine
@@ -56,7 +56,7 @@ habit_data:
   compounded_value: 40
   streak: 0
   streak_cycle: 7
-  last_executed: '2025-07-07'
+  last_executed: '2025-07-10'
   stat_reward: STR
 - id: 4
   name: (Morning) Drink Anti Histamine & Vitamins
@@ -64,7 +64,7 @@ habit_data:
   compounded_value: 40
   streak: 0
   streak_cycle: 7
-  last_executed: '2025-07-07'
+  last_executed: '2025-07-10'
   stat_reward: CONST
 - id: 5
   name: Workout
@@ -104,7 +104,7 @@ habit_data:
   compounded_value: 20
   streak: 0
   streak_cycle: 3
-  last_executed: '2025-07-07'
+  last_executed: '2025-07-10'
   stat_reward: CONST
 - id: 10
   name: Hit Protein Goal
@@ -200,7 +200,7 @@ challenges:
   - 'status: todo'
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-07-08'
+  planned_date: '2025-07-11'
   monster_encounter: 0
   difficulty: medium
   k_factor: 3
@@ -214,7 +214,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-07-09'
+  planned_date: '2025-07-14'
   monster_encounter: 0
   difficulty: medium
   k_factor: 5
@@ -228,7 +228,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-07-09'
+  planned_date: '2025-07-14'
   monster_encounter: 0
   difficulty: hard
   k_factor: 5
@@ -242,7 +242,7 @@ challenges:
   - level 1
   - 'area: day_quest'
   start_date: '2025-06-18'
-  planned_date: '2025-07-09'
+  planned_date: '2025-07-14'
   monster_encounter: 0
   difficulty: hard
   k_factor: 3
